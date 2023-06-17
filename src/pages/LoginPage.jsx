@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
+import { encryptToken } from '../helpers/encryption';
 import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const encryptToken = (token) => {
-    const encryptedToken = CryptoJS.AES.encrypt(token, 'secret-key').toString();
-    return encryptedToken;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

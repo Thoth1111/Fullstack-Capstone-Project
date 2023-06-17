@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { encryptToken } from '../helpers/encryption';
 import axios from 'axios';
 
 const SignUp = () => {
@@ -6,11 +7,6 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-
-  const encryptToken = (token) => {
-    const encryptedToken = CryptoJS.AES.encrypt(token, 'secret-key').toString();
-    return encryptedToken;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
