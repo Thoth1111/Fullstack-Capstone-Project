@@ -16,7 +16,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/signup', {
+      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_up', {
         username,
         email,
         password,
