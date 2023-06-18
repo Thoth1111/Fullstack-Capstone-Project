@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setToken } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -8,22 +10,24 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const data = {
-        username: "<username_value>",
-        email: "<email_value>",
-        password: "<password_value>",
-        password_confirmation: "<passwordConfirmation_value>"
-      };
-
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_up', data);
+      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_up', {
+        "user": {
+          "username": username,
+          "email": email,
+          "password": password,
+          "password_confirmation": passwordConfirmation
+        }
+      });
       
       const { token } = response.data;
+      dispatch(setToken(token));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
