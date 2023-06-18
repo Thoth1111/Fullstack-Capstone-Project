@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { encryptToken } from '../helpers/encryption';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -8,9 +8,24 @@ const Login = () => {
   const location = useLocation();
   const { state } = location;
   const success = state?.success;
+  const [showNotification, setShowNotification] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (success === 'signedup') {
+      setShowNotification(true);
+
+      const timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [success]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +49,7 @@ const Login = () => {
   return (
     <>
       <div>
-        {success === 'signedup' && (
+        {showNotification && (
           <div className="notification">
             Signed up successfully
           </div>

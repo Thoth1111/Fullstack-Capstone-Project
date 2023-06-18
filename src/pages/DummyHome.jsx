@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const DummyHome = () => {
@@ -6,11 +6,27 @@ const DummyHome = () => {
   const { state } = location;
   const success = state?.success;
 
+  const [showNotification, setShowNotification] = useState(false);
+
+  useEffect(() => {
+    if (success === 'loggedin') {
+      setShowNotification(true);
+
+      const timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [success]);
+
   return (
     <div>
-      {success === 'loggedin' && (
+      {showNotification && (
         <div className="notification">
-          Logged in successfully
+          Logged in successfully!
         </div>
       )}
     </div>
