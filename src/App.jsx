@@ -12,6 +12,7 @@ function App() {
       <Route path="/" element={<SplashPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/dummyHome" element={<DummyHome />} />
     </Routes>
   );
 }

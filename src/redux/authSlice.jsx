@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const signUpRequest = post 
-
 const authSlice = createSlice({
   name: 'auth',
   initialState: {

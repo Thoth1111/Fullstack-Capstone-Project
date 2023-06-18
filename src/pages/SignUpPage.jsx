@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { encryptToken } from '../helpers/encryption';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SignUp = () => {
@@ -7,6 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ const SignUp = () => {
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      window.location.replace('/');
+      navigate('/login', { state: { success: 'signedup' } })
     } catch (error) {
       console.error(error);
     }
