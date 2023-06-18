@@ -31,10 +31,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', {
-        email,
-        password,
-      });
+      const data = {
+        email: "<email_value>",
+        password: "<password_value>"
+      };
+
+      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', data);
 
       const { token } = response.data;
       const encryptedToken = encryptToken(token);
