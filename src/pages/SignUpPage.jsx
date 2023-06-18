@@ -14,12 +14,14 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_up', {
-        username,
-        email,
-        password,
-        password_confirmation: passwordConfirmation,
-      });
+      const data = {
+        username: "<username_value>",
+        email: "<email_value>",
+        password: "<password_value>",
+        password_confirmation: "<passwordConfirmation_value>"
+      };
+
+      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_up', data);
       
       const { token } = response.data;
       const encryptedToken = encryptToken(token);
