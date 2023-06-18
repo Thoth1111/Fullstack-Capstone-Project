@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setToken } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -11,6 +13,7 @@ const Login = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,14 +34,15 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const data = {
-        email: "<email_value>",
-        password: "<password_value>"
-      };
-
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', data);
+      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', {        
+        "user": {
+          "email": email,
+          "password": password
+        }
+      });
 
       const { token } = response.data;
+      dispatch(setToken(token));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
