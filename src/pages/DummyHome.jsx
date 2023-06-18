@@ -29,6 +29,7 @@ const DummyHome = () => {
           Logged in successfully!
         </div>
       )}
+      <h1>Home</h1>
     </div>
   );
 };
