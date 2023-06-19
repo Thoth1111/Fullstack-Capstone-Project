@@ -2,3 +2,7 @@
 body {
   margin: auto;
 }
+
+.notification {
+  color: yellowgreen;
+}

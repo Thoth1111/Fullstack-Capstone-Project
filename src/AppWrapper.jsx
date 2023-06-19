@@ -19,6 +19,12 @@ const AppWrapper = ({ children }) => {
   }, [location.pathname, token]);
 
   useEffect(() => {
+    if (token && isLoginOrSignupPath(location.pathname)) {
+      navigate('/dummyHome');
+    }
+  }, [location.pathname, navigate, token]);
+
+  useEffect(() => {
     if (token) {
       const tokenTimeout = setTimeout(() => {
         dispatch(clearToken());
