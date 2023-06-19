@@ -13,6 +13,7 @@ const AppWrapper = ({ children }) => {
 
   useEffect(() => {
     if (!token && !isLoginOrSignupPath(location.pathname)) {
+      dispatch(clearToken());
       setTokenExpired(true);
     }
   }, [location.pathname, token]);
