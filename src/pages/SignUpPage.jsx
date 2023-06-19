@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setToken } from '../redux/authSlice';
-import { encryptToken } from '../helpers/encryption';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { setToken } from '../redux/authSlice';
+import { encryptToken } from '../helpers/encryption';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');

@@ -1,20 +1,31 @@
 import './App.css';
 import {
-  Routes, Route,
+  Routes,
+  Route,
+  useLocation,
 } from 'react-router-dom';
 import SplashPage from './pages/SplashPage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
-import DummyHome from './pages/DummyHome'
+import Home from './pages/Home';
+import Details from './pages/Details';
+import NavigationPanel from './components/Navbar';
 
 function App() {
+  const location = useLocation();
+  const isHomeOrDetails = location.pathname === '/Home' || location.pathname === '/details';
+
   return (
-    <Routes>
-      <Route path="/" element={<SplashPage />} />
-      <Route path="/signup" element={<SignUpPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/dummyhome" element={<DummyHome />} />
-    </Routes>
+    <>
+      {isHomeOrDetails && <NavigationPanel />}
+      <Routes>
+        <Route path="/" element={<SplashPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/details" element={<Details />} />
+      </Routes>
+    </>
   );
 }
 

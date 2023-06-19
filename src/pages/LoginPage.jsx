@@ -46,7 +46,7 @@ const Login = () => {
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      navigate('/dummyHome', { state: { success: 'loggedin' } })
+      navigate('/Home', { state: { success: 'loggedin' } })
     } catch (error) {
       console.error(error);
     }

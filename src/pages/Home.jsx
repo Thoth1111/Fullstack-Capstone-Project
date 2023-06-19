@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const DummyHome = () => {
+function Home() {
   const location = useLocation();
   const { state } = location;
   const success = state?.success;
@@ -32,6 +32,6 @@ const DummyHome = () => {
       <h1>Home</h1>
     </div>
   );
-};
+}
 
-export default DummyHome;
+export default Home;
