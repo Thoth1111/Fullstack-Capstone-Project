@@ -38,36 +38,77 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input 
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input 
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
-        <button type="submit">Sign Up</button>
-    </form>
-  </div>
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div>
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          Sign Up
+        </h2>
+      </div>
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+              Username
+            </label>
+            <div className="mt-2">
+              <input 
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              Email
+            </label>
+            <div className="mt-2">
+              <input 
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+              Password
+            </label>
+            <div className="mt-2">
+              <input 
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="passwordConfirmation" className="block text-sm font-medium leading-6 text-gray-900">
+              Confirm Password
+            </label>
+            <div className="mt-2">
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={passwordConfirmation}
+                onChange={(e) => setPasswordConfirmation(e.target.value)}
+              />
+            </div>
+          </div>
+          <div>
+            <button 
+              type="submit"
+              className="flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
