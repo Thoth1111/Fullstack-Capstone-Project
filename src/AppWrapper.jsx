@@ -32,9 +32,12 @@ const AppWrapper = ({ children }) => {
     return pathname === '/login' || pathname === '/signup' || pathname === '/';
   };
 
-  if (TokenExpired || (!token && !isLoginOrSignupPath(location.pathname))) {
-    navigate('./');
-  }
+  useEffect(() => {
+    if (TokenExpired)  {
+      navigate('./', { replace: true });
+      window.location.reload();
+    }
+  }, [TokenExpired, navigate]);
 
   return <>{children}</>;
 };
