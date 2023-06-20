@@ -10,13 +10,13 @@ function NavigationPanel() {
   return (
     <nav className="border text-lg font-bold fixed h-screen left-0 flex flex-col justify-between">
       <ul className="flex flex-col pl-4">
-        <li className="mb-4">
+        <li className="mb-4 ml-2">
           <Link to="/">
             <img src={logo} alt="logo" className="w-32 h-40 rounded-lg" />
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/reservation" className="">My Reservation</Link>
+          <Link to="/reservations" className="">My Reservation</Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/delete" className="">Delete Room</Link>
@@ -25,7 +25,7 @@ function NavigationPanel() {
           <Link to="/add" className="">Add Room</Link>
         </li>
       </ul>
-      <div className='pb-8'>
+      <div className="pb-8">
         <div className="flex items-center w-full justify-center mb-8 gap-x-2">
           <a href="#">
             <img src={icon1} alt="logo" className="w-7 h-7 rounded-full" />
@@ -43,7 +43,7 @@ function NavigationPanel() {
             <img src={icon5} alt="logo" className="w-7 h-7 rounded-full" />
           </a>
         </div>
-        <p className='text-center'>@2023</p>
+        <p className="text-center font-light text-gray-500">@2023</p>
       </div>
     </nav>
   );

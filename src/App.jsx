@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage';
 import Home from './pages/Home';
 import Details from './pages/Details';
 import NavigationPanel from './components/Navbar';
+import Reservations from './pages/Reservations';
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/details" element={<Details />} />
+        <Route path="/reservations" element={<Reservations />} />
       </Routes>
     </>
   );
