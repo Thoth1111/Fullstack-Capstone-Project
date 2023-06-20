@@ -1,4 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { useSelector } from 'react-redux';
+
+// const localToken = useSelector((state) => state.auth.token);
 
 export const vespaApi = createApi({
   reducerPath: 'vespaApi',
@@ -6,7 +9,7 @@ export const vespaApi = createApi({
     baseUrl: 'https://booking-api-nhmg.onrender.com',
 
     prepareHeaders: (headers, { getState }) => {
-      const token = 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTEsImV4cCI6MTY5MjQ0NjY4NX0.GSxx3d-nRwi0swsNYQ25oy_v9VMLZL-Noxe7VdGmcOU';
+      const token = getState().persistedReducer.token;
       if (token) {
         headers.set('Authorization', `${token}`);
       }

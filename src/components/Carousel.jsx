@@ -25,9 +25,9 @@ export default function Carousel() {
     arrows: true,
   };
 
-  // const {data, error, isLoading} = useGetAllVespasQuery();
+  const {data, error, isLoading} = useGetAllVespasQuery();
 
-  // console.log(data)
+  console.log(data)
   console.log('from carousel');
 
   return (
