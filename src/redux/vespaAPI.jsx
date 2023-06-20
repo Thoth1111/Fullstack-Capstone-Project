@@ -16,6 +16,7 @@ export const vespaApi = createApi({
       return headers;
     },
   }),
+  keepUnusedDataFor: 60 * 60 * 60,
   endpoints: (builder) => ({
     getAllVespas: builder.query({
       query: () => '/rooms',

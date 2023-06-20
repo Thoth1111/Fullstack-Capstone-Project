@@ -5,17 +5,6 @@ import { useGetAllVespasQuery } from '../redux/vespaAPI';
 
 import Vespa from './Vespa';
 
-// function NextArrow(props) {
-//   const { className, style, onClick } = props;
-//   return (
-//     <button
-//       className={className}
-//       style={{ ...style }}
-//       onClick={onClick}
-//     />
-//   );
-// }
-
 export default function Carousel() {
   const settings = {
     infinite: false,
