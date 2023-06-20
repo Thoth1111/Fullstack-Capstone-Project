@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { clearToken } from './redux/authSlice';
+import { clearAuthInfo } from './redux/authSlice';
 
 const AppWrapper = ({ children }) => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const AppWrapper = ({ children }) => {
 
   useEffect(() => {
     if (!token && !isLoginOrSignupPath(location.pathname)) {
-      dispatch(clearToken());
+      dispatch(clearAuthInfo());
       setTokenExpired(true);
     }
   }, [location.pathname, token]);
@@ -27,7 +27,7 @@ const AppWrapper = ({ children }) => {
   useEffect(() => {
     if (token) {
       const tokenTimeout = setTimeout(() => {
-        dispatch(clearToken());
+        dispatch(clearAuthInfo());
         setTokenExpired(true);
       }, tokenLife);
 
