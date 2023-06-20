@@ -26,15 +26,11 @@
 /* .slick-prev:before { color: red; font-size: 30px; }  */
 
 .slick-next:before {
-	color: red;
+	color: rgb(38, 255, 0);
 	font-size: 50px;
 }
 
 .slick-prev:before {
-	color: red;
+	color: rgb(38, 255, 0);
 	font-size: 50px;
-}
-
-.slick-slide.slick-cloned {
-  display: none;
 }
