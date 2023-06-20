@@ -19,13 +19,23 @@ const Vespa = () => {
 
   return (
 
-    <div className =' h-72 w-68 border-black bg-yellow-300'>
+    <div className =' h-96 w-fit border-solid border-2 items-center bg-rose-300 px-10 flex flex-col justify-between '>
 
 
-      <div className="p-2 w-64 h-64 flex items-center rounded-full" style={{ backgroundColor: vibrant }}>
-
-
+      <div className="p-2 w-40 mt-16 h-40 flex items-center rounded-full" style={{ backgroundColor: vibrant }}>
+      
+      <img src={url} alt=""  className='rounded-full '/>
       </div>
+
+      <div>
+        Details Go herer
+      </div>
+
+      <div>
+
+        Social Media Icons here
+      </div>
+
 		
     </div>
   );
