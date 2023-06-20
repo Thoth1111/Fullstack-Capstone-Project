@@ -41,7 +41,6 @@ function DummyHome() {
         <p className="mt-4 text-lg">Please Select A Vespa Model </p>
 
         <Carousel />
-  
 
       </div>
     </div>

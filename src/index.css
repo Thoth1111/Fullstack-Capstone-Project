@@ -1,36 +1,29 @@
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-
 .slick-next {
-	right: -30px;
-	width: 30px;
-	height: 30px;
-	
+  right: -30px;
+  width: 30px;
+  height: 30px;
 }
 
 .slick-prev {
-	left: -50px;
-	width: 30px;
-	height: 30px;
-
+  left: -50px;
+  width: 30px;
+  height: 30px;
 }
 
 
 /* .slick-prev:before { color: red; font-size: 30px; }  */
 
-.slick-next:before {
-	color: rgb(38, 255, 0);
-	font-size: 50px;
+.slick-next::before {
+  color: rgb(38, 255, 0);
+  font-size: 50px;
 }
 
-.slick-prev:before {
-	color: rgb(38, 255, 0);
-	font-size: 50px;
+.slick-prev::before {
+  color: rgb(38, 255, 0);
+  font-size: 50px;
 }

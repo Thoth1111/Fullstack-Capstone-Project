@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Vespa from '../components/Vespa';
 import Carousel from '../components/Carousel';
 
 // import {useGetAllVespasQuery} from  '../redux/vespaAPI'
 
 function Home() {
   const location = useLocation();
-  const { state } = location;
+  // const { state } = location;
   // const success = state?.success;
 
-  const [showNotification, setShowNotification] = useState(false);
+  // const [showNotification, setShowNotification] = useState(false);
   // const {data, error, isLoading} = useGetAllVespasQuery();
 
   // useEffect(() => {
@@ -29,11 +28,11 @@ function Home() {
 
   return (
     <div>
-      {showNotification && (
+      {/* {showNotification && (
         <div className="notification">
           Logged in successfully!
         </div>
-      )}
+      )} */}
 
       <div className=" w-[1200px] ml-60 bg-slate-400 h-5/6 m-auto mt-24  text-center">
 
@@ -41,7 +40,6 @@ function Home() {
         <p className="mt-4 text-lg">Please Select A Vespa Model </p>
 
         <Carousel />
-  
 
       </div>
     </div>

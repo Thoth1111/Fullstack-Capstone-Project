@@ -1,7 +1,6 @@
 import * as VibrantAPI from 'node-vibrant';
 
-
-async function getPallete (url) {
+async function getPallete(url) {
   const img = new Image();
   img.crossOrigin = 'Anonymous';
   img.src = `${url}?not-from-cache-please`;
@@ -10,6 +9,6 @@ async function getPallete (url) {
 
   // let pallette = await VibrantAPI.from(url).getPalette()
   return pallette;
-};
+}
 
 export default getPallete;

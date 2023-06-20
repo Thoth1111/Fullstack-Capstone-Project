@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { clearToken } from './redux/authSlice';
 
-const AppWrapper = ({ children }) => {
+function AppWrapper({ children }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,18 +35,16 @@ const AppWrapper = ({ children }) => {
     }
   }, [dispatch, token]);
 
-  const isLoginOrSignupPath = (pathname) => {
-    return pathname === '/login' || pathname === '/signup' || pathname === '/';
-  };
+  const isLoginOrSignupPath = (pathname) => pathname === '/login' || pathname === '/signup' || pathname === '/';
 
   useEffect(() => {
-    if (TokenExpired)  {
+    if (TokenExpired) {
       navigate('./', { replace: true });
       window.location.reload();
     }
   }, [TokenExpired, navigate]);
 
   return <>{children}</>;
-};
+}
 
 export default AppWrapper;

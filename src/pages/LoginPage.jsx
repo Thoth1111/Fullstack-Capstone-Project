@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setToken } from '../redux/authSlice';
-import { encryptToken } from '../helpers/encryption';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { encryptToken } from '../helpers/encryption';
+import { setToken } from '../redux/authSlice';
 
-const Login = () => {
+function Login() {
   const location = useLocation();
   const { state } = location;
   const success = state?.success;
@@ -34,11 +33,11 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', {        
-        "user": {
-          "email": email,
-          "password": password
-        }
+      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', {
+        user: {
+          email,
+          password,
+        },
       });
 
       const { token } = response.data;
@@ -46,7 +45,7 @@ const Login = () => {
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      navigate('/Home', { state: { success: 'loggedin' } })
+      navigate('/Home', { state: { success: 'loggedin' } });
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +73,7 @@ const Login = () => {
                 Email
               </label>
               <div className="mt-2">
-                <input 
+                <input
                   type="email"
                   placeholder="Email"
                   value={email}
@@ -96,7 +95,7 @@ const Login = () => {
               </div>
             </div>
             <div>
-              <button 
+              <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600"
               >
@@ -108,6 +107,6 @@ const Login = () => {
       </div>
     </>
   );
-};
+}
 
 export default Login;
