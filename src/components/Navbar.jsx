@@ -16,7 +16,7 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/addroom" className="">Add Room</Link>
+          <Link to="/addroom" className="">Add Vespa</Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/myreservations" className="">My Reservation</Link>
