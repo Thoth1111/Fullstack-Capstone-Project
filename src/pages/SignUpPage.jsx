@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { setToken } from '../redux/authSlice';
+import { setAuthInfo } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 
 const SignUp = () => {
@@ -26,8 +26,9 @@ const SignUp = () => {
         }
       });
       
-      const { token } = response.data;
-      dispatch(setToken(token));
+      const { user, token } = response.data;
+      const { username, id } = user;
+      dispatch(setAuthInfo( { username, id, token } ));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
