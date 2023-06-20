@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-function NextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style }}
-      onClick={onClick}
-    />
-  );
-}
+// function NextArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <button
+//       className={className}
+//       style={{ ...style }}
+//       onClick={onClick}
+//     />
+//   );
+// }
 import Slider from 'react-slick';
 
 export default function Carousel() {
@@ -19,7 +19,6 @@ export default function Carousel() {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
-    nextArrow: <NextArrow />,
   };
 
   const slider = React.useRef(null)
