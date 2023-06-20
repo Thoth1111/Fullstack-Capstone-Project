@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { setAuthInfo } from '../redux/authSlice';
+import { encryptToken } from '../helpers/encryption';
 import axios from 'axios';
 import { encryptToken } from '../helpers/encryption';
 import { setToken } from '../redux/authSlice';
@@ -40,8 +42,9 @@ function Login() {
         },
       });
 
-      const { token } = response.data;
-      dispatch(setToken(token));
+      const { user, token } = response.data;
+      const { username, id } = user;
+      dispatch(setAuthInfo( { username, id, token } ));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
