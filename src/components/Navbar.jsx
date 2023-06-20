@@ -16,13 +16,13 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/addreservations" className="">My Reservation</Link>
+          <Link to="/addroom" className="">Add Room</Link>
+        </li>
+        <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
+          <Link to="/myreservations" className="">My Reservation</Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/delete" className="">Delete Room</Link>
-        </li>
-        <li className="pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/add" className="">Add Room</Link>
         </li>
       </ul>
       <div className="pb-8">
