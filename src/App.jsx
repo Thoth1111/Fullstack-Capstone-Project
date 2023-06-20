@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Details from './pages/Details';
 import NavigationPanel from './components/Navbar';
 import AddRoom from './pages/AddRoom';
+import MyReservations from './pages/MyReservations';
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/details" element={<Details />} />
         <Route path="/addroom" element={<AddRoom />} />
+        <Route path="/myreservations" element={<MyReservations />} />
       </Routes>
     </>
   );
