@@ -5,3 +5,5 @@
 @tailwind utilities;
 
 
+.slick-next:before {  color: red; font-size: 30px; } 
+.slick-prev:before { color: red; font-size: 30px; } 
