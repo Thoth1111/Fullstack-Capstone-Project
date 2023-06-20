@@ -20,7 +20,7 @@ const AppWrapper = ({ children }) => {
 
   useEffect(() => {
     if (token && isLoginOrSignupPath(location.pathname)) {
-      navigate('/dummyHome');
+      navigate('/Home');
     }
   }, [location.pathname, navigate, token]);
 
