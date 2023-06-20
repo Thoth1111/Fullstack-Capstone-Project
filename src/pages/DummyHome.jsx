@@ -35,7 +35,7 @@ function DummyHome() {
       <div className="container bg-slate-50 h-5/6 m-auto mt-24  text-center">
 
         <p className="text-4xl mt-8 font-bold">Latest Models</p>
-        <p className="mt-4">Please Select A Vespa Model </p>
+        <p className="mt-4 text-lg">Please Select A Vespa Model </p>
 
         <Carousel />
   
