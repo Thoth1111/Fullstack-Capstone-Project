@@ -16,7 +16,7 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/reservations" className="">My Reservation</Link>
+          <Link to="/addreservations" className="">My Reservation</Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/delete" className="">Delete Room</Link>
@@ -26,7 +26,7 @@ function NavigationPanel() {
         </li>
       </ul>
       <div className="pb-8">
-        <div className="flex items-center w-full justify-center mb-8 gap-x-2">
+        <div className="flex items-center w-full justify-center align-middle mb-8 gap-x-2">
           <a href="#">
             <img src={icon1} alt="logo" className="w-7 h-7 rounded-full" />
           </a>
