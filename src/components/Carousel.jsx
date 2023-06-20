@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import  {useGetAllVespasQuery} from  '../redux/vespaAPI'
+
 import Vespa from './Vespa';
 
 // function NextArrow(props) {
@@ -24,6 +26,9 @@ export default function Carousel() {
   };
 
 
+  // const {data, error, isLoading} = useGetAllVespasQuery();
+
+  console.log("datatst")
 
   return (
     <div className='h-5/6 flex '>

@@ -5,7 +5,7 @@ export const vespaApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://booking-api-nhmg.onrender.com',
 	
 	prepareHeaders: (headers, { getState }) => {
-		const token =  getState().auth.token;
+		const token = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTEsImV4cCI6MTY5MjQ0NjY4NX0.GSxx3d-nRwi0swsNYQ25oy_v9VMLZL-Noxe7VdGmcOU"
 		if (token) {
 			headers.set('Authorization', `${token}`);
 		}
@@ -14,7 +14,7 @@ export const vespaApi = createApi({
 }),
   endpoints: (builder) => ({
 		getAllVespas: builder.query({
-			query: () => '/comments',
+			query: () => '/rooms',
 
   }),
 }),

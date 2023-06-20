@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import * as VibrantAPI from 'node-vibrant';
 // import { Outlet } from 'react-router-dom';
-import getPallete from '../helpers/pallete';
+// import getPallete from '../helpers/pallete';
 
 function Vespa() {
   const url = 'https://cdn.xxl.thumbs.canstockphoto.com/yellow-muscle-car-yellow-muscle-car-against-dark-cloudy-background-stock-photos_csp2503213.jpg';
 
   const [pallete, setPallete] = useState();
+   console.log("from vespa")
+  // useEffect(() => {
+  //   const vibrant = getPallete(url);
+  //   vibrant.then((pallete) => setPallete(pallete));
+  // }, []);
 
-  useEffect(() => {
-    const vibrant = getPallete(url);
-    vibrant.then((pallete) => setPallete(pallete));
-  }, []);
-
-  const vibrant = pallete?.Vibrant.getHex();
+  // const vibrant = pallete?.Vibrant.getHex();
 
   return (
 
     <div className=" h-96 w-80  items-center px-10 flex flex-col justify-between ">
 
      
-        <div className=" relative p-2 w-52 mt-8 h-52 flex items-center rounded-full" style={{ backgroundColor: vibrant }} >
+        {/* <div className=" relative p-2 w-52 mt-8 h-52 flex items-center rounded-full" style={{ backgroundColor: vibrant }} > */}
+        <div>
          <img src={url} alt="" className="rounded-full absolute top-2/4 right-2/4 translate-x-1/2 -translate-y-1/2 h-48 w-48 " />
       </div>
 
