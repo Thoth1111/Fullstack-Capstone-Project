@@ -24,6 +24,9 @@ function NavigationPanel() {
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/delete" className="">Delete Room</Link>
         </li>
+        <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
+          <Link to="/reserve" className="">Reserve</Link>
+        </li>
       </ul>
       <div className="pb-8">
         <div className="flex items-center w-full justify-center align-middle mb-8 gap-x-2">
