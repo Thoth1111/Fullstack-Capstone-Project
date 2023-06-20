@@ -26,9 +26,9 @@ export default function Carousel() {
 
 
   return (
-    <div className='bg-blue-500 h-5/6 flex'>
+    <div className='h-5/6 flex'>
 
-      <Slider  {...settings} className="flex items-center bg-slate-500 my-auto h-5/6 w-full">
+      <Slider  {...settings} className="flex items-center  my-auto h-5/6 w-full">
 
         <div>
           <Vespa></Vespa>
