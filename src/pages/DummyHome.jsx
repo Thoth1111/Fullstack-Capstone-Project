@@ -3,12 +3,16 @@ import { useLocation } from 'react-router-dom';
 import Vespa from '../components/Vespa';
 import Carousel from '../components/Carousel';
 
+import {useGetAllVespasQuery} from  '../redux/vespaAPI'
+
 function DummyHome() {
   const location = useLocation();
   const { state } = location;
   const success = state?.success;
 
   const [showNotification, setShowNotification] = useState(false);
+  const {data, error, isLoading} = useGetAllVespasQuery();
+  console.log(data)
 
   useEffect(() => {
     if (success === 'loggedin') {
