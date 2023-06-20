@@ -13,19 +13,19 @@ function DummyHome() {
   const [showNotification, setShowNotification] = useState(false);
   // const {data, error, isLoading} = useGetAllVespasQuery();
 
-  useEffect(() => {
-    if (success === 'loggedin') {
-      setShowNotification(true);
+  // useEffect(() => {
+  //   if (success === 'loggedin') {
+  //     setShowNotification(true);
 
-      const timer = setTimeout(() => {
-        setShowNotification(false);
-      }, 5000);
+  //     const timer = setTimeout(() => {
+  //       setShowNotification(false);
+  //     }, 5000);
 
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [success]);
+  //     return () => {
+  //       clearTimeout(timer);
+  //     };
+  //   }
+  // }, [success]);
 
   return (
     <div>

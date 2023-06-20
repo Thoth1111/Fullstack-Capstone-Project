@@ -26,9 +26,9 @@ export default function Carousel() {
   };
 
 
-  // const {data, error, isLoading} = useGetAllVespasQuery();
+  const {data, error, isLoading} = useGetAllVespasQuery();
 
-  console.log("datatst")
+  console.log(data)
 
   return (
     <div className='h-5/6 flex '>
