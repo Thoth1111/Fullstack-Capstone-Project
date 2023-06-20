@@ -18,6 +18,7 @@ function AddRoom() {
           <option value="FR" className="text-black">France</option>
           <option value="DE" className="text-black">Germany</option>
         </select>
+        <input type="date" id="start-date" name="start-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
         <button type="submit" className="bg-white font-semibold text-[#96bf01] py-2 px-10 rounded-full">
           Book now
         </button>
