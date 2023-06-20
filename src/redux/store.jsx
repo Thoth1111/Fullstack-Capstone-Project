@@ -5,24 +5,26 @@ import authReducer from './authSlice';
 import { vespaApi } from './vespaAPI';
 
 const persistConfig = {
-    key: 'root',
-    storage,
+  key: 'root',
+  storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, authReducer);
 
 const store = configureStore({
-    reducer: persistedReducer,
-        [vespaApi.reducerPath]: vespaApi.reducer,
-    middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
 
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(vespaApi.middleware),
+  reducer: {
+    persistedReducer,
+    [vespaApi.reducerPath]: vespaApi.reducer,
+  },
+
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false,
+  }).concat(vespaApi.middleware),
+
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(vespaApi.middleware),
 });
 
 const persistor = persistStore(store);
 
 export { store, persistor };
-

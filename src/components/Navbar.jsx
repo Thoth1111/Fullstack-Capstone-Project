@@ -12,7 +12,7 @@ function NavigationPanel() {
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
           <Link to="/">
-            <img src={logo} alt="logo" className="w-32 h-40 rounded-lg" />
+            <img src={logo} alt="logo" className=" h-28 rounded-lg" />
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">

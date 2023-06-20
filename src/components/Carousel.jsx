@@ -17,16 +17,21 @@ import Vespa from './Vespa';
 import Slider from 'react-slick';
 
 export default function Carousel() {
+  
+  const {data, error, isLoading} = useGetAllVespasQuery();
+  
+  let slidesToShow = 2
+  slidesToShow ??= (data?.length < 3)? data?.length : 1
+  
   const settings = {
   
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     arrows: true,
   };
 
 
-  const {data, error, isLoading} = useGetAllVespasQuery();
 
   console.log(data)
 
@@ -35,22 +40,10 @@ export default function Carousel() {
 
       <Slider  {...settings} className="flex items-center  my-auto h-5/6 w-full">
 
-        <div>
-          <Vespa></Vespa>
-        </div>
-        <div>
-          <Vespa></Vespa>
-        </div>
-     
-        <div>
-          <Vespa></Vespa>
-        </div>
-        <div>
-          <Vespa></Vespa>
-        </div>
-        <div>
-          <Vespa></Vespa>
-        </div>
+        <Vespa />
+        <Vespa />
+        
+
       </Slider>
     </div>
   );
