@@ -37,10 +37,8 @@ function DummyHome() {
         <p className="text-4xl">Latest Models</p>
         <p className="">Please Select A Vespa Model </p>
 
-          <Carousel/>
-        <div className="flex bg-red-300 h-3/6 my-32  justify-around items-center mx-10">
-        
-        </div>
+        <Carousel/>
+  
 
       </div>
     </div>

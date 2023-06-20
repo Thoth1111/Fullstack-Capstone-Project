@@ -19,10 +19,10 @@ const Vespa = () => {
 
   return (
 
-    <div className =' h-72 w-60 border-black'>
+    <div className =' h-72 w-68 border-black bg-yellow-300'>
 
 
-      <div className="p-2 w-64 h-64 h-fit flex items-center border-round" style={{ backgroundColor: vibrant }}>
+      <div className="p-2 w-64 h-64 flex items-center rounded-full" style={{ backgroundColor: vibrant }}>
 
 
       </div>

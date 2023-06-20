@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Vespa from './Vespa';
+
 // function NextArrow(props) {
 //   const { className, style, onClick } = props;
 //   return (
@@ -21,31 +23,28 @@ export default function Carousel() {
     arrows: true,
   };
 
-  const slider = React.useRef(null)
+
 
   return (
-    <div className='border-black border-1 w-52 m-auto '>
-      <h2> Single Item</h2>
+    <div className='bg-blue-500 h-5/6 flex'>
 
-      <Slider  {...settings}>
+      <Slider  {...settings} className="flex items-center bg-slate-500 my-auto h-5/6 w-full">
 
         <div>
-          <h3>1</h3>
+          <Vespa></Vespa>
         </div>
         <div>
-          <h3>2</h3>
+          <Vespa></Vespa>
+        </div>
+     
+        <div>
+          <Vespa></Vespa>
         </div>
         <div>
-          <h3>3</h3>
+          <Vespa></Vespa>
         </div>
         <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
+          <Vespa></Vespa>
         </div>
       </Slider>
     </div>

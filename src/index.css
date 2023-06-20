@@ -9,14 +9,14 @@
 
 
 .slick-next {
-	right: -60px;
+	right: -30px;
 	width: 30px;
 	height: 30px;
-
+	
 }
 
 .slick-prev {
-	right: -60px;
+	left: -50px;
 	width: 30px;
 	height: 30px;
 
