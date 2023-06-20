@@ -7,7 +7,7 @@ function AddReservations() {
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
-      <h1 className="font-bold tracking-widest text-3xl font-mono z-10">BOOk A ROOM</h1>
+      <h1 className="font-bold tracking-widest text-3xl font-mono z-10">BOOk A Vespa</h1>
       <hr className="w-2/5 bg-gray-600 z-10" />
       <p className="tracking-widest z-10">oljloh.ohibiooooooooooooooooooooooooooooooo</p>
       <div className="flex gap-4 z-10">
