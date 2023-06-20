@@ -5,7 +5,7 @@ function NextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "red" }}
+      style={{ ...style }}
       onClick={onClick}
     />
   );
@@ -28,8 +28,7 @@ export default function Carousel() {
     <div className='border-black border-1 w-52 m-auto '>
       <h2> Single Item</h2>
 
-      <button onClick={() => slider?.current?.slickPrev()}>Prev</button>
-      <Slider ref={slider} {...settings}>
+      <Slider  {...settings}>
 
         <div>
           <h3>1</h3>
@@ -50,7 +49,6 @@ export default function Carousel() {
           <h3>6</h3>
         </div>
       </Slider>
-        <button onClick={() => slider?.current?.slickNext()}>Next</button>
     </div>
   );
 }
