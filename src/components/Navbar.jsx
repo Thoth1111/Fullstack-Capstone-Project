@@ -18,6 +18,10 @@ function NavigationPanel() {
   const handleDelete = () => {
     setdeleteModalVisible(true);
   };
+
+  const handleCloseModal = () => {
+    setdeleteModalVisible(false);
+  }
   
   const handleSignOut = () => {
     sessionStorage.clear();
@@ -29,7 +33,7 @@ function NavigationPanel() {
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
           <Link to="/">
-            <img src={logo} alt="logo" className="w-32 h-40 rounded-lg" />
+            <img src={logo} alt="logo" className="w-40 h-35 mb-10 rounded-lg" />
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
@@ -43,9 +47,9 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/delete" className="">
+          <button className="" onClick={handleDelete}>
             Delete Vespa
-          </Link>
+          </button>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/reserve" className="">
