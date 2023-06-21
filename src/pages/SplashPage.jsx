@@ -14,15 +14,15 @@ function SplashPage() {
             className="text-white py-2.5 text-center flex justify-around items-center bg-[#96bf01] mr-2 mb-2 w-52 rounded-full"
           >
             <svg
-              class="h-8 w-8 text-white"
+              className="h-8 w-8 text-white"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="currentColor"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               {' '}
               <path stroke="none" d="M0 0h24v24H0z" />{' '}
@@ -31,13 +31,13 @@ function SplashPage() {
             </svg>
             Sign Up
             <svg
-              class="h-8 w-8 text-white"
+              className="h-8 w-8 text-white"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               {' '}
               <circle cx="12" cy="12" r="10" /> <polyline points="12 16 16 12 12 8" />{' '}
@@ -51,15 +51,15 @@ function SplashPage() {
             className="text-white py-2.5 text-center flex justify-around items-center bg-[#96bf01] mr-2 mb-2 w-52 rounded-full"
           >
             <svg
-              class="h-8 w-8 text-white"
+              className="h-8 w-8 text-white"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="currentColor"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               {' '}
               <path stroke="none" d="M0 0h24v24H0z" />{' '}
@@ -68,13 +68,13 @@ function SplashPage() {
             </svg>
             Log In
             <svg
-              class="h-8 w-8 text-white"
+              className="h-8 w-8 text-white"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               {' '}
               <circle cx="12" cy="12" r="10" /> <polyline points="12 16 16 12 12 8" />{' '}
