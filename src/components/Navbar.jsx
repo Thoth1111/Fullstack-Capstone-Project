@@ -19,17 +19,13 @@ function NavigationPanel() {
     setdeleteModalVisible(true);
   };
   
-  const handleCloseModal = () => {
-    setdeleteModalVisible(false);
-  };
-
-  const handleClearSession = () => {
+  const handleSignOut = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());
   };
 
   return (
-    <nav className="border text-lg font-bold fixed h-screen left-0 flex flex-col justify-between">
+    <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between">
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
           <Link to="/">
@@ -37,16 +33,27 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/addroom" className="">Add Room</Link>
+          <Link to="/addroom" className="">
+            Add Vespa
+          </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/myreservations" className="">My Reservation</Link>
+          <Link to="/myreservations" className="">
+            My Reservation
+          </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <button className="" onClick={handleDelete}>Delete Vespa</button>
+          <Link to="/delete" className="">
+            Delete Vespa
+          </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/" className="" onClick={handleClearSession}>Sign Out</Link>
+          <Link to="/reserve" className="">
+            Reserve
+          </Link>
+        </li>
+        <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
+          <Link to="/" className="" onClick={handleSignOut}>Sign Out</Link>
         </li>
       </ul>
       {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
