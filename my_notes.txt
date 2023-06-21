@@ -1,1 +1,3 @@
 !! We are currently getting all rooms. Fix in models so that only rooms of user can be shown
+
+!! Why is the POST going to '/reservations' instead of 'reservations/new'
