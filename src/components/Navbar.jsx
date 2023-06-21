@@ -21,7 +21,7 @@ function NavigationPanel() {
     <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between">
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
-          <Link to="/Home">
+          <Link to="/home">
             <img src={logo} alt="logo" className="w-32 h-40 rounded-lg" />
           </Link>
         </li>
