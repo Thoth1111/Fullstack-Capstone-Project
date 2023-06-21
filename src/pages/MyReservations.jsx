@@ -7,7 +7,7 @@ function MyReservations() {
   const { data: reservations = [], isLoading } = useGetAllReservationsQuery();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Loading API...</div>;
   }
 
   return (

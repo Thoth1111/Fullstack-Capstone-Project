@@ -46,7 +46,7 @@ function Login() {
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      navigate('/Home', { state: { success: 'loggedin' } });
+      navigate('/home', { state: { success: 'loggedin' } });
     } catch (error) {
       console.error(error);
     }
