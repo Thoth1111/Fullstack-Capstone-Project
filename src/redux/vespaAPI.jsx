@@ -20,7 +20,6 @@ export const vespaApi = createApi({
   endpoints: (builder) => ({
     getAllVespas: builder.query({
       query: () => '/rooms',
-
     }),
   }),
 });

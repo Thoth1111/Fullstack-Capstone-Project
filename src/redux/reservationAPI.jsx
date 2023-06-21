@@ -1,7 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { useSelector } from 'react-redux';
-
-// const localToken = useSelector((state) => state.auth.token);
 
 export const reservationApi = createApi({
   reducerPath: 'reservationApi',
@@ -9,7 +6,7 @@ export const reservationApi = createApi({
     baseUrl: 'https://booking-api-nhmg.onrender.com',
 
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().persistedReducer.token;
+      const { token } = getState().persistedReducer;
       if (token) {
         headers.set('Authorization', `${token}`);
       }
