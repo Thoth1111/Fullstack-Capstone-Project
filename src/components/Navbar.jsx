@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { clearAuthInfo } from '../redux/authSlice';
 import { Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
 import logo from '../assets/logo.jpg';
 import icon1 from '../assets/icon1.jpg';
 import icon2 from '../assets/icon2.png';
@@ -10,9 +11,18 @@ import icon4 from '../assets/icon4.png';
 import icon5 from '../assets/icon5.png';
 
 function NavigationPanel() {
-
   const dispatch = useDispatch();
+
+  const [deleteModalVisible, setdeleteModalVisible] = useState(false);
+
+  const handleDelete = () => {
+    setdeleteModalVisible(true);
+  };
   
+  const closeDeleteModal = () => {
+    setdeleteModalVisible(false);
+  };
+
   const handleClearSession = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());
@@ -33,12 +43,13 @@ function NavigationPanel() {
           <Link to="/myreservations" className="">My Reservation</Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/delete" className="">Delete Room</Link>
+          <button className="" onClick={handleDelete}>Delete Vespa</button>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/" className="" onClick={handleClearSession}>Sign Out</Link>
         </li>
       </ul>
+      {deleteModalVisible && <DeleteModal onClose={closeDeleteModal} />}
       <div className="pb-8">
         <div className="flex items-center w-full justify-center align-middle mb-8 gap-x-2">
           <a href="#">
