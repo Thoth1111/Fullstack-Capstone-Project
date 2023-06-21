@@ -8,7 +8,6 @@ function Vespa() {
     'https://cdn.xxl.thumbs.canstockphoto.com/yellow-muscle-car-yellow-muscle-car-against-dark-cloudy-background-stock-photos_csp2503213.jpg';
 
   const [pallete, setPallete] = useState();
-  console.log('from vespa');
   useEffect(() => {
     const vibrant = getPallete(url);
     vibrant.then((pallete) => setPallete(pallete));

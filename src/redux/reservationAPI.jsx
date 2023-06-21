@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const vespaApi = createApi({
-  reducerPath: 'vespaApi',
+export const reservationApi = createApi({
+  reducerPath: 'reservationApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://booking-api-nhmg.onrender.com',
 
@@ -15,10 +15,10 @@ export const vespaApi = createApi({
   }),
   keepUnusedDataFor: 60 * 60 * 60,
   endpoints: (builder) => ({
-    getAllVespas: builder.query({
-      query: () => '/rooms',
+    getAllReservations: builder.query({
+      query: () => '/reservations',
     }),
   }),
 });
 
-export const { useGetAllVespasQuery } = vespaApi;
+export const { useGetAllReservationsQuery } = reservationApi;

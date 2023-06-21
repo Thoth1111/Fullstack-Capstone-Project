@@ -10,9 +10,8 @@ import icon4 from '../assets/icon4.png';
 import icon5 from '../assets/icon5.png';
 
 function NavigationPanel() {
-
   const dispatch = useDispatch();
-  
+
   const handleClearSession = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());
@@ -22,7 +21,7 @@ function NavigationPanel() {
     <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between">
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
-          <Link to="/">
+          <Link to="/home">
             <img src={logo} alt="logo" className="w-32 h-40 rounded-lg" />
           </Link>
         </li>
@@ -47,7 +46,14 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/" className="" onClick={handleClearSession}>Sign Out</Link>
+          <Link to="/delete" className="">
+            Delete Vespa
+          </Link>
+        </li>
+        <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
+          <Link to="/" className="" onClick={handleClearSession}>
+            Sign Out
+          </Link>
         </li>
       </ul>
       <div className="pb-8">
