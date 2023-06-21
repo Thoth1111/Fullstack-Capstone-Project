@@ -51,8 +51,8 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/reserve" className="">
-            Reserve
+          <Link to="/" className="" onClick={handleClearSession}>
+            Sign Out
           </Link>
         </li>
       </ul>
