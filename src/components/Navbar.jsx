@@ -13,7 +13,7 @@ function NavigationPanel() {
 
   const dispatch = useDispatch();
   
-  const handleClearSession = () => {
+  const handleSignOut = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());
   };
@@ -47,7 +47,7 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/" className="" onClick={handleClearSession}>Sign Out</Link>
+          <Link to="/" className="" onClick={handleSignOut}>Sign Out</Link>
         </li>
       </ul>
       <div className="pb-8">

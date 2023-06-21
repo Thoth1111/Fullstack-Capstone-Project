@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import authRequests from '../services/AuthRequests';
 import { setAuthInfo } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 
@@ -17,16 +17,7 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_up', {
-        user: {
-          username,
-          email,
-          password,
-          password_confirmation: passwordConfirmation,
-        },
-      });
-      
-      const { user, token } = response.data;
+      const { user, token } = await authRequests.signUp(username, email, password, passwordConfirmation);
       const { username, id } = user;
       dispatch(setAuthInfo( { username, id, token } ));
 

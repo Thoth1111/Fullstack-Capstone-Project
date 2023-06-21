@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { setAuthInfo } from '../redux/authSlice';
+import authRequests from '../services/AuthRequests';
 import { encryptToken } from '../helpers/encryption';
-import axios from 'axios';
-import { encryptToken } from '../helpers/encryption';
-import { setToken } from '../redux/authSlice';
 
 function Login() {
   const location = useLocation();
@@ -35,14 +33,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', {
-        user: {
-          email,
-          password,
-        },
-      });
-
-      const { user, token } = response.data;
+      const { user, token } = await authRequests.login(email, password);
       const { username, id } = user;
       dispatch(setAuthInfo( { username, id, token } ));
       const encryptedToken = encryptToken(token);
