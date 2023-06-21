@@ -10,36 +10,45 @@ import icon4 from '../assets/icon4.png';
 import icon5 from '../assets/icon5.png';
 
 function NavigationPanel() {
-
   const dispatch = useDispatch();
-  
+
   const handleClearSession = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());
   };
 
   return (
-    <nav className="border text-lg font-bold fixed h-screen left-0 flex flex-col justify-between">
+    <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between">
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
-          <Link to="/">
+          <Link to="/Home">
             <img src={logo} alt="logo" className="w-32 h-40 rounded-lg" />
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/addroom" className="">Add Vespa</Link>
+          <Link to="/addroom" className="">
+            Add Vespa
+          </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/myreservations" className="">My Reservation</Link>
+          <Link to="/myreservations" className="">
+            My Reservation
+          </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/delete" className="">Delete Vespa</Link>
+          <Link to="/delete" className="">
+            Delete Vespa
+          </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/reserve" className="">Reserve</Link>
+          <Link to="/reserve" className="">
+            Reserve
+          </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/" className="" onClick={handleClearSession}>Sign Out</Link>
+          <Link to="/" className="" onClick={handleClearSession}>
+            Sign Out
+          </Link>
         </li>
       </ul>
       <div className="pb-8">

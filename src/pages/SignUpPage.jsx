@@ -5,7 +5,7 @@ import axios from 'axios';
 import { setAuthInfo } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 
-const SignUp = () => {
+function SignUp() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,21 +18,20 @@ const SignUp = () => {
 
     try {
       const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_up', {
-        "user": {
-          "username": username,
-          "email": email,
-          "password": password,
-          "password_confirmation": passwordConfirmation
-        }
+        user: {
+          username,
+          email,
+          password,
+          password_confirmation: passwordConfirmation,
+        },
       });
-      
-      const { user, token } = response.data;
-      const { username, id } = user;
-      dispatch(setAuthInfo( { username, id, token } ));
+
+      const { token } = response.data;
+      dispatch(setToken(token));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      navigate('/login', { state: { success: 'signedup' } })
+      navigate('/login', { state: { success: 'signedup' } });
     } catch (error) {
       console.error(error);
     }
@@ -41,9 +40,7 @@ const SignUp = () => {
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div>
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          Sign Up
-        </h2>
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign Up</h2>
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -52,7 +49,7 @@ const SignUp = () => {
               Username
             </label>
             <div className="mt-2">
-              <input 
+              <input
                 type="text"
                 placeholder="Username"
                 value={username}
@@ -65,12 +62,7 @@ const SignUp = () => {
               Email
             </label>
             <div className="mt-2">
-              <input 
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
           </div>
           <div>
@@ -78,7 +70,7 @@ const SignUp = () => {
               Password
             </label>
             <div className="mt-2">
-              <input 
+              <input
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -100,7 +92,7 @@ const SignUp = () => {
             </div>
           </div>
           <div>
-            <button 
+            <button
               type="submit"
               className="flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600"
             >
@@ -111,6 +103,6 @@ const SignUp = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SignUp;

@@ -1,9 +1,5 @@
 import './App.css';
-import {
-  Routes,
-  Route,
-  useLocation,
-} from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import SplashPage from './pages/SplashPage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
@@ -16,7 +12,7 @@ import AddReservations from './pages/AddReservations';
 
 function App() {
   const location = useLocation();
-  const isHomeOrDetails = location.pathname === '/Home' || location.pathname === '/details';
+  const isHomeOrDetails = location.pathname === '/home' || location.pathname === '/details';
 
   return (
     <>

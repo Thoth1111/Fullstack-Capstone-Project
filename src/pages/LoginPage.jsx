@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { setAuthInfo } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
-import { setToken } from '../redux/authSlice';
+import axios from 'axios';
 
 function Login() {
   const location = useLocation();
@@ -39,12 +40,13 @@ function Login() {
         },
       });
 
-      const { token } = response.data;
-      dispatch(setToken(token));
+      const { user, token } = response.data;
+      const { username, id } = user;
+      dispatch(setAuthInfo({ username, id, token }));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      navigate('/Home', { state: { success: 'loggedin' } });
+      navigate('/home', { state: { success: 'loggedin' } });
     } catch (error) {
       console.error(error);
     }
