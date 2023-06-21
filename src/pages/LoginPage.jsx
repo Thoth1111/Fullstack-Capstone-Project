@@ -6,6 +6,7 @@ import { encryptToken } from '../helpers/encryption';
 import axios from 'axios';
 
 function Login() {
+function Login() {
   const location = useLocation();
   const { state } = location;
   const success = state?.success;
@@ -33,6 +34,11 @@ function Login() {
     e.preventDefault();
 
     try {
+      const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', {
+        user: {
+          email,
+          password,
+        },
       const response = await axios.post('https://booking-api-nhmg.onrender.com/users/sign_in', {
         user: {
           email,
@@ -90,6 +96,7 @@ function Login() {
             </div>
             <div>
               <button
+              <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600"
               >
@@ -101,6 +108,7 @@ function Login() {
       </div>
     </>
   );
+}
 }
 
 export default Login;
