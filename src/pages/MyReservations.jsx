@@ -1,17 +1,12 @@
 import React from 'react';
-import axios from 'axios';
 import { useSelector } from 'react-redux';
+import Reservation from '../components/Reservation';
 
 function MyReservations() {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      {/* form inputs */}
-      <button type="submit">Submit</button>
-    </form>
+    <div className="flex flex-col">
+      <Reservation />
+    </div>
   );
 }
 
