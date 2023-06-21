@@ -19,7 +19,7 @@ function NavigationPanel() {
     setdeleteModalVisible(true);
   };
   
-  const closeDeleteModal = () => {
+  const handleCloseModal = () => {
     setdeleteModalVisible(false);
   };
 
@@ -49,7 +49,7 @@ function NavigationPanel() {
           <Link to="/" className="" onClick={handleClearSession}>Sign Out</Link>
         </li>
       </ul>
-      {deleteModalVisible && <DeleteModal onClose={closeDeleteModal} />}
+      {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
       <div className="pb-8">
         <div className="flex items-center w-full justify-center align-middle mb-8 gap-x-2">
           <a href="#">
