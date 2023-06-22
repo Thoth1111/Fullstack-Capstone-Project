@@ -11,18 +11,18 @@ function Vespa({icon:url , name,description }) {
     vibrant.then((pallete) => setPallete(pallete));
   }, []);
 
-  const vibrant = pallete?.Vibrant.getHex();
+  const myShade = pallete?.LightVibrant.getHex();
 
   return (
-    <div className=" h-96 w-60 items-center px-10 flex flex-col justify-between ">
+    <div className=" h-96 w-80 border-2 border-black  items-center px-10 flex flex-col justify-between ">
       <div
-        className=" relative p-2 w-52 mt-8 h-52 flex items-center rounded-full"
-        style={{ backgroundColor: vibrant }}
+        className=" relative p-2 w-60 mt-8 h-60 flex items-center rounded-full"
+        style={{ backgroundColor: myShade }}
       >
         <img
           src={url}
           alt=""
-          className="rounded-full absolute top-2/4 right-2/4 translate-x-1/2 -translate-y-1/2 h-48 w-48 "
+          className="rounded-full absolute top-2/4 right-2/4 translate-x-1/2 -translate-y-1/2 h-52 w-52 "
         />
       </div>
 
