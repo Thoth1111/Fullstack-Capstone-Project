@@ -1,6 +1,10 @@
 import backimg from '../assets/background.jpg';
 import { useState } from 'react';
 
+import { useGetAllVespasQuery, useCreateReservationMutation } from "../redux/vespaAPI"
+
+
+
 function AddReservations() {
   
   const data  = ["vespa1", "vespa2", "vespa3", "vespa4", "vespa5", "vespa6"]
@@ -11,24 +15,26 @@ function AddReservations() {
 
   const [startDateMaxDate, setStartDateMaxDate] = useState(null)
 
-  const [selectedVespa, setselectedVespa] = useState(data[0]);
-  const [startDate, setstartDate] = useState(null);
-  const [endDate, setendDate] = useState(null);
+  const [selectedVespa, setSelectedVespa] = useState(data[0]);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   // const {data , error, isLoading} = useGetAllVespasQuery();
 
+  const [createReservation, { isLoading: isCreating }] = useCreateReservationMutation();
+
   
   const handleDropDownChange = (e) => {
-    setselectedVespa(e.target.value);
+    setSelectedVespa(e.target.value);
   };
 
   const handleStartDateChange = (e) => {
-    setstartDate(e.target.value);
+    setStartDate(e.target.value);
     setEndDateMinDate(e.target.value)
   };
 
   const handleEndDateChange = (e) => {
-    setendDate(e.target.value);
+    setEndDate(e.target.value);
     setStartDateMaxDate(e.target.value)
   };
 
@@ -36,6 +42,15 @@ const handleSubmitClick = () => {
   console.log(selectedVespa);
   console.log(startDate);
   console.log(endDate);
+
+  const reservation = {
+    user : "user1",
+    vespa: selectedVespa,
+    startDate: startDate,
+    endDate: endDate
+}
+
+
 }
 
 

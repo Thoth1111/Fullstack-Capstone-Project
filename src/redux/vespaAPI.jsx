@@ -18,7 +18,18 @@ export const vespaApi = createApi({
     getAllVespas: builder.query({
       query: () => '/rooms',
     }),
+    getAllReservations: builder.query({
+      query: () => '/reservations',
+    }),
+
+    createReservation: builder.mutation({
+      query: (body) => ({
+        url: '/reservations',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllVespasQuery } = vespaApi;
+export const { useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery } = vespaApi;
