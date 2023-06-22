@@ -27,6 +27,7 @@ function AddReservations() {
 
   const handleDropDownChange = (e) => {
     setSelectedVespa(e.target.value);
+
   };
 
   const handleStartDateChange = (e) => {
@@ -40,10 +41,12 @@ function AddReservations() {
   };
 
   const handleSubmitClick = () => {
+
+  
     const reservation = {
       reservation: {
         user_id: userID,
-        room_id: 1,
+        room_id: selectedVespa,
         start_date: startDate,
         end_date: endDate,
         description: 'I made a reservation FINALLLYY!!',
@@ -67,6 +70,7 @@ function AddReservations() {
     );
   }
 
+
   return (
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
       <div className="absolute inset-0 overflow-hidden">
@@ -88,10 +92,11 @@ function AddReservations() {
 
       <div className="flex gap-4 z-10">
 
-        <select id="countries" value={selectedVespa} onChange={handleDropDownChange} className="text-white-200 font-semibold  h-12 mt-7  px-4 rounded-full bg-transparent border-2 border-white">
 
+        <select id="countries" value={selectedVespa} onChange={handleDropDownChange} className="text-white-200 font-semibold  h-12 mt-7  px-4 rounded-full bg-transparent border-2 border-white">
+          <option value="Select a Vespa" disabled selected>Choose a Vespa</option>
           {vespas.map((vespa) => (
-            <option value={vespa.name} key={vespa.id} className="text-black text-lg">
+            <option value={vespa.id} key={vespa.id} className="text-black text-lg">
               {vespa.name}
             </option>
           ))}
@@ -106,6 +111,8 @@ function AddReservations() {
             min={minDate}
             max={startDateMaxDate}
             name="start-date"
+            required
+            placeholder='dd-mm-yyyy'
             className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white"
           />
         </div>
@@ -113,7 +120,7 @@ function AddReservations() {
         <div className="flex-col items-center justify-center space-y-2 text-center">
           <p>End Date:</p>
 
-          <input onChange={handleEndDateChange} min={endDateMinDate} type="date" id="end-date" name="end-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
+          <input onChange={handleEndDateChange} required min={endDateMinDate} type="date" id="end-date" name="end-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
         </div>
 
         <button type="submit" onClick={handleSubmitClick} className="bg-white font-semibold text-[#96bf01] py-2 h-12 mt-7 px-10 rounded-full">
