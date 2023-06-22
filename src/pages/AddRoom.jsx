@@ -39,10 +39,16 @@ function AddRoom() {
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
-      <h1 className="text-white z-10 font-serif font-extrabold text-3xl">Add new vespa</h1>
+
+      <div className='z-10 absolute left-40 w-80 h-60 border-2 border-black'>
+
+          { vespaData.Url && <img src={vespaData.Url} alt="Background" className="h-full w-full object-fill " />}
+      </div>
+
+      <h1 className="text-white z-10 font-serif  ml-[350px]  font-extrabold text-3xl">Add new vespa</h1>
 
 
-      <form className="relative z-10 bg-white p-4 w-3/6 flex flex-col items-end" onSubmit={handleSubmit}>
+      <form className="relative z-10 bg-white p-4 w-2/6  ml-[350px] flex flex-col items-end" onSubmit={handleSubmit}>
       
         <div className="relative z-0 w-full mb-6 group">
           <input type="text" name="Name" id="Name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required onChange={handleInputChange} />
