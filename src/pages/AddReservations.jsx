@@ -89,7 +89,7 @@ function AddReservations() {
 
     
   {vespas.map((vespa) => (
-      <option value={vespa.name} key={vespa.id} className="text-black">
+      <option value={vespa.name} key={vespa.id} className="text-black text-lg">
         {vespa.name}
       </option>
     ))}
