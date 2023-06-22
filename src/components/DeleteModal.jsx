@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import {useGetAllVespasQuery} from  '../redux/vespaAPI'
 import apiRequests from '../services/ApiRequests';
 import { useSelector } from 'react-redux';
+import { useQuery } from 'react-query';
 
 function DeleteModal( { onClose }) {
     const token = useSelector((state) => state.persistedReducer.token);
-    const { data } = useGetAllVespasQuery();
+    const { data, refetch } = useGetAllVespasQuery();
 
     const [checked, setChecked] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -25,14 +26,14 @@ function DeleteModal( { onClose }) {
         for (const id of checked) {
             try {
                 await apiRequests.deleteVespa(id, token);
-                setVespasData(vespasData.filter((vespa) => vespa.id !== id));
-                useGetAllVespasQuery();
+                setVespasData((prevVespasData) => prevVespasData.filter((vespa) => vespa.id !== id));
             }
             catch (error) {
                 console.log(error);
             }
         }
         setIsLoading(false);
+        refetch();
     };
 
     const handleOutsideClick = (e) => {
