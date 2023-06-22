@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { clearAuthInfo } from '../redux/authSlice';
 import { Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
 import logo from '../assets/logo.jpg';
 import icon1 from '../assets/icon1.jpg';
 import icon2 from '../assets/icon2.png';
@@ -12,17 +13,27 @@ import icon5 from '../assets/icon5.png';
 function NavigationPanel() {
   const dispatch = useDispatch();
 
-  const handleClearSession = () => {
+  const [deleteModalVisible, setdeleteModalVisible] = useState(false);
+
+  const handleDelete = () => {
+    setdeleteModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setdeleteModalVisible(false);
+  }
+  
+  const handleSignOut = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());
   };
 
   return (
-    <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between">
+    <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between z-10">
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
-          <Link to="/home">
-            <img src={logo} alt="logo" className="w-32 h-40 rounded-lg" />
+          <Link to="/">
+            <img src={logo} alt="logo" className="w-40 h-35 mb-10 rounded-lg" />
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
@@ -36,9 +47,9 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/delete" className="">
+          <button className="" onClick={handleDelete}>
             Delete Vespa
-          </Link>
+          </button>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/reserve" className="">
@@ -46,6 +57,7 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
+
           <Link to="/delete" className="">
             Delete Vespa
           </Link>
@@ -53,9 +65,10 @@ function NavigationPanel() {
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
           <Link to="/" className="" onClick={handleClearSession}>
             Sign Out
-          </Link>
+
         </li>
       </ul>
+      {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
       <div className="pb-8">
         <div className="flex items-center w-full justify-center align-middle mb-8 gap-x-2">
           <a href="#">

@@ -16,7 +16,7 @@ export default function Carousel() {
   const { data, error, isLoading } = useGetAllVespasQuery();
 
   return (
-    <div className="h-5/6 flex ">
+    <div className="h-5/6 flex">
       <Slider {...settings} className="flex items-center  my-auto h-5/6 w-full">
         <Vespa />
         <Vespa />
