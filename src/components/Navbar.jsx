@@ -57,15 +57,7 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-
-          <Link to="/delete" className="">
-            Delete Vespa
-          </Link>
-        </li>
-        <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/" className="" onClick={handleClearSession}>
-            Sign Out
-
+          <Link to="/" className="" onClick={handleSignOut}>Sign Out</Link>
         </li>
       </ul>
       {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
