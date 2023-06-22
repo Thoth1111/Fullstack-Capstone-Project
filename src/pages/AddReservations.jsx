@@ -54,6 +54,18 @@ function AddReservations() {
     }
   };
 
+  const clearField = () => {
+    setSelectedVespa('');
+    setStartDate('');
+    setEndDate('');
+    setDescription('');
+    setStartDateMaxDate('')
+    
+
+
+  };
+
+
   const handleSubmit = (e) => {
 
     if (selectedVespa === '') {
@@ -81,7 +93,9 @@ function AddReservations() {
       };
 
       e.preventDefault();
+      clearField()
       createReservation(reservation);
+     
     }
 
 
@@ -148,6 +162,7 @@ function AddReservations() {
             onChange={handleStartDateChange}
             type="date"
             id="start-date"
+            value={startDate}
             min={minDate}
             max={startDateMaxDate}
             name="start-date"
@@ -160,7 +175,7 @@ function AddReservations() {
         <div className="flex-col items-center justify-center space-y-2 text-center">
           <p>End Date:</p>
 
-          <input onChange={handleEndDateChange} required min={endDateMinDate} type="date" id="end-date" name="end-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
+          <input onChange={handleEndDateChange} value={endDate} required min={endDateMinDate} type="date" id="end-date" name="end-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
         </div>
 
         
