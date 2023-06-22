@@ -11,7 +11,9 @@ function AddReservations() {
   
   const data  = ["vespa1", "vespa2", "vespa3", "vespa4", "vespa5", "vespa6"]
 
-  const userID = useSelector(selectUserID)
+  const userID = useSelector((state) => state.persistedReducer.id);
+
+  console.log(userID)
   const minDate = new Date().toISOString().slice(0, 10);
 
   const [endDateMinDate, setEndDateMinDate] = useState(minDate)
