@@ -10,6 +10,7 @@ import AddRoom from './pages/AddRoom';
 import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
 
+
 function App() {
   const location = useLocation();
   const isHomeOrDetails = location.pathname === '/home' || location.pathname === '/details';
