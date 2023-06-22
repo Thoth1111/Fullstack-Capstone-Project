@@ -5,11 +5,8 @@ import backimg from '../assets/background.jpg';
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
 
 function AddReservations() {
-  // const data = ['vespa1', 'vespa2', 'vespa3', 'vespa4', 'vespa5', 'vespa6'];
 
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
-
-  console.log(vespas);
 
   const userID = useSelector((state) => state.persistedReducer.id);
 
