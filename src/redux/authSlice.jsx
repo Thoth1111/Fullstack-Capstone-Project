@@ -22,6 +22,12 @@ const authSlice = createSlice({
   },
 });
 
+export const selectAuthInfo = (state) => state.persistedReducer;
+export const selectToken = (state) => state.persistedReducer.token;
+export const selectUsername = (state) => state.persistedReducer.username;
+export const selectUserId = (state) => state.persistedReducer.id;
+
+
 export const { setAuthInfo, clearAuthInfo } = authSlice.actions;
 
 export default authSlice.reducer;
