@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import backimg from '../assets/background.jpg';
 
-import useToast from '../helpers/useToast';
-import Toast from '../components/Toast';
+// import useToast from '../helpers/useToast';
+import {Toast,useToast} from '../components/Toast';
 
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
 

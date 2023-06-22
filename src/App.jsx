@@ -9,20 +9,17 @@ import NavigationPanel from './components/Navbar';
 import AddRoom from './pages/AddRoom';
 import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
-import Toast from './components/Toast';
 import { useState } from 'react';
 
 
 function App() {
 
-  const [showToast, setShowToast] = useState(true);
   
   const location = useLocation();
   const isHomeOrDetails = location.pathname === '/home' || location.pathname === '/details';
 
   return (
     <>
-     {/* { showToast &&  <Toast message="Hey" type="error" />} */}
       {isHomeOrDetails && <NavigationPanel />}
       <Routes>
         <Route path="/" element={<SplashPage />} />
