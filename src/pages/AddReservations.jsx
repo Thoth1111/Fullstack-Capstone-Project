@@ -6,10 +6,10 @@ import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/ves
 
 function AddReservations() {
   // const data = ['vespa1', 'vespa2', 'vespa3', 'vespa4', 'vespa5', 'vespa6'];
-  
-  const { data:vespas, error, isLoading } = useGetAllVespasQuery();
 
-  console.log(vespas)
+  const { data: vespas, error, isLoading } = useGetAllVespasQuery();
+
+  console.log(vespas);
 
   const userID = useSelector((state) => state.persistedReducer.id);
 
@@ -19,12 +19,9 @@ function AddReservations() {
 
   const [startDateMaxDate, setStartDateMaxDate] = useState(null);
 
-  const [selectedVespa, setSelectedVespa] = useState('Select a Vespa')
+  const [selectedVespa, setSelectedVespa] = useState('Select a Vespa');
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
-
-
 
   const [createReservation, { isLoading: isCreating }] = useCreateReservationMutation();
 
@@ -61,9 +58,14 @@ function AddReservations() {
   }
 
   if (error) {
-    return <div>Something went wrong: {error}</div>;
+    return (
+      <div>
+        Something went wrong:
+        {' '}
+        {error}
+      </div>
+    );
   }
-
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
@@ -79,7 +81,8 @@ function AddReservations() {
         {' '}
         {vespas.length}
         {' '}
-        Vespas available for rent. Please select the Vespa you want to rent, and the start and end date of your reservation
+        Vespas available for rent. Please select the Vespa you want to rent, 
+        and the start and end date of your reservation
 
       </p>
 
@@ -87,12 +90,11 @@ function AddReservations() {
 
         <select id="countries" value={selectedVespa} onChange={handleDropDownChange} className="text-white-200 font-semibold  h-12 mt-7  px-4 rounded-full bg-transparent border-2 border-white">
 
-    
-  {vespas.map((vespa) => (
-      <option value={vespa.name} key={vespa.id} className="text-black text-lg">
-        {vespa.name}
-      </option>
-    ))}
+          {vespas.map((vespa) => (
+            <option value={vespa.name} key={vespa.id} className="text-black text-lg">
+              {vespa.name}
+            </option>
+          ))}
         </select>
         <div className="flex-col items-center justify-center space-y-2 text-center">
           <p>Start Date:</p>
