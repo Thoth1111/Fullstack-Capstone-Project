@@ -20,14 +20,14 @@ function AddReservations() {
   const userID = useSelector((state) => state.persistedReducer.id);
 
   const minDate = new Date().toISOString().slice(0, 10);
-
-  const [endDateMinDate, setEndDateMinDate] = useState(minDate);
-
   const [displayBool, message, type, showToast] = useToast();
 
+  
+  
+  
+  const [endDateMinDate, setEndDateMinDate] = useState(minDate);
   const [startDateMaxDate, setStartDateMaxDate] = useState('');
   const [description, setDescription] = useState('');
-
   const [selectedVespa, setSelectedVespa] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
