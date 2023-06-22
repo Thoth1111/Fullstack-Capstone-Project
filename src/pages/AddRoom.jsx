@@ -1,4 +1,8 @@
 import {useState} from 'react';
+import {useCreateNewVespaMutation} from '../redux/vespaAPI';
+
+import { Toast, useToast } from '../components/Toast';
+
 import backimg from '../assets/background.jpg';
 
 
@@ -6,19 +10,21 @@ import backimg from '../assets/background.jpg';
 
 function AddRoom() {
 
-  // const [Name, setName] = useState('')
-  // const [Description, setDescription] = useState('')
-  // const [url, setURL] = useState('')
-  // const [price, setPrice] = useState('')
+ 
 
+  const [createVespa, {isLoading: isCreating}] = useCreateNewVespaMutation();
 
-  const [vespaData , setVespaData] = useState({
+  const [displayBool, message, type, showToast] = useToast();
+
+  let initialVespaData = {
     Name: '',
     Description: '',
     Url: '',
     Price: ''
 
-  })
+  }
+
+  const [vespaData , setVespaData] = useState(initialVespaData)
 
   const handleInputChange = (e) => {
     setVespaData({
@@ -30,11 +36,31 @@ function AddRoom() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(vespaData)
+
+    let newVespa = {
+      room:{
+        name: vespaData.Name,
+        description: vespaData.Description,
+        icon : vespaData.Url,
+        cost_per_day: vespaData.Price
+      }
+
+    }
+
+    createVespa(newVespa)
+    showToast('Vespa added successfully', 'success')
+
+    setVespaData(initialVespaData)
+
   }
 
   return (
+
+    
+
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
+
+      {displayBool && <Toast message={message} type={type}/>}
       <div className="absolute inset-0 overflow-hidden">
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />

@@ -107,7 +107,7 @@ function AddReservations() {
 
       e.preventDefault();
       clearField()
-      let res =   createReservation(reservation);
+      createReservation(reservation);
       
       showToast('Reservation Made Successfully', 'success');
 
