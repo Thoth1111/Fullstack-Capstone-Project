@@ -9,6 +9,8 @@ function AddReservations() {
 
   const [endDateMinDate, setEndDateMinDate] = useState(minDate)
 
+  const [startDateMaxDate, setStartDateMaxDate] = useState(null)
+
   const [selectedVespa, setselectedVespa] = useState(data[0]);
   const [startDate, setstartDate] = useState(null);
   const [endDate, setendDate] = useState(null);
@@ -27,6 +29,7 @@ function AddReservations() {
 
   const handleEndDateChange = (e) => {
     setendDate(e.target.value);
+    setStartDateMaxDate(e.target.value)
   };
 
 const handleSubmitClick = () => {
@@ -66,7 +69,8 @@ const handleSubmitClick = () => {
         <div className='flex-col items-center justify-center space-y-2 text-center'>
         <p>Start Date:</p>
 
-        <input onChange={handleStartDateChange} type="date" id="start-date" min={minDate} name="start-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white"  />
+        <input onChange={handleStartDateChange} type="date" id="start-date" min={minDate} 
+        max={startDateMaxDate}  name="start-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white"  />
         </div>
 
         <div className='flex-col items-center justify-center space-y-2 text-center'>
