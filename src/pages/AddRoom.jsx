@@ -3,6 +3,8 @@ import {useCreateNewVespaMutation} from '../redux/vespaAPI';
 
 import { Toast, useToast } from '../components/Toast';
 
+import {useNavigate} from 'react-router-dom';
+
 import backimg from '../assets/background.jpg';
 
 
@@ -15,6 +17,7 @@ function AddRoom() {
   const [createVespa, {isLoading: isCreating}] = useCreateNewVespaMutation();
 
   const [displayBool, message, type, showToast] = useToast();
+  const navigate = useNavigate();
 
   let initialVespaData = {
     Name: '',
@@ -34,6 +37,9 @@ function AddRoom() {
 
   }
 
+  const handleGoBack = () => {
+    navigate('/home');
+  };
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -61,6 +67,11 @@ function AddRoom() {
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
 
       {displayBool && <Toast message={message} type={type}/>}
+
+      <button className='z-10 absolute left-0 top-0 m-4  ' onClick={handleGoBack}>
+
+<svg className="h-20 w-20 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <polyline points="12 8 8 12 12 16" />  <line x1="16" y1="12" x2="8" y2="12" /></svg>
+</button>
       <div className="absolute inset-0 overflow-hidden">
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
@@ -68,9 +79,12 @@ function AddRoom() {
 
 
       {/* For a vespa image preview */}
-      <div className='z-10 absolute left-40 w-80 h-80  outline-4 outline rounded-full'>
+      <div className='z-10 absolute left-40 top-52 w-80 h-80 text-center flex items-center justify-center outline-4 outline rounded-full'>
 
           { vespaData.Url && <img src={vespaData.Url} alt="Background" className="w-80 h-80 rounded-full object-fill " />}
+
+          { !vespaData.Url && <p className='text-lg font-bold'>Image Preview</p>  }
+
       </div>
 
       <h1 className="text-white z-10 font-serif  ml-[350px]  font-extrabold text-3xl">Add new vespa</h1>
