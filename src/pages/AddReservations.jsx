@@ -5,6 +5,10 @@ function AddReservations() {
   
   const data  = ["vespa1", "vespa2", "vespa3", "vespa4", "vespa5", "vespa6"]
 
+  const minDate = new Date().toISOString().slice(0, 10);
+
+  const [endDateMinDate, setEndDateMinDate] = useState(minDate)
+
   const [selectedVespa, setselectedVespa] = useState(data[0]);
   const [startDate, setstartDate] = useState(null);
   const [endDate, setendDate] = useState(null);
@@ -18,6 +22,7 @@ function AddReservations() {
 
   const handleStartDateChange = (e) => {
     setstartDate(e.target.value);
+    setEndDateMinDate(e.target.value)
   };
 
   const handleEndDateChange = (e) => {
@@ -46,7 +51,7 @@ const handleSubmitClick = () => {
       </p>
      
      
-      <div className="flex gap-4 border-2 border-black z-10">
+      <div className="flex gap-4 z-10">
 
         <select id="countries" value={selectedVespa} onChange={handleDropDownChange} className="text-white-200 font-semibold  h-12 mt-7  px-4 rounded-full bg-transparent border-2 border-white">
 
@@ -60,12 +65,14 @@ const handleSubmitClick = () => {
         </select>
         <div className='flex-col items-center justify-center space-y-2 text-center'>
         <p>Start Date:</p>
-        <input onChange={handleStartDateChange} type="date" id="start-date" name="start-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white"  />
+
+        <input onChange={handleStartDateChange} type="date" id="start-date" min={minDate} name="start-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white"  />
         </div>
 
         <div className='flex-col items-center justify-center space-y-2 text-center'>
         <p>End Date:</p>
-        <input onChange={handleEndDateChange} type="date" id="end-date" name="end-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
+
+        <input onChange={handleEndDateChange} min={endDateMinDate} type="date" id="end-date" name="end-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
         </div>
 
         <button type="submit" onClick={handleSubmitClick} className="bg-white font-semibold text-[#96bf01] py-2 h-12 mt-7 px-10 rounded-full">
