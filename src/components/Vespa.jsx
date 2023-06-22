@@ -3,9 +3,7 @@ import * as VibrantAPI from 'node-vibrant';
 // import { Outlet } from 'react-router-dom';
 import getPallete from '../helpers/pallete';
 
-function Vespa() {
-  const url =
-    'https://cdn.xxl.thumbs.canstockphoto.com/yellow-muscle-car-yellow-muscle-car-against-dark-cloudy-background-stock-photos_csp2503213.jpg';
+function Vespa({icon:url , name,description }) {
 
   const [pallete, setPallete] = useState();
   useEffect(() => {
@@ -29,9 +27,9 @@ function Vespa() {
       </div>
 
       <div>
-        <h3>Vespa Name</h3>
+        <h3>{name}</h3>
         <p>...................</p>
-        <p>Vespa details Go herer</p>
+        <p>{description}</p>
       </div>
 
       <div className="flex">

@@ -20,12 +20,13 @@ export default function Carousel() {
   return (
     <div className="h-5/6 flex">
       <Slider {...settings} className="flex items-center  my-auto h-5/6 w-full">
-        <Vespa />
-        <Vespa />
-        <Vespa />
-        <Vespa />
-        <Vespa />
-        <Vespa />
+
+        {vespas?.map((vespa) => (
+          <Vespa key={vespa.id} {...vespa} />
+        ))}
+        
+
+
       </Slider>
     </div>
   );
