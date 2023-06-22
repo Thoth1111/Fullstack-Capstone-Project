@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
-import splash from '../assets/splash.jpg';
+import limeSplash from '../assets/limeSplash.png';
+import vespa from '../assets/vespa.png';
 
 function SplashPage() {
   return (
-    <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
+    <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative bg-[#FFB400]">
+      <img src={vespa} alt="logo" className="absolute top-8 left-10 h-70 w-60" />
       <div className="absolute inset-0 overflow-hidden">
-        <img src={splash} alt="Background" className="h-full w-full object-fill " />
+        <img src={limeSplash} alt="Background" className="h-full w-full object-fill" />
       </div>
       <ul className="z-10 mt-[12.9rem]">
         <li>
           <Link
             to="/signup"
-            className="text-white py-2.5 text-center flex justify-around items-center bg-[#96bf01] mr-2 mb-2 w-52 rounded-full"
+            className="text-white py-2.5 text-center text-lg font-semibold flex justify-around items-center bg-[#96bf01] mr-2 mb-2 w-52 rounded-full"
           >
             <svg
               className="h-8 w-8 text-white"
@@ -48,7 +50,7 @@ function SplashPage() {
         <li className="">
           <Link
             to="/login"
-            className="text-white py-2.5 text-center flex justify-around items-center bg-[#96bf01] mr-2 mb-2 w-52 rounded-full"
+            className="text-white py-2.5 text-center text-lg font-semibold flex justify-around items-center bg-[#96bf01] mr-2 mb-2 w-52 rounded-full"
           >
             <svg
               className="h-8 w-8 text-white"
