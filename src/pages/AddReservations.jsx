@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import backimg from '../assets/background.jpg';
 
@@ -6,7 +6,11 @@ import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/ves
 
 function AddReservations() {
 
+ let  vespaRef = useRef(null);
+ let vespaErrorRef = useRef(null);
+
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
+
 
   const userID = useSelector((state) => state.persistedReducer.id);
 
@@ -17,7 +21,7 @@ function AddReservations() {
   const [startDateMaxDate, setStartDateMaxDate] = useState(null);
   const [description, setDescription] = useState('');
 
-  const [selectedVespa, setSelectedVespa] = useState();
+  const [selectedVespa, setSelectedVespa] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -42,18 +46,45 @@ function AddReservations() {
     setDescription(e.target.value);
   };
 
-  const handleSubmitClick = () => {
-    const reservation = {
-      reservation: {
-        user_id: userID,
-        room_id: selectedVespa,
-        start_date: startDate,
-        end_date: endDate,
-        description: description,
-      },
-    };
+  const handleVespaOnBlur = (e) => {
+    if (selectedVespa !== '') {
+      vespaErrorRef.current.classList.add('invisible');
+      vespaRef.current.classList.remove('border-red-700');
+      vespaRef.current.classList.add('border-white');
+    }
+  };
 
-    createReservation(reservation);
+  const handleSubmit = (e) => {
+
+    if (selectedVespa === '') {
+
+      vespaErrorRef.current.classList.remove('invisible');
+      vespaRef.current.classList.remove('border-white');
+      
+      vespaRef.current.classList.add('border-red-700');
+      e.preventDefault();
+    }
+  
+    else{
+      vespaErrorRef.current.classList.add('invisible');
+      vespaRef.current.classList.remove('border-red-700');
+      vespaRef.current.classList.add('border-white');
+     
+      const reservation = {
+        reservation: {
+          user_id: userID,
+          room_id: selectedVespa,
+          start_date: startDate,
+          end_date: endDate,
+          description: description,
+        },
+      };
+
+      e.preventDefault();
+      createReservation(reservation);
+    }
+
+
   };
 
   if (isLoading) {
@@ -91,20 +122,25 @@ function AddReservations() {
       </p>
     
 
-      <form action=" " className="z-10 flex flex-col">
+      <form action=" " onSubmit={handleSubmit} className="z-10 flex flex-col">
         <div className="flex space-y-4 flex-col items-center  z-10 ">
         <div className="flex gap-4 z-10">
 
-
-        <select id="countries" value={selectedVespa} defaultValue="Choose A Vespa" onChange={handleDropDownChange} className="text-white-200 font-semibold  h-12 mt-7 required px-4 rounded-full bg-transparent border-2 border-white">
-          <option value="Select a Vespa" disabled defaultValue={"Choose A Vespa"} >Choose a Vespa</option>
+        <div className = "flex flex-col space-y-0 items-center mt-1.5">
+        
+        <small ref={vespaErrorRef} className='mb-1 invisible text-red-700'> Select a Vespa</small>
+       
+        <select id="countries" ref={vespaRef} value={selectedVespa} onChange={handleDropDownChange} onBlur ={handleVespaOnBlur} className="text-white-200 font-semibold  h-12 mt-7 required px-4 rounded-full bg-transparent border-2 border-white">
+          <option value="" disabled="" className="hidden" >Choose a Vespa</option>
+         
+         
           {vespas.map((vespa) => (
             <option value={vespa.id} key={vespa.id} className="text-black text-lg">
               {vespa.name}
             </option>
           ))}
         </select>
-      
+          </div>
         <div className="flex-col items-center justify-center space-y-2 text-center">
           <p>Start Date:</p>
 
@@ -133,7 +169,7 @@ function AddReservations() {
       <input type="text" required value={description} placeholder="Enter a description of the reservation " className=" text-white-200 font-semibold py-2 placeholder-white w-full px-4 rounded-full bg-transparent border-2 border-white" onChange={handleDescriptionChange} />
 
 
-      <button type="submit" onClick={handleSubmitClick} className="bg-white  text-center font-semibold text-[#96bf01] py-2 h-12 mt-7  w-40 px-10 rounded-full">
+      <button type="submit" className="bg-white  text-center font-semibold text-[#96bf01] py-2 h-12 mt-7  w-40 px-10 rounded-full">
           Book now
      </button>
       </div>
