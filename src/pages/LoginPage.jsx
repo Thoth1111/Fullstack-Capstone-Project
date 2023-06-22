@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { setAuthInfo } from '../redux/authSlice';
-import authRequests from '../services/AuthRequests';
+import apiRequests from '../services/ApiRequests';
 import { encryptToken } from '../helpers/encryption';
 
 function Login() {
@@ -33,7 +33,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const { user, token } = await authRequests.login(email, password);
+      const { user, token } = await apiRequests.login(email, password);
       const { username, id } = user;
       dispatch(setAuthInfo( { username, id, token } ));
       const encryptedToken = encryptToken(token);

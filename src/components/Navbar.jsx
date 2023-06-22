@@ -29,7 +29,7 @@ function NavigationPanel() {
   };
 
   return (
-    <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between">
+    <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between z-10">
       <ul className="flex flex-col pl-4">
         <li className="mb-4 ml-2">
           <Link to="/">

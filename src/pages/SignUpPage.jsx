@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import authRequests from '../services/AuthRequests';
+import apiRequests from '../services/ApiRequests';
 import { setAuthInfo } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 
@@ -17,7 +17,7 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const { user, token } = await authRequests.signUp(username, email, password, passwordConfirmation);
+      const { user, token } = await apiRequests.signUp(username, email, password, passwordConfirmation);
       const { username, id } = user;
       dispatch(setAuthInfo( { username, id, token } ));
 

@@ -32,9 +32,23 @@ const login = async (email, password) => {
     }
 };
 
-const authRequests = {
-    signUp,
-    login,
+const deleteVespa = async (id, token) => {
+    try {
+        const response = await axios.delete(`${BASE_URL}/rooms/${id}`, {
+            headers: {
+                Authorization: `${token}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
 };
 
-export default authRequests;
+const apiRequests = {
+    signUp,
+    login,
+    deleteVespa,
+};
+
+export default apiRequests;
