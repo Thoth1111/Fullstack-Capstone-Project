@@ -3,13 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-}doit 
 
 .slick-next {
   right: -30px;
@@ -33,4 +26,10 @@
 .slick-prev::before {
   color: rgb(38, 255, 0);
   font-size: 50px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
