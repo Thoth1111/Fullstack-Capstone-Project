@@ -2,6 +2,10 @@ import { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import backimg from '../assets/background.jpg';
 
+import useToast from '../helpers/useToast';
+
+import Toast from '../components/Toast';
+
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
 
 function AddReservations() {
@@ -18,12 +22,14 @@ function AddReservations() {
 
   const [endDateMinDate, setEndDateMinDate] = useState(minDate);
 
-  const [startDateMaxDate, setStartDateMaxDate] = useState(null);
+  const [displayBool, message, type, showToast] = useToast();
+
+  const [startDateMaxDate, setStartDateMaxDate] = useState('');
   const [description, setDescription] = useState('');
 
   const [selectedVespa, setSelectedVespa] = useState('');
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   const [createReservation, { isLoading: isCreating }] = useCreateReservationMutation();
 
@@ -94,8 +100,10 @@ function AddReservations() {
 
       e.preventDefault();
       clearField()
-      createReservation(reservation);
-     
+      let res =   createReservation(reservation);
+      
+      showToast('Reservation Made Successfully', 'success');
+
     }
 
 
@@ -118,6 +126,9 @@ function AddReservations() {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
+
+      {displayBool && <Toast message={message} type={type}/>}
+      
       <div className="absolute inset-0 overflow-hidden">
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
