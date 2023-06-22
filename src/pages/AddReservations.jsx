@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import backimg from '../assets/background.jpg';
 
+import { useNavigate } from 'react-router-dom';
+
 // import useToast from '../helpers/useToast';
 import {Toast,useToast} from '../components/Toast';
 
@@ -35,6 +37,12 @@ function AddReservations() {
   const handleDropDownChange = (e) => {
     setSelectedVespa(e.target.value);
 
+  };
+
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate('/home');
   };
 
   const handleStartDateChange = (e) => {
@@ -127,6 +135,11 @@ function AddReservations() {
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
 
       {displayBool && <Toast message={message} type={type}/>}
+
+      <button className='z-10 absolute left-0 top-0 m-4  ' onClick={handleGoBack}>
+
+      <svg className="h-20 w-20 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <polyline points="12 8 8 12 12 16" />  <line x1="16" y1="12" x2="8" y2="12" /></svg>
+      </button>
       
       <div className="absolute inset-0 overflow-hidden">
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
