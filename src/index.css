@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .slick-next {
   right: -30px;
   width: 30px;
