@@ -12,6 +12,7 @@ function AddReservations() {
   const vespaErrorRef = useRef(null);
 
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
+  const [createReservation, { isLoading: isCreating ,data: mutationData }] = useCreateReservationMutation();
 
   const userID = useSelector((state) => state.persistedReducer.id);
 
@@ -24,7 +25,7 @@ function AddReservations() {
     description: '',
     selectedVespa: '',
   };
-
+  
   const [reservationData, setReservationData] = useState(initialFormData);
 
   const handleOnChange = (e) => {
@@ -37,7 +38,6 @@ function AddReservations() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
-  const [createReservation, { isLoading: isCreating }] = useCreateReservationMutation();
 
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
@@ -82,6 +82,7 @@ function AddReservations() {
       e.preventDefault();
       setReservationData(initialFormData);
       createReservation(reservation);
+      console.log(mutationData);
 
       showToast('Reservation Made Successfully', 'success');
     }

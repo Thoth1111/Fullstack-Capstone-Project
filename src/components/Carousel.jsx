@@ -15,7 +15,6 @@ export default function Carousel() {
 
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
 
-  console.log(vespas);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Oops! Something went wrong...</p>;
