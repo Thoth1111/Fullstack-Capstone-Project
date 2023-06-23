@@ -2,6 +2,7 @@ import React from 'react';
 import Reservation from '../components/Reservation';
 import { useGetAllReservationsQuery } from '../redux/reservationAPI';
 import backimg from '../assets/background.jpg';
+import BackButton from '../components/BackButton';
 
 function MyReservations() {
   const { data: reservations = [], isLoading } = useGetAllReservationsQuery();
@@ -12,6 +13,9 @@ function MyReservations() {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
+
+      <BackButton />
+
       <div className="absolute inset-0 overflow-hidden">
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />

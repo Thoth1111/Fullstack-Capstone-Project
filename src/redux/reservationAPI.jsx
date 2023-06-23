@@ -18,7 +18,16 @@ export const reservationApi = createApi({
     getAllReservations: builder.query({
       query: () => '/reservations',
     }),
+
+    createReservation: builder.mutation({
+      query: (body) => ({
+        url: '/reservations',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
+
 });
 
-export const { useGetAllReservationsQuery } = reservationApi;
+export const { useGetAllReservationsQuery, useCreateReservationMutation } = reservationApi;

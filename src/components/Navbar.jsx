@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { clearAuthInfo } from '../redux/authSlice';
 import { Link } from 'react-router-dom';
+import { clearAuthInfo } from '../redux/authSlice';
 import DeleteModal from './DeleteModal';
 import logo from '../assets/logo.jpg';
 import icon1 from '../assets/icon1.jpg';
@@ -21,8 +21,8 @@ function NavigationPanel() {
 
   const handleCloseModal = () => {
     setdeleteModalVisible(false);
-  }
-  
+  };
+
   const handleSignOut = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());

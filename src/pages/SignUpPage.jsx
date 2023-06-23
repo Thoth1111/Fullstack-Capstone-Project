@@ -19,7 +19,7 @@ function SignUp() {
     try {
       const { user, token } = await apiRequests.signUp(username, email, password, passwordConfirmation);
       const { username, id } = user;
-      dispatch(setAuthInfo( { username, id, token } ));
+      dispatch(setAuthInfo({ username, id, token }));
 
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
