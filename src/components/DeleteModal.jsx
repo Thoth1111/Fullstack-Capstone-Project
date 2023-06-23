@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-
-
 import { useQuery } from 'react-query';
 import { useGetAllVespasQuery } from '../redux/vespaAPI';
 import apiRequests from '../services/ApiRequests';
-
-
 
 function DeleteModal({ onClose }) {
   const token = useSelector((state) => state.persistedReducer.token);
