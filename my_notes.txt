@@ -9,3 +9,5 @@
 !! You can improve Toast.jsx ask chat check my own slack
 
 !! Headers to bypass CORS -- check the backend ask Chat
+
+!! style myReservations a bit better

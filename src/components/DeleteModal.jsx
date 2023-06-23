@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import { useGetAllVespasQuery , useDeleteVespaMutation } from '../redux/vespaAPI';
-// import apiRequests from '../services/ApiRequests';
+import { useGetAllVespasQuery, useDeleteVespaMutation } from '../redux/vespaAPI';
 
 function DeleteModal({ onClose }) {
-
-  const { data:vespasData,  } = useGetAllVespasQuery();
+  const { data: vespasData } = useGetAllVespasQuery();
 
   const [deleteVespa, { isLoading: isDeleting }] = useDeleteVespaMutation();
 
   const [checked, setChecked] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  // const [vespasData, setVespasData] = useState(data);
 
   const handleCheckbox = (id) => {
     if (checked.includes(id)) {
@@ -23,19 +19,13 @@ function DeleteModal({ onClose }) {
   };
 
   const handleDelete = async () => {
-
-
     for (const id of checked) {
       try {
-
         deleteVespa(id);
-    
-
       } catch (error) {
         console.log(error);
       }
     }
-    
   };
 
   const handleOutsideClick = (e) => {
