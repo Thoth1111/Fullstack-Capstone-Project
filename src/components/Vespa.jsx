@@ -27,7 +27,7 @@ function Vespa({icon:url , name,description }) {
       </div>
 
       <div>
-        <h3>{name}</h3>
+        <h3 className='font-bold text-xl'>{name}</h3>
         <p>...................</p>
         <p>{description}</p>
       </div>
