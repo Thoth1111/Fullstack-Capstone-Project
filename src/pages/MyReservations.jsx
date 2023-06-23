@@ -1,11 +1,11 @@
 import React from 'react';
 import Reservation from '../components/Reservation';
-import { useGetAllReservationsQuery } from '../redux/reservationAPI';
+import { useGetAllReservationsQuery} from '../redux/vespaAPI';
 import backimg from '../assets/background.jpg';
 import BackButton from '../components/BackButton';
 
 function MyReservations() {
-  const { data: reservations = [], isLoading } = useGetAllReservationsQuery();
+  const { data: reservations, isLoading } = useGetAllReservationsQuery();
 
   if (isLoading) {
     return <div>Loading API...</div>;
