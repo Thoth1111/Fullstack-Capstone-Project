@@ -14,9 +14,14 @@ export const vespaApi = createApi({
     },
   }),
   keepUnusedDataFor: 60 * 60 * 60,
+  tagTypes: ['Vespa'],
   endpoints: (builder) => ({
     getAllVespas: builder.query({
       query: () => '/rooms',
+      providesTags: (result)=>
+      result
+      ? [...result.map(({ id }) => ({ type: 'Vespa', id })), { type: 'Vespa', id: 'LIST' }]
+      : [{ type: 'Vespa', id: 'LIST' }],
     }),
 
     createNewVespa: builder.mutation({
@@ -25,6 +30,8 @@ export const vespaApi = createApi({
         method: 'POST',
         body,
       }),
+
+      invalidatesTags: [{ type: 'Vespa', id: 'LIST' }],
     }),
 
     getAllReservations: builder.query({
@@ -41,4 +48,6 @@ export const vespaApi = createApi({
   }),
 });
 
-export const { useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery ,useCreateNewVespaMutation } = vespaApi;
+export const {
+  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation,
+} = vespaApi;

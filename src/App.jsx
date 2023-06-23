@@ -1,5 +1,6 @@
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 import SplashPage from './pages/SplashPage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
@@ -9,12 +10,8 @@ import NavigationPanel from './components/Navbar';
 import AddRoom from './pages/AddRoom';
 import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
-import { useState } from 'react';
-
 
 function App() {
-
-  
   const location = useLocation();
   const isHomeOrDetails = location.pathname === '/home' || location.pathname === '/details';
 

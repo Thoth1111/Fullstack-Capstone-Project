@@ -13,19 +13,20 @@ export default function Carousel() {
     arrows: true,
   };
 
-  const { data:vespas, error, isLoading } = useGetAllVespasQuery();
+  const { data: vespas, error, isLoading } = useGetAllVespasQuery();
 
-    console.log(vespas)
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Oops! Something went wrong...</p>;
 
   return (
     <div className="h-5/6 flex">
       <Slider {...settings} className="flex items-center  my-auto h-5/6 w-full">
-        <Vespa />
-        <Vespa />
-        <Vespa />
-        <Vespa />
-        <Vespa />
-        <Vespa />
+
+        {vespas?.map((vespa) => (
+          <Vespa key={vespa.id} {...vespa} />
+        ))}
+
       </Slider>
     </div>
   );
