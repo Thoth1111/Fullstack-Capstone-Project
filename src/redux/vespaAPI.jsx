@@ -45,11 +45,9 @@ export const vespaApi = createApi({
 
     getAllReservations: builder.query({
       query: () => '/reservations',
-      providesTags: (result)=>
-      result
-      ? [...result.map(({ id }) => ({ type: 'Reservation', id })), { type: 'Reservation', id: 'LIST' }]
-      : [{ type: 'Reservation', id: 'LIST' }],
-
+      providesTags: (result) => (result
+        ? [...result.map(({ id }) => ({ type: 'Reservation', id })), { type: 'Reservation', id: 'LIST' }]
+        : [{ type: 'Reservation', id: 'LIST' }]),
 
     }),
 

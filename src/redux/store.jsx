@@ -3,7 +3,6 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './authSlice';
 import { vespaApi } from './vespaAPI';
-// import { reservationApi } from './reservationAPI';
 
 const persistConfig = {
   key: 'root',

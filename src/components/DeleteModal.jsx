@@ -5,8 +5,8 @@ import { useGetAllVespasQuery , useDeleteVespaMutation } from '../redux/vespaAPI
 // import apiRequests from '../services/ApiRequests';
 
 function DeleteModal({ onClose }) {
-  const token = useSelector((state) => state.persistedReducer.token);
-  const { data:vespasData, refetch } = useGetAllVespasQuery();
+
+  const { data:vespasData,  } = useGetAllVespasQuery();
 
   const [deleteVespa, { isLoading: isDeleting }] = useDeleteVespaMutation();
 
@@ -23,21 +23,19 @@ function DeleteModal({ onClose }) {
   };
 
   const handleDelete = async () => {
-    setIsLoading(true);
+
 
     for (const id of checked) {
       try {
 
         deleteVespa(id);
-        // await apiRequests.deleteVespa(id, token);
-        // setVespasData((prevVespasData) => prevVespasData.filter((vespa) => vespa.id !== id));
+    
 
       } catch (error) {
         console.log(error);
       }
     }
-    // setIsLoading(false);
-    // refetch();
+    
   };
 
   const handleOutsideClick = (e) => {
