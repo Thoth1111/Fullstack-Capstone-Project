@@ -11,3 +11,5 @@
 !! Headers to bypass CORS -- check the backend ask Chat
 
 !! style myReservations a bit better
+
+!! Add an image preview in AddReservations

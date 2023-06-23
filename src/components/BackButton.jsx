@@ -11,7 +11,7 @@ function BackButton() {
 
     <button className="z-10 absolute left-0 top-0 m-4  " onClick={handleGoBack}>
 
-      <svg className="h-20 w-20 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="h-20 w-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         {' '}
         <circle cx="12" cy="12" r="10" />
         {' '}
