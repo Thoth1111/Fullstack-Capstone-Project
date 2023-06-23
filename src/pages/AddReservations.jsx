@@ -4,7 +4,6 @@ import backimg from '../assets/background.jpg';
 
 import { useNavigate } from 'react-router-dom';
 
-// import useToast from '../helpers/useToast';
 import {Toast,useToast} from '../components/Toast';
 
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
@@ -22,22 +21,35 @@ function AddReservations() {
   const minDate = new Date().toISOString().slice(0, 10);
   const [displayBool, message, type, showToast] = useToast();
 
+  const initialFormData = {
+    endDate: '',
+    startDate: '',
+    description: '',
+    selectedVespa: '',
+  };
+
+
   
-  
+  const [reservationData, setReservationData] = useState(initialFormData)
+
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setReservationData({ ...reservationData, [name]: value });
+  };
+
+
   
   const [endDateMinDate, setEndDateMinDate] = useState(minDate);
   const [startDateMaxDate, setStartDateMaxDate] = useState('');
-  const [description, setDescription] = useState('');
-  const [selectedVespa, setSelectedVespa] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
+
+ 
+
   const [createReservation, { isLoading: isCreating }] = useCreateReservationMutation();
 
-  const handleDropDownChange = (e) => {
-    setSelectedVespa(e.target.value);
-
-  };
 
   const navigate = useNavigate();
 
@@ -55,33 +67,21 @@ function AddReservations() {
     setStartDateMaxDate(e.target.value);
   };
 
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
+ 
 
   const handleVespaOnBlur = (e) => {
-    if (selectedVespa !== '') {
+    if (reservationData.selectedVespa !== '') {
       vespaErrorRef.current.classList.add('invisible');
       vespaRef.current.classList.remove('border-red-700');
       vespaRef.current.classList.add('border-white');
     }
   };
 
-  const clearField = () => {
-    setSelectedVespa('');
-    setStartDate('');
-    setEndDate('');
-    setDescription('');
-    setStartDateMaxDate('')
-    
-
-
-  };
 
 
   const handleSubmit = (e) => {
 
-    if (selectedVespa === '') {
+    if (reservationData.selectedVespa === '') {
 
       vespaErrorRef.current.classList.remove('invisible');
       vespaRef.current.classList.remove('border-white');
@@ -98,15 +98,15 @@ function AddReservations() {
       const reservation = {
         reservation: {
           user_id: userID,
-          room_id: selectedVespa,
-          start_date: startDate,
+          room_id: reservationData.selectedVespa,
+          start_date:startDate,
           end_date: endDate,
-          description: description,
+          description: reservationData.description,
         },
       };
 
       e.preventDefault();
-      clearField()
+      setReservationData(initialFormData);
       createReservation(reservation);
       
       showToast('Reservation Made Successfully', 'success');
@@ -167,7 +167,7 @@ function AddReservations() {
         
         <small ref={vespaErrorRef} className='mb-1 invisible text-red-700'> Select a Vespa</small>
        
-        <select id="countries" ref={vespaRef} value={selectedVespa} onChange={handleDropDownChange} onBlur ={handleVespaOnBlur} className="text-white-200 font-semibold  h-12 mt-7 required px-4 rounded-full bg-transparent border-2 border-white">
+        <select id="vespas" name="selectedVespa" ref={vespaRef} value={reservationData.selectedVespa} onChange={handleOnChange} onBlur ={handleVespaOnBlur} className="text-white-200 font-semibold  h-12 mt-7 required px-4 rounded-full bg-transparent border-2 border-white">
           <option value="" disabled="" className="hidden" >Choose a Vespa</option>
          
          
@@ -178,17 +178,19 @@ function AddReservations() {
           ))}
         </select>
           </div>
+       
+       
         <div className="flex-col items-center justify-center space-y-2 text-center">
           <p>Start Date:</p>
 
           <input
             onChange={handleStartDateChange}
             type="date"
-            id="start-date"
+            id="startDate"
             value={startDate}
             min={minDate}
             max={startDateMaxDate}
-            name="start-date"
+            name="startDate"
             required
            
             className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white"
@@ -198,13 +200,13 @@ function AddReservations() {
         <div className="flex-col items-center justify-center space-y-2 text-center">
           <p>End Date:</p>
 
-          <input onChange={handleEndDateChange} value={endDate} required min={endDateMinDate} type="date" id="end-date" name="end-date" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
+          <input onChange={handleEndDateChange} name="endDate" value={endDate} required min={endDateMinDate} type="date" id="endDate"  className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
         </div>
 
         
       </div>
 
-      <input type="text" required value={description} placeholder="Enter a description of the reservation " className=" text-white-200 font-semibold py-2 placeholder-white w-full px-4 rounded-full bg-transparent border-2 border-white" onChange={handleDescriptionChange} />
+      <input type="text" name="description" required value={reservationData.description} placeholder="Enter a description of the reservation " className=" text-white-200 font-semibold py-2 placeholder-white w-full px-4 rounded-full bg-transparent border-2 border-white" onChange={handleOnChange} />
 
 
       <button type="submit" className="bg-white  text-center font-semibold text-[#96bf01] py-2 h-12 mt-7  w-40 px-10 rounded-full">

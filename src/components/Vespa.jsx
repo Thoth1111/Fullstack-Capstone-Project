@@ -14,7 +14,7 @@ function Vespa({icon:url , name,description }) {
   const myShade = pallete?.LightVibrant.getHex();
 
   return (
-    <div className=" h-96 w-80 border-2 border-black  items-center px-10 flex flex-col justify-between ">
+    <div className=" h-96 w-80  items-center px-10 flex flex-col justify-between ">
       <div
         className=" relative p-2 w-60 mt-8 h-60 flex items-center rounded-full"
         style={{ backgroundColor: myShade }}
