@@ -1,1 +1,9 @@
 !! We are currently getting all rooms. Fix in models so that only rooms of user can be shown
+
+!! Why is the POST going to '/reservations' instead of 'reservations/new'
+
+
+!! Implement proper form error message display and navigate to myreservations page after succesfull add
+
+
+!! You can improve Toast.jsx ask chat check my own slack

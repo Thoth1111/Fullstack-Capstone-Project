@@ -13,7 +13,9 @@ export default function Carousel() {
     arrows: true,
   };
 
-  const { data, error, isLoading } = useGetAllVespasQuery();
+  const { data:vespas, error, isLoading } = useGetAllVespasQuery();
+
+    console.log(vespas)
 
   return (
     <div className="h-5/6 flex">
