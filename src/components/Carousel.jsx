@@ -8,12 +8,24 @@ import Vespa from './Vespa';
 
 export default function Carousel() {
   const [mobileMode, setMobileMode] = useState(false);
+
+  const { data: vespas, error, isLoading } = useGetAllVespasQuery();
+  
+  
+  
+  
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Oops! Something went wrong...</p>;
+  
+  let slidesToShow = vespas.length > 3 ? 3 : vespas.length;
+
   const settings = {
     infinite: false,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     arrows: true,
   };
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,6 +57,7 @@ export default function Carousel() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Oops! Something went wrong...</p>;
 
+
   return (
     <>
       {!mobileMode ? (
@@ -58,7 +71,7 @@ export default function Carousel() {
           </Slider>
         </div>
       ) : (
-        <div className="flex flex-col w-full h-full overflow-y-scroll">
+        <div className="flex flex-col items-center w-full h-full overflow-y-scroll">
           {vespas?.map((vespa) => (
             <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
               <Vespa {...vespa} />
