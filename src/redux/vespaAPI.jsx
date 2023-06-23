@@ -41,4 +41,6 @@ export const vespaApi = createApi({
   }),
 });
 
-export const { useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery ,useCreateNewVespaMutation } = vespaApi;
+export const {
+  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation,
+} = vespaApi;

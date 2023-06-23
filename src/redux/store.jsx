@@ -19,12 +19,11 @@ const store = configureStore({
     [reservationApi.reducerPath]: reservationApi.reducer,
   },
 
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    })
-      .concat(vespaApi.middleware)
-      .concat(reservationApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false,
+  })
+    .concat(vespaApi.middleware)
+    .concat(reservationApi.middleware),
 });
 
 const persistor = persistStore(store);
