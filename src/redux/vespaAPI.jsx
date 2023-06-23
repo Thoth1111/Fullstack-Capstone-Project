@@ -34,6 +34,15 @@ export const vespaApi = createApi({
       invalidatesTags: [{ type: 'Vespa', id: 'LIST' }],
     }),
 
+    deleteVespa: builder.mutation({
+      query: (id) => ({
+        url: `/rooms/${id}`,
+        method: 'DELETE',
+      }),
+
+      invalidatesTags: (result, error, id) => [{ type: 'Vespa', id }],
+    }),
+
     getAllReservations: builder.query({
       query: () => '/reservations',
     }),
@@ -49,5 +58,5 @@ export const vespaApi = createApi({
 });
 
 export const {
-  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation,
+  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation, useDeleteVespaMutation,
 } = vespaApi;
