@@ -15,7 +15,7 @@ export const CommentsList = ({vespaId}) => {
 
 	return (	
 
-		<div className='flex w-full flex-col  max-h-[600px] md:max-h-[400px] scrollbar  overflow-y-auto'>
+		<div className='flex w-full flex-col min-h-[350px] max-h-[600px] md:max-h-[350px] scrollbar  overflow-y-auto'>
 		<p className="text-2xl font-bold self-center text-sky-600">Comments</p>
 		
 		{filteredComments?.map((comment) => (

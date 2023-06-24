@@ -10,6 +10,11 @@ function Details() {
   const handleGoBack = () => {
     navigate('/home');
   };
+
+  const handleReserve= () => {
+    navigate('/reserve', {state:{id: id}});
+  };
+
   const location = useLocation();
   const {url,name, id} = location.state;
   return (
@@ -45,7 +50,7 @@ function Details() {
 
         </div>
 
-        <button className="w-40  self-center mt-8 justify-between text-center mb-4 items-center rounded-2xl flex text-lg text-white border-none outline-none py-4 bg-lime-500 hover:bg-green-500 h-12">
+        <button className="w-40  self-center mt-8 justify-between text-center mb-4 items-center rounded-2xl flex text-lg text-white border-none outline-none py-4 bg-lime-500 hover:bg-green-500 h-12" onClick={handleReserve}>
 
           <p className="ml-10 font-bold text-lg">Reserve</p>
 

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import BackButton from '../components/BackButton';
 import backimg from '../assets/background.jpg';
@@ -6,8 +6,21 @@ import backimg from '../assets/background.jpg';
 import { Toast, useToast } from '../components/Toast';
 
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
+import { useLocation } from 'react-router-dom';
 
 function AddReservations() {
+
+  const location = useLocation();
+  const navVespaId = location.state?.id;
+
+  useEffect(() => {
+    if (navVespaId) {
+      setReservationData({ ...reservationData, selectedVespa: navVespaId });
+    }
+  }, [navVespaId]);
+
+  
+
   const vespaRef = useRef(null);
   const vespaErrorRef = useRef(null);
 
@@ -32,6 +45,12 @@ function AddReservations() {
     const { name, value } = e.target;
     setReservationData({ ...reservationData, [name]: value });
   };
+
+  // if (navVespaId){
+
+  //   setReservationData({...reservationData, selectedVespa: navVespaId});
+
+  // }
 
   const [endDateMinDate, setEndDateMinDate] = useState(minDate);
   const [startDateMaxDate, setStartDateMaxDate] = useState('');
@@ -134,11 +153,12 @@ function AddReservations() {
 
               <small ref={vespaErrorRef} className="mb-1 invisible text-red-700"> Select a Vespa</small>
 
-              <select id="vespas" name="selectedVespa" ref={vespaRef} value={reservationData.selectedVespa} onChange={handleOnChange} onBlur={handleVespaOnBlur} className="text-white-200 font-semibold  h-12 mt-7 required px-4 rounded-full bg-transparent border-2 border-white">
+              <select id="vespas" name="selectedVespa" ref={vespaRef} value={reservationData.selectedVespa} 
+              onChange={handleOnChange} onBlur={handleVespaOnBlur} className="text-white-200 font-semibold  h-12 mt-7 required px-4 rounded-full bg-transparent border-2 border-white">
                 <option value="" disabled="" className="hidden">Choose a Vespa</option>
 
                 {vespas.map((vespa) => (
-                  <option value={vespa.id} key={vespa.id} className="text-black text-lg">
+                  <option value={vespa.id} key={vespa.id}  className="text-black text-lg">
                     {vespa.name}
                   </option>
                 ))}

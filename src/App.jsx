@@ -34,6 +34,7 @@ function App() {
   
     dispatch(vespaApi.endpoints.getAllVespas.initiate());
     dispatch(vespaApi.endpoints.getAllReservations.initiate());
+    dispatch(vespaApi.endpoints.getAllComments.initiate());
     dispatch(setHasInitialDataFetched());
     }
 
