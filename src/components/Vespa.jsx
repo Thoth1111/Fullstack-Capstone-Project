@@ -21,7 +21,7 @@ function Vespa({ icon: url, name, description ,id }) {
 
 
   return (
-    <div className=" h-96 w-80  my-2 items-center px-10 flex flex-col mx-4 justify-between hover:outline-dotted hover:cursor-pointer hover:outline-emerald-200 rounded-3xl" onClick={handleVespaClicked}>
+    <div className=" h-96 w-80  my-2 items-center px-10 flex flex-col mx-4 justify-between hover:outline-dotted hover:cursor-pointer hover:outline-emerald-300 rounded-3xl" onClick={handleVespaClicked}>
       <div
         className=" relative p-2 w-60 mt-8 h-60 flex items-center rounded-full"
         style={{ backgroundColor: myShade }}

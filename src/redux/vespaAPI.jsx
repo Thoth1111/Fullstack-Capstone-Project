@@ -66,7 +66,13 @@ export const vespaApi = createApi({
       query: () => '/comments',
       providesTags: (result) => (result
         ? [...result.map(({ id }) => ({ type: 'Comment', id })), { type: 'Comment', id: 'LIST' }]
-        : [{ type: 'Comment', id: 'LIST' }]),   
+        : [{ type: 'Comment', id: 'LIST' }]),  
+        
+        transformResponse: (response) => {
+          //change order of comments
+          const comments = response.reverse();
+          return comments;
+        },
 
   }),
 

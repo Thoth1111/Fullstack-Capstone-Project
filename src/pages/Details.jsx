@@ -41,7 +41,7 @@ function Details() {
 
           <NewCommentForm vespaId={id}/>
 
-          <CommentsList />
+          <CommentsList vespaId={id}/>
 
         </div>
 
