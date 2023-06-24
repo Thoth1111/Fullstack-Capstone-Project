@@ -21,9 +21,11 @@ function Details() {
 
               <CommentsList />
 
-              <button>
+              <button className="w-40  justify-between text-center items-center rounded-2xl flex text-lg text-white border-none outline-none py-4 bg-lime-500 h-10">
 
-                  Reserve
+                  <p className="ml-10">Reserve</p>
+              
+                  <svg class="h-6 w-6    text-white mr-2"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <polyline points="12 16 16 12 12 8" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>
 
               </button>
           </div>
