@@ -9,7 +9,7 @@ function Details() {
 
         <img src="https://as1.ftcdn.net/v2/jpg/04/88/07/66/1000_F_488076617_IVBsEeXAy56swgxUxXjDG3wKRTHJj2HR.jpg" alt="" />
 
-        <button className="absolute flex justify-end items-center left-0 top-4 md:top-auto md:bottom-16 w-16 md:w-24 rounded-tr-3xl rounded-br-3xl h-10 md:h-16 bg-lime-500 ">
+        <button className="absolute flex justify-end items-center left-0 top-4 md:top-auto md:bottom-16 w-16 md:w-24 rounded-tr-3xl rounded-br-3xl h-10 md:h-16 bg-lime-500 hover:bg-green-500">
 
           <svg className="h-6 w-6 md:h-10 md:w-10 mr-2 md:mr-4 text-white" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             {' '}
@@ -34,7 +34,7 @@ function Details() {
 
         </div>
 
-        <button className="w-40  self-center mt-8 justify-between text-center mb-4 items-center rounded-2xl flex text-lg text-white border-none outline-none py-4 bg-lime-500 h-12">
+        <button className="w-40  self-center mt-8 justify-between text-center mb-4 items-center rounded-2xl flex text-lg text-white border-none outline-none py-4 bg-lime-500 hover:bg-green-500 h-12">
 
           <p className="ml-10 font-bold text-lg">Reserve</p>
 
