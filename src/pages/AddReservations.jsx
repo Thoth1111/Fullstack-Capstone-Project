@@ -25,7 +25,7 @@ function AddReservations() {
   const vespaErrorRef = useRef(null);
 
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
-  const [createReservation, { isLoading: isCreating ,data: mutationData }] = useCreateReservationMutation();
+  const [createReservation, { isLoading: isCreating, data: mutationData }] = useCreateReservationMutation();
 
   const userID = useSelector((state) => state.persistedReducer.id);
 
@@ -38,7 +38,7 @@ function AddReservations() {
     description: '',
     selectedVespa: '',
   };
-  
+
   const [reservationData, setReservationData] = useState(initialFormData);
 
   const handleOnChange = (e) => {
@@ -56,7 +56,6 @@ function AddReservations() {
   const [startDateMaxDate, setStartDateMaxDate] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-
 
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
@@ -112,53 +111,42 @@ function AddReservations() {
   }
 
   if (error) {
-    return (
-      <div>
-        Something went wrong:
-        {' '}
-        {error}
-      </div>
-    );
+    return <div>Something went wrong: {error}</div>;
   }
 
   return (
-    <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
-
+    <div className="relative flex flex-col items-center justify-center w-screen h-screen gap-8 text-white">
       {displayBool && <Toast message={message} type={type} />}
 
       <BackButton />
 
       <div className="absolute inset-0 overflow-hidden">
-        <img src={backimg} alt="Background" className="h-full w-full object-fill " />
+        <img src={backimg} alt="Background" className="object-fill w-full h-full " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
-      <h1 className="font-bold tracking-widest text-3xl font-mono z-10">Book A Vespa</h1>
-      <hr className="w-2/5 bg-gray-600 z-10" />
-      <p className="tracking-widest z-10">
-
-        There are
-        {' '}
-        {vespas.length}
-        {' '}
-        Vespas available for rent. Please select the Vespa you want to rent,
-        and the start and end date of your reservation
-
+      <h1 className="z-10 font-mono text-3xl font-bold tracking-widest">Book A Vespa</h1>
+      <hr className="z-10 w-2/5 bg-gray-600" />
+      <p className="z-10 tracking-widest">
+        There are {vespas.length} Vespas available for rent. Please select the Vespa you want to rent, and the start
+        and end date of your reservation
       </p>
 
       <form action=" " onSubmit={handleSubmit} className="z-10 flex flex-col">
-        <div className="flex space-y-4 flex-col items-center  z-10 ">
-          <div className="flex gap-4 z-10">
-
+        <div className="z-10 flex flex-col items-center space-y-4 ">
+          <div className="z-10 flex gap-4">
             <div className="flex flex-col space-y-0 items-center mt-1.5">
+              <small ref={vespaErrorRef} className="invisible mb-1 text-red-700">
+                {' '}
+                Select a Vespa
+              </small>
 
-              <small ref={vespaErrorRef} className="mb-1 invisible text-red-700"> Select a Vespa</small>
+              <small ref={vespaErrorRef} className="invisible mb-1 text-red-700"> Select a Vespa</small>
 
-              <select id="vespas" name="selectedVespa" ref={vespaRef} value={reservationData.selectedVespa} 
-              onChange={handleOnChange} onBlur={handleVespaOnBlur} className="text-white-200 font-semibold  h-12 mt-7 required px-4 rounded-full bg-transparent border-2 border-white">
+              <select id="vespas" name="selectedVespa" ref={vespaRef} value={reservationData.selectedVespa} onChange={handleOnChange} onBlur={handleVespaOnBlur} className="h-12 px-4 font-semibold bg-transparent border-2 border-white rounded-full text-white-200 mt-7 required">
                 <option value="" disabled="" className="hidden">Choose a Vespa</option>
 
                 {vespas.map((vespa) => (
-                  <option value={vespa.id} key={vespa.id}  className="text-black text-lg">
+                  <option value={vespa.id} key={vespa.id}  className="text-lg text-black">
                     {vespa.name}
                   </option>
                 ))}
@@ -177,25 +165,43 @@ function AddReservations() {
                 max={startDateMaxDate}
                 name="startDate"
                 required
-                className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white"
+                className="px-4 py-2 font-semibold bg-transparent border-2 border-white rounded-full text-white-200"
               />
             </div>
 
             <div className="flex-col items-center justify-center space-y-2 text-center">
               <p>End Date:</p>
 
-              <input onChange={handleEndDateChange} name="endDate" value={endDate} required min={endDateMinDate} type="date" id="endDate" className="text-white-200 font-semibold py-2 px-4 rounded-full bg-transparent border-2 border-white" />
+              <input
+                onChange={handleEndDateChange}
+                name="endDate"
+                value={endDate}
+                required
+                min={endDateMinDate}
+                type="date"
+                id="endDate"
+                className="px-4 py-2 font-semibold bg-transparent border-2 border-white rounded-full text-white-200"
+              />
             </div>
-
           </div>
 
-          <input type="text" name="description" required value={reservationData.description} placeholder="Enter a description of the reservation " className=" text-white-200 font-semibold py-2 placeholder-white w-full px-4 rounded-full bg-transparent border-2 border-white" onChange={handleOnChange} />
+          <input
+            type="text"
+            name="description"
+            required
+            value={reservationData.description}
+            placeholder="Enter a description of the reservation "
+            className="w-full px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full  text-white-200"
+            onChange={handleOnChange}
+          />
 
-          <button type="submit" className="bg-white  text-center font-semibold text-[#96bf01] py-2 h-12 mt-7  w-40 px-10 rounded-full">
+          <button
+            type="submit"
+            className="bg-white  text-center font-semibold text-[#96bf01] py-2 h-12 mt-7  w-40 px-10 rounded-full"
+          >
             Book now
           </button>
         </div>
-
       </form>
     </div>
   );
