@@ -22,13 +22,15 @@ import {setHasInitialDataFetched} from './redux/authSlice';
 
 function App() {
   
-  const hasInitialDataFetched = useSelector((state) => state.persistedReducer.hasInitialDataFetched);
   const dispatch = useDispatch();
-  console.log(hasInitialDataFetched)
-  useEffect(() => {
+ 
+  const hasInitialDataFetched = useSelector((state) => state.persistedReducer.hasInitialDataFetched);
 
+
+  // will only fire if it is the inital login 
+  useEffect(() => {
     if (!hasInitialDataFetched) {
-      console.log("Effect Fired")
+  
     dispatch(vespaApi.endpoints.getAllVespas.initiate());
     dispatch(vespaApi.endpoints.getAllReservations.initiate());
     dispatch(setHasInitialDataFetched());

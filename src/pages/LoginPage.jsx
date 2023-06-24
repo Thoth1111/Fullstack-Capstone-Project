@@ -38,7 +38,8 @@ function Login() {
       dispatch(setAuthInfo({ username, id, token }));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
-
+      
+      // set the boolean to false so that the useEffect in App.jsx can fire
       dispatch(setHasInitialDataFetched())
 
       navigate('/home', { state: { success: 'loggedin' } });
