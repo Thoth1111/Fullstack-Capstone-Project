@@ -34,7 +34,7 @@ const login = async (email, password) => {
 
 const deleteVespa = async (id, token) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/rooms/${id}`, {
+    const response = await axios.delete(`${BASE_URL}/vespas/${id}`, {
       headers: {
         Authorization: `${token}`,
       },

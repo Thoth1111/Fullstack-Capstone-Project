@@ -4,13 +4,13 @@ import { useGetAllVespasQuery } from '../redux/vespaAPI';
 
 function Reservation({ reservation }) {
   const localid = useSelector((state) => state.persistedReducer.id);
-  const { data: rooms = [] } = useGetAllVespasQuery();
+  const { data: vespas = [] } = useGetAllVespasQuery();
 
-  // Find the room object that corresponds to reservation.room_id
-  const room = rooms.find((r) => r.id === reservation.room_id);
+  // Find the vespa object that corresponds to reservation.vespa_id
+  const vespa= vespas.find((r) => r.id === reservation.vespa_id);
 
-  if (localid !== reservation.user_id || !room) {
-    return null; // Don't show the reservation if it doesn't belong to the current user or if the corresponding room can't be found
+  if (localid !== reservation.user_id || !vespa) {
+    return null; // Don't show the reservation if it doesn't belong to the current user or if the corresponding vespa can't be found
   }
 
   return (
@@ -30,7 +30,7 @@ function Reservation({ reservation }) {
         </p>
         <p>
           Vespa name:&nbsp;
-          {room.name}
+          {vespa.name}
         </p>
       </div>
     </div>
