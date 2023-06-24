@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import getPallete from '../helpers/pallete';
 
 function Vespa({ icon: url, name, description }) {
   const [pallete, setPallete] = useState();
+  const token = useSelector((state) => state.persistedReducer.token); // Pridruživanje tokena iz Redux-a
+
   useEffect(() => {
     const vibrant = getPallete(url);
     vibrant.then((pallete) => setPallete(pallete));
