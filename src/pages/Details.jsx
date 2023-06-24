@@ -20,6 +20,12 @@ function Details() {
               <NewCommentForm />
 
               <CommentsList />
+
+              <button>
+
+                  Reserve
+
+              </button>
           </div>
 
         </div>
