@@ -28,6 +28,8 @@ function App() {
 
 
   // will only fire if it is the inital login 
+  // fetches all the data from the api and stores it in the redux store
+  
   useEffect(() => {
     if (!hasInitialDataFetched) {
   
