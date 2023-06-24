@@ -35,7 +35,7 @@ function NavigationPanel() {
 
   return (
     <nav
-      className={`md:border g:border border-none text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between z-10 ${
+      className={`md:border g:border border-none bg-white text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between z-10 ${
         showNavMenu ? 'w-64' : 'w-16'
       }`}
     >
