@@ -24,14 +24,14 @@ export default function Carousel() {
     arrows: true,
   };
   return (
-    <div className="flex h-5/6">
-    <Slider {...settings} className="flex items-center w-full my-auto h-5/6">
-    {vespas?.map((vespa) => (
-      <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-        <Vespa {...vespa} />
-      </Link>
-    ))}
-  </Slider>
+    <div className="flex h-5/6 ">
+      <Slider {...settings} className="flex items-center w-full my-auto h-5/6">
+        {vespas?.map((vespa) => (
+          <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
+            <Vespa {...vespa} />
+          </Link>
+        ))}
+      </Slider>
     </div>
   );
 }
