@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import SplashPage from './pages/SplashPage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
@@ -12,15 +12,31 @@ import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
 import VespaDetails from './components/VespaDetails';
 import { store } from './redux/store';
+import { useSelector,useDispatch } from 'react-redux';
 
 import {vespaApi} from './redux/vespaAPI';
+import {setHasInitialDataFetched} from './redux/authSlice';
+
 
 
 
 function App() {
   
-  store.dispatch(vespaApi.endpoints.getAllVespas.initiate());
-  store.dispatch(vespaApi.endpoints.getAllReservations.initiate());
+  const hasInitialDataFetched = useSelector((state) => state.persistedReducer.hasInitialDataFetched);
+  const dispatch = useDispatch();
+  console.log(hasInitialDataFetched)
+  useEffect(() => {
+
+    if (!hasInitialDataFetched) {
+      console.log("Effect Fired")
+    dispatch(vespaApi.endpoints.getAllVespas.initiate());
+    dispatch(vespaApi.endpoints.getAllReservations.initiate());
+    dispatch(setHasInitialDataFetched());
+    }
+
+  }
+
+  , [hasInitialDataFetched, dispatch]);
 
 
   const location = useLocation();

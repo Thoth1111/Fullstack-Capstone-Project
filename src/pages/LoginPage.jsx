@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { setAuthInfo } from '../redux/authSlice';
+import { setAuthInfo,setHasInitialDataFetched } from '../redux/authSlice';
 import apiRequests from '../services/ApiRequests';
 import { encryptToken } from '../helpers/encryption';
 
@@ -38,6 +38,8 @@ function Login() {
       dispatch(setAuthInfo({ username, id, token }));
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
+
+      dispatch(setHasInitialDataFetched())
 
       navigate('/home', { state: { success: 'loggedin' } });
     } catch (error) {
