@@ -4,9 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
+import {vespaApi} from './redux/vespaAPI';
 import './index.css';
 import AppWrapper from './AppWrapper';
 import App from './App';
+
+store.dispatch(vespaApi.endpoints.getAllVespas.initiate());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
