@@ -11,8 +11,18 @@ import AddRoom from './pages/AddRoom';
 import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
 import VespaDetails from './components/VespaDetails';
+import { store } from './redux/store';
+
+import {vespaApi} from './redux/vespaAPI';
+
+
 
 function App() {
+  
+  store.dispatch(vespaApi.endpoints.getAllVespas.initiate());
+  store.dispatch(vespaApi.endpoints.getAllReservations.initiate());
+
+
   const location = useLocation();
   const isHomeOrDetails = location.pathname === '/home' || location.pathname === '/details';
 
