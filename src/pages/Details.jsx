@@ -5,29 +5,20 @@ import NewCommentForm from '../components/NewCommentForm';
 
 
 function Details() {
-  const navigate = useNavigate();
-
-  const handleGoBack = () => {
-    navigate('/home');
-  };
-
-  const handleReserve= () => {
-    navigate('/reserve', {state:{id: id}});
-  };
 
   const location = useLocation();
   const {url,name, id} = location.state;
   return (
-    <div className="flex relative flex-col md:grid md:grid-cols-8  ml-52 h-screen">
+    <div className="relative flex flex-col h-screen md:grid md:grid-cols-8 ml-52">
 
-      <div className=" md:col-span-5 lg:col-span-6 flex items-center justify-center">
+      <div className="flex items-center justify-center md:col-span-5 lg:col-span-6">
 
         <img src={url} alt="" />
 
           {/* Buon to navigate to previous page */}
-        <button className="absolute flex justify-end items-center left-0 top-4 md:top-auto md:bottom-16 w-16 md:w-24 rounded-tr-3xl rounded-br-3xl h-10 md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
+        <button className="absolute left-0 flex items-center justify-end w-16 h-10 top-4 md:top-auto md:bottom-16 md:w-24 rounded-tr-3xl rounded-br-3xl md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
 
-          <svg className="h-6 w-6 md:h-10 md:w-10 mr-2 md:mr-4 text-white" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-6 h-6 mr-2 text-white md:h-10 md:w-10 md:mr-4" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             {' '}
             <path stroke="none" d="M0 0h24v24H0z" />
             {' '}
@@ -38,9 +29,9 @@ function Details() {
 
       </div>
 
-      <div className="  md:mx-0 p-2 md:col-span-3 lg:col-span-2 flex flex-col-reverse md:flex-col ">
+      <div className="flex flex-col-reverse p-2 md:mx-0 md:col-span-3 lg:col-span-2 md:flex-col">
 
-        <div className="flex flex-col w-full items-center">
+        <div className="flex flex-col items-center w-full">
           <p className="text-2xl font-bold"> {name} </p>
           {/* <small className="md:text-md">$350 deposit upon any Vespa Purchase</small> */}
 
@@ -50,11 +41,11 @@ function Details() {
 
         </div>
 
-        <button className="w-40  self-center mt-8 justify-between text-center mb-4 items-center rounded-2xl flex text-lg text-white border-none outline-none py-4 bg-lime-500 hover:bg-green-500 h-12" onClick={handleReserve}>
+        <button className="flex items-center self-center justify-between w-40 h-12 py-4 mt-8 mb-4 text-lg text-center text-white border-none outline-none rounded-2xl bg-lime-500 hover:bg-green-500" onClick={handleReserve}>
 
-          <p className="ml-10 font-bold text-lg">Reserve</p>
+          <p className="ml-10 text-lg font-bold">Reserve</p>
 
-          <svg className="h-6 w-6    text-white mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-6 h-6 mr-2 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             {' '}
             <circle cx="12" cy="12" r="10" />
             {' '}

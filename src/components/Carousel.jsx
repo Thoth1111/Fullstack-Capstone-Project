@@ -59,26 +59,14 @@ export default function Carousel() {
 
 
   return (
-    <>
-      {!mobileMode ? (
-        <div className="flex h-5/6">
-          <Slider {...settings} className="flex items-center justify-center w-full my-auto h-5/6">
-            {vespas?.map((vespa) => (
-              <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-                <Vespa {...vespa} />
-              </Link>
-            ))}
-          </Slider>
-        </div>
-      ) : (
-        <div className="flex flex-col items-center w-full h-full overflow-y-scroll">
-          {vespas?.map((vespa) => (
-            <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-              <Vespa {...vespa} />
-            </Link>
-          ))}
-        </div>
-      )}
-    </>
+    <div className="flex h-5/6">
+    <Slider {...settings} className="flex items-center w-full my-auto h-5/6">
+    {vespas?.map((vespa) => (
+      <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
+        <Vespa {...vespa} />
+      </Link>
+    ))}
+  </Slider>
+    </div>
   );
 }
