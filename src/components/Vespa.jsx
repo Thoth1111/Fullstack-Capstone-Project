@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import getPallete from '../helpers/pallete';
+import { useNavigate } from 'react-router-dom';
 
-function Vespa({ icon: url, name, description }) {
+function Vespa({ icon: url, name, description ,id }) {
+  const navigate = useNavigate();
   const [pallete, setPallete] = useState();
   const token = useSelector((state) => state.persistedReducer.token); // Pridruživanje tokena iz Redux-a
 
@@ -13,8 +15,13 @@ function Vespa({ icon: url, name, description }) {
 
   const myShade = pallete?.LightVibrant.getHex();
 
+  const handleVespaClicked = () => {
+  navigate('/details' , {state: {url, name, id}});
+  };
+
+
   return (
-    <div className=" h-96 w-80  items-center px-10 flex flex-col justify-between ">
+    <div className=" h-96 w-80  my-2 items-center px-10 flex flex-col mx-4 justify-between hover:outline-dotted hover:cursor-pointer hover:outline-emerald-200 rounded-3xl" onClick={handleVespaClicked}>
       <div
         className=" relative p-2 w-60 mt-8 h-60 flex items-center rounded-full"
         style={{ backgroundColor: myShade }}

@@ -1,7 +1,13 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import CommentsList from '../components/CommentsList';
 import NewCommentForm from '../components/NewCommentForm';
 
+
+
 function Details() {
+
+  const location = useLocation();
+  const {url,name, id} = location.state;
   return (
     <div className="flex relative flex-col md:grid md:grid-cols-8  ml-52 h-screen">
 
