@@ -27,6 +27,7 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
+    "tailwind-scrollbar": "^3.0.4",
     "vite": "^4.3.9"
   },
   "devDependencies": {
