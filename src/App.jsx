@@ -10,6 +10,7 @@ import NavigationPanel from './components/Navbar';
 import AddRoom from './pages/AddRoom';
 import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
+import VespaDetails from './components/VespaDetails';
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/vespa/:id" element={<VespaDetails />} />
         <Route path="/details" element={<Details />} />
         <Route path="/addroom" element={<AddRoom />} />
         <Route path="/myreservations" element={<MyReservations />} />
