@@ -7,7 +7,7 @@ const NewCommentForm = () => {
 			<form className="flex flex-col items-end">
 				
 				<textarea type="text-field" id="comment" name="comment" className="w-full my-2 px-2 h-16 outline rounded-lg"/>
-				<button type="submit" className=" font-bold bg-emerald-300 px-2  rounded-lg outline ">Add Comment</button>
+				<button type="submit" className=" font-bold h-8 bg-emerald-300 px-2 mt-1 rounded-lg outline ">Add Comment</button>
 			</form>
 		</div>
 	)
