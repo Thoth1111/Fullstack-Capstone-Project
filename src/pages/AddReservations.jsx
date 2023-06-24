@@ -72,7 +72,7 @@ function AddReservations() {
       const reservation = {
         reservation: {
           user_id: userID,
-          room_id: reservationData.selectedVespa,
+          vespa_id: reservationData.selectedVespa,
           start_date: startDate,
           end_date: endDate,
           description: reservationData.description,

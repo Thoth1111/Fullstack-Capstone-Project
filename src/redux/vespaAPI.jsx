@@ -17,7 +17,7 @@ export const vespaApi = createApi({
   tagTypes: ['Vespa'],
   endpoints: (builder) => ({
     getAllVespas: builder.query({
-      query: () => '/rooms',
+      query: () => '/vespas',
       providesTags: (result)=>
       result
       ? [...result.map(({ id }) => ({ type: 'Vespa', id })), { type: 'Vespa', id: 'LIST' }]
@@ -26,7 +26,7 @@ export const vespaApi = createApi({
 
     createNewVespa: builder.mutation({
       query: (body) => ({
-        url: '/rooms',
+        url: '/vespas',
         method: 'POST',
         body,
       }),
