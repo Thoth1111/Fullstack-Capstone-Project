@@ -14,7 +14,7 @@ export const vespaApi = createApi({
     },
   }),
   keepUnusedDataFor: 60 * 60 * 60,
-  tagTypes: ['Vespa', 'Reservation'],
+  tagTypes: ['Vespa', 'Reservation' , 'Comment'],
   endpoints: (builder) => ({
     getAllVespas: builder.query({
       query: () => '/vespas',
@@ -61,9 +61,29 @@ export const vespaApi = createApi({
       invalidatesTags: [{ type: 'Reservation', id: 'LIST' }],
 
     }),
+
+    getAllComments: builder.query({
+      query: () => '/comments',
+      providesTags: (result) => (result
+        ? [...result.map(({ id }) => ({ type: 'Comment', id })), { type: 'Comment', id: 'LIST' }]
+        : [{ type: 'Comment', id: 'LIST' }]),   
+
   }),
+
+  createComment: builder.mutation({
+    query: (body) => ({
+      url: '/comments',
+      method: 'POST',
+      body,
+    }),
+
+    invalidatesTags: [{ type: 'Comment', id: 'LIST' }],
+  }),
+
+}),
+  
 });
 
 export const {
-  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation, useDeleteVespaMutation,
+  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation, useDeleteVespaMutation, useGetAllCommentsQuery, useCreateCommentMutation,
 } = vespaApi;
