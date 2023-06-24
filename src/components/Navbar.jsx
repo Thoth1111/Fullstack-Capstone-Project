@@ -29,11 +29,15 @@ function NavigationPanel() {
   };
 
   return (
-    <nav className="border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between z-10">
-      <ul className="flex flex-col pl-4">
+    <nav className="border text-lg w-full font-bold fixed md:h-screen lg:h-screen h-full lg:left-0 md:left-0 top-0 flex lg:flex-col md:flex-col md:justify-between lg:justify-between z-10">
+      <ul className="flex pl-4 w-full md:h-screen lg:h-screen h-fit items-center md:items-start lg:items-start lg:flex-col md:flex-col">
         <li className="mb-4 ml-2">
           <Link to="/">
-            <img src={logo} alt="logo" className="w-40 h-35 mb-10 rounded-lg" />
+            <img
+              src={logo}
+              alt="logo"
+              className="w-20 md:w-40 lg:w-40 h-10 md:h-25 lg:h-35 lg:mb-10 md:mb-10 mt-1 rounded-lg"
+            />
           </Link>
         </li>
         <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
@@ -57,11 +61,13 @@ function NavigationPanel() {
           </Link>
         </li>
         <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-          <Link to="/" className="" onClick={handleSignOut}>Sign Out</Link>
+          <Link to="/" className="" onClick={handleSignOut}>
+            Sign Out
+          </Link>
         </li>
       </ul>
       {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
-      <div className="pb-8">
+      <div className="pb-8  md:h-screen items-center lg:h-screen h-fit">
         <div className="flex items-center w-full justify-center align-middle mb-8 gap-x-2">
           <a href="#">
             <img src={icon1} alt="logo" className="w-7 h-7 rounded-full" />
@@ -79,7 +85,7 @@ function NavigationPanel() {
             <img src={icon5} alt="logo" className="w-7 h-7 rounded-full" />
           </a>
         </div>
-        <p className="text-center font-light text-gray-500">@2023</p>
+        <p className="text-center font-light hidden lg:block md:block text-gray-500">@2023</p>
       </div>
     </nav>
   );
