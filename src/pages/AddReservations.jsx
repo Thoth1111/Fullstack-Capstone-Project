@@ -115,7 +115,7 @@ function AddReservations() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-screen gap-8 p-2 text-white lg:w-screen md:w-screen">
+    <div className="relative flex flex-col items-center justify-center w-screen h-screen gap-8 text-white">
       {displayBool && <Toast message={message} type={type} />}
 
       <BackButton />
@@ -124,16 +124,16 @@ function AddReservations() {
         <img src={backimg} alt="Background" className="object-fill w-full h-full " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
-      <h1 className="z-10 font-mono text-3xl font-bold tracking-widest">Book A Vespa</h1>
+      <h1 className="z-10 mt-8 font-mono text-3xl font-bold tracking-widest">Book A Vespa</h1>
       <hr className="z-10 w-2/5 bg-gray-600" />
       <p className="z-10 tracking-widest text-center">
         There are {vespas.length} Vespas available for rent. Please select the Vespa you want to rent, and the start
         and end date of your reservation
       </p>
 
-      <form action=" " onSubmit={handleSubmit} className="z-10 flex flex-col">
+      <form action=" " onSubmit={handleSubmit} className="z-10 flex flex-col w-full">
         <div className="z-10 flex flex-col items-center space-y-4 ">
-          <div className="z-10 flex gap-4">
+          <div className="z-10 flex flex-col gap-4 md:flex-row lg:flex-row">
             <div className="flex flex-col space-y-0 items-center mt-1.5">
               <small ref={vespaErrorRef} className="invisible mb-1 text-red-700">
                 {' '}
@@ -191,7 +191,7 @@ function AddReservations() {
             required
             value={reservationData.description}
             placeholder="Enter a description of the reservation "
-            className="w-full px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full text-white-200"
+            className="w-5/6 px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full  text-white-200"
             onChange={handleOnChange}
           />
 

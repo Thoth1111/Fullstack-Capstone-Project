@@ -6,6 +6,14 @@ import NewCommentForm from '../components/NewCommentForm';
 
 function Details() {
 
+  const handleGoBack = () => {
+    navigate('/home');
+  };
+
+  const handleReserve= () => {
+    navigate('/reserve', {state:{id: id}});
+  };
+
   const location = useLocation();
   const {url,name, id} = location.state;
   return (
@@ -41,7 +49,7 @@ function Details() {
 
         </div>
 
-        <button className="flex items-center self-center justify-between w-40 h-12 py-4 mt-8 mb-4 text-lg text-center text-white border-none outline-none rounded-2xl bg-lime-500 hover:bg-green-500" onClick={handleReserve}>
+        <button className="flex items-center self-center justify-between w-40 h-12 py-4 mt-8 mb-4 text-lg text-center text-white border-none outline-none rounded-2xl bg-lime-500 hover:bg-green-500">
 
           <p className="ml-10 text-lg font-bold">Reserve</p>
 
