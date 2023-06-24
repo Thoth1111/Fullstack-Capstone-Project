@@ -31,7 +31,7 @@ function AddRoom() {
     e.preventDefault();
 
     const newVespa = {
-      room: {
+      vespa: {
         name: vespaData.Name,
         description: vespaData.Description,
         icon: vespaData.Url,

@@ -6,7 +6,7 @@ import { setAuthInfo } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 
 function SignUp() {
-  const [username, setUsername] = useState('');
+  const [userName, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -17,8 +17,10 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const { user, token } = await apiRequests.signUp(username, email, password, passwordConfirmation);
-      const { username, id } = user;
+     const res = await apiRequests.signUp(userName, email, password, passwordConfirmation);
+   
+     const { user} = res
+      const { username, id, jti:token } = user;
       dispatch(setAuthInfo({ username, id, token }));
 
       const encryptedToken = encryptToken(token);
@@ -45,7 +47,7 @@ function SignUp() {
               <input
                 type="text"
                 placeholder="Username"
-                value={username}
+                value={userName}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
