@@ -5,7 +5,11 @@ import NewCommentForm from '../components/NewCommentForm';
 
 
 function Details() {
+  const navigate = useNavigate();
 
+  const handleGoBack = () => {
+    navigate('/home');
+  };
   const location = useLocation();
   const {url,name, id} = location.state;
   return (
@@ -13,9 +17,10 @@ function Details() {
 
       <div className=" md:col-span-5 lg:col-span-6 flex items-center justify-center">
 
-        <img src="https://as1.ftcdn.net/v2/jpg/04/88/07/66/1000_F_488076617_IVBsEeXAy56swgxUxXjDG3wKRTHJj2HR.jpg" alt="" />
+        <img src={url} alt="" />
 
-        <button className="absolute flex justify-end items-center left-0 top-4 md:top-auto md:bottom-16 w-16 md:w-24 rounded-tr-3xl rounded-br-3xl h-10 md:h-16 bg-lime-500 hover:bg-green-500">
+          {/* Buon to navigate to previous page */}
+        <button className="absolute flex justify-end items-center left-0 top-4 md:top-auto md:bottom-16 w-16 md:w-24 rounded-tr-3xl rounded-br-3xl h-10 md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
 
           <svg className="h-6 w-6 md:h-10 md:w-10 mr-2 md:mr-4 text-white" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             {' '}
@@ -31,10 +36,10 @@ function Details() {
       <div className="  md:mx-0 p-2 md:col-span-3 lg:col-span-2 flex flex-col-reverse md:flex-col ">
 
         <div className="flex flex-col w-full items-center">
-          <p className="text-2xl font-bold"> VESPA NAME </p>
+          <p className="text-2xl font-bold"> {name} </p>
           {/* <small className="md:text-md">$350 deposit upon any Vespa Purchase</small> */}
 
-          <NewCommentForm />
+          <NewCommentForm vespaId={id}/>
 
           <CommentsList />
 

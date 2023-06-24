@@ -22,7 +22,7 @@ const NewCommentForm = ({vespaId}) => {
 		let body = {
 			comment: {
 				content: comment,
-				room_id: 38,
+				room_id: vespaId,
 				user_id : userID,
 			}
 				
