@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <div>
-      <div className="w-[1100px] md:ml-60 lg:ml-60 bg-slate-50 md:h-5/6 lg:h-5/6 m-auto mt-24 text-center">
+      <div className="w-[1100px] lg:ml-60 md:ml-60 bg-slate-50 h-5/6 m-auto mt-24 text-center">
         <p className="text-4xl mt-8 font-bold">Latest Models</p>
         <p className="mt-4 text-lg">Please Select A Vespa Model</p>
 
