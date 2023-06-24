@@ -1,4 +1,5 @@
 import CommentsList from "../components/CommentsList";
+import NewCommentForm from "../components/NewCommentForm";
 
 function Details() {
   return (
@@ -16,7 +17,7 @@ function Details() {
               <p className="text-2xl font-bold"> VESPA NAME </p>
               {/* <small className="md:text-md">$350 deposit upon any Vespa Purchase</small> */}
               
-              
+              <NewCommentForm />
 
               <CommentsList />
           </div>
