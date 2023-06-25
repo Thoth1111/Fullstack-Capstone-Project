@@ -39,6 +39,7 @@ function NavigationPanel() {
     // Set showNavMenu to false when the screen size changes
     if (window.innerWidth <= 640) {
       setShowNavMenu(false);
+      setdesktopMode(false);
     }
   }, [window.innerWidth]);
 
