@@ -22,7 +22,6 @@ export default function Carousel() {
       } else {
         setmobileMode(true);
       }
-      console.log(mobileMode);
     };
 
     // Add event listener to the window resize event
@@ -39,17 +38,26 @@ export default function Carousel() {
   if (error) return <p>Oops! Something went wrong...</p>;
 
   return (
-    <div className="flex h-5/6">
-      <Slider
-        {...settings}
-        className="flex flex-col justify-center md:flex-row md:items-center md:my-auto md:h-5/6 md:w-full lg:flex-row lg:items-center lg:my-auto lg:h-5/6 lg:w-full"
-      >
-        {vespas?.map((vespa) => (
-          <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-            <Vespa {...vespa} />
-          </Link>
-        ))}
-      </Slider>
-    </div>
+    <>
+      {!mobileMode ? (
+        <div className="flex h-5/6">
+          <Slider {...settings} className="flex items-center justify-center w-full my-auto h-5/6">
+            {vespas?.map((vespa) => (
+              <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
+                <Vespa {...vespa} />
+              </Link>
+            ))}
+          </Slider>
+        </div>
+      ) : (
+        <div className="flex flex-col w-full h-full overflow-y-scroll">
+          {vespas?.map((vespa) => (
+            <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
+              <Vespa {...vespa} />
+            </Link>
+          ))}
+        </div>
+      )}
+    </>
   );
 }
