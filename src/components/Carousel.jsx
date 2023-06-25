@@ -25,7 +25,7 @@ export default function Carousel() {
   };
   return (
     <div className="flex h-5/6 ">
-      <Slider {...settings} className="flex items-center w-full my-auto h-5/6">
+      <Slider {...settings} className="flex flex-wrap items-center w-full my-auto h-5/6 md:flex-row lg:flex-row">
         {vespas?.map((vespa) => (
           <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
             <Vespa {...vespa} />
