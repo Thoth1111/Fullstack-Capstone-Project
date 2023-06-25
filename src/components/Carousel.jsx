@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Vespa from './Vespa';
 
 export default function Carousel() {
-  const [mobileMode, setmobileMode] = useState(false);
+  const [mobileMode, setMobileMode] = useState(false);
   const settings = {
     infinite: false,
     slidesToShow: slidesToShow,
@@ -18,12 +18,11 @@ export default function Carousel() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 640) {
-        setmobileMode(false);
+        setMobileMode(false);
       } else {
-        setmobileMode(true);
+        setMobileMode(true);
       }
     };
-
     // Add event listener to the window resize event
     window.addEventListener('resize', handleResize);
     // Remove event listener when component is unmounted
@@ -31,6 +30,15 @@ export default function Carousel() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    // Update mobile mode state when screen size changes
+    if (window.innerWidth > 640 && mobileMode) {
+      setMobileMode(false);
+    } else if (window.innerWidth <= 640 && !mobileMode) {
+      setMobileMode(true);
+    }
+  }, [mobileMode]);
 
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
 
