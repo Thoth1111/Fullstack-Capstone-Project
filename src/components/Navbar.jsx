@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { clearAuthInfo } from '../redux/authSlice';
@@ -12,9 +12,26 @@ import icon5 from '../assets/icon5.png';
 
 function NavigationPanel() {
   const dispatch = useDispatch();
-
   const [deleteModalVisible, setdeleteModalVisible] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 736) {
+        setShowNavMenu(true);
+      } else {
+        setShowNavMenu(false);
+      }
+    };
+
+    // Add event listener to the window resize event
+    window.addEventListener('resize', handleResize);
+
+    // Remove event listener when component is unmounted
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleDelete = () => {
     setdeleteModalVisible(true);
@@ -34,9 +51,9 @@ function NavigationPanel() {
   };
   return (
     <>
-      <div className={showNavMenu ? 'fixed left-0 top-0 w-full h-full z-1' : ''} onClick={handleNavbar} />
+      <div className={showNavMenu ? 'fixed left-0 top-0 w-full h-full z-10' : ''} onClick={handleNavbar} />
       <nav
-        className={`d:border lg:border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between z-10 ${
+        className={`md:border lg:border text-lg font-bold bg-transparent lg:w-fit md:w-fit fixed h-screen left-0 top-0 flex flex-col justify-between z-10 ${
           showNavMenu ? 'w-64' : 'w-16'
         }`}
       >
@@ -44,7 +61,7 @@ function NavigationPanel() {
         <div className="flex items-center justify-start">
           {/* Hamburger icon */}
           {!showNavMenu && (
-            <button onClick={handleNavbar} className="bg-gray-200 rounded-full p-2 ml-2">
+            <button onClick={handleNavbar} className="bg-gray-200 md:hidden lg:hidden rounded-full p-2 ml-2">
               <svg className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -62,14 +79,14 @@ function NavigationPanel() {
 
           {/* Close icon */}
           {showNavMenu && (
-            <button onClick={handleNavbar} className="bg-gray-200 rounded-full p-2 ml-2">
+            <button onClick={handleNavbar} className="bg-gray-200 md:hidden lg:hidden rounded-full p-2 ml-2">
               <svg className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           )}
         </div>
-        {showNavMenu && (
+        {(showNavMenu || window.innerWidth > 768) && (
           <>
             <ul className="flex flex-col pl-4">
               <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">

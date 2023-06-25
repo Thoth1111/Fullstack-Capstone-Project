@@ -20,8 +20,11 @@ export default function Carousel() {
   if (error) return <p>Oops! Something went wrong...</p>;
 
   return (
-    <div className="h-5/6 flex ">
-      <Slider {...settings} className="flex items-center my-auto h-5/6 w-full flex-wrap md:flex-row lg:flex-row">
+    <div className="h-5/6 flex">
+      <Slider
+        {...settings}
+        className="md:flex-row flex flex-col md:items-center md:my-auto md:h-5/6 md:w-full lg:flex-row justify-center lg:items-center lg:my-auto lg:h-5/6 lg:w-full"
+      >
         {vespas?.map((vespa) => (
           <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
             <Vespa {...vespa} />
