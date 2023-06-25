@@ -14,13 +14,16 @@ function NavigationPanel() {
   const dispatch = useDispatch();
   const [deleteModalVisible, setdeleteModalVisible] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
+  const [desktopMode, setdesktopMode] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 640) {
         setShowNavMenu(true);
+        setdesktopMode(true);
       } else {
         setShowNavMenu(false);
+        setdesktopMode(false);
       }
     };
 
@@ -57,7 +60,7 @@ function NavigationPanel() {
   };
   return (
     <>
-      <div className={showNavMenu ? 'fixed left-0 top-0 w-full h-full z-10' : ''} onClick={handleNavbar} />
+      <div className={showNavMenu ? 'fixed left-0 top-0 w-full w-full h-screen z-10' : ''} onClick={handleNavbar} />
       <nav
         className={`md:border lg:border text-lg h-screen font-bold lg:w-fit md:w-fit fixed left-0 top-0 flex flex-col justify-between z-10 ${
           showNavMenu ? 'w-64 bg-white' : 'w-16 bg-transparent'
@@ -83,7 +86,7 @@ function NavigationPanel() {
             </button>
           )}
         </div>
-        {showNavMenu && (
+        {(showNavMenu || desktopMode) && (
           <>
             <ul className="flex flex-col pl-4">
               <li className="mb-4 top-0 ml-2">

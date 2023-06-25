@@ -21,7 +21,6 @@ export default function Carousel() {
       } else {
         setmobileMode(true);
       }
-      console.log(mobileMode);
     };
 
     // Add event listener to the window resize event
@@ -50,7 +49,7 @@ export default function Carousel() {
           </Slider>
         </div>
       ) : (
-        <div className="flex flex-col w-full h-full overflow-y-scroll">
+        <div className="flex flex-col w-full items-center h-full overflow-y-scroll">
           {vespas?.map((vespa) => (
             <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
               <Vespa {...vespa} />
