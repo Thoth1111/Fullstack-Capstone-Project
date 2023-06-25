@@ -26,8 +26,6 @@ function NavigationPanel() {
 
     // Add event listener to the window resize event
     window.addEventListener('resize', handleResize);
-    console.log('show ham');
-    console.log(showNavMenu);
     // Remove event listener when component is unmounted
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -39,8 +37,6 @@ function NavigationPanel() {
     if (window.innerWidth <= 640) {
       setShowNavMenu(false);
     }
-    console.log(' Set showNavMenu to false when the screen size changes');
-    console.log(showNavMenu);
   }, [window.innerWidth]);
 
   const handleDelete = () => {
@@ -121,7 +117,7 @@ function NavigationPanel() {
                 </Link>
               </li>
             </ul>
-            {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
+            {deleteModalVisible && <DeleteModal className="w-full" onClose={handleCloseModal} />}
             <div className="pb-8 ml-4">
               <div className="flex items-center w-full align-middle mb-8 gap-x-2">
                 <a href="#">
