@@ -96,7 +96,7 @@ function AddReservations() {
   }
 
   return (
-    <div className="h-screen w-full p-2 lg:w-screen md:w-screen flex flex-col justify-center gap-8 items-center text-white relative">
+    <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
       {displayBool && <Toast message={message} type={type} />}
 
       <BackButton />

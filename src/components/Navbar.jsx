@@ -17,7 +17,7 @@ function NavigationPanel() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 736) {
+      if (window.innerWidth > 640) {
         setShowNavMenu(true);
       } else {
         setShowNavMenu(false);
@@ -26,12 +26,22 @@ function NavigationPanel() {
 
     // Add event listener to the window resize event
     window.addEventListener('resize', handleResize);
-
+    console.log('show ham');
+    console.log(showNavMenu);
     // Remove event listener when component is unmounted
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    // Set showNavMenu to false when the screen size changes
+    if (window.innerWidth <= 640) {
+      setShowNavMenu(false);
+    }
+    console.log(' Set showNavMenu to false when the screen size changes');
+    console.log(showNavMenu);
+  }, [window.innerWidth]);
 
   const handleDelete = () => {
     setdeleteModalVisible(true);
@@ -53,8 +63,8 @@ function NavigationPanel() {
     <>
       <div className={showNavMenu ? 'fixed left-0 top-0 w-full h-full z-10' : ''} onClick={handleNavbar} />
       <nav
-        className={`md:border lg:border text-lg font-bold bg-transparent lg:w-fit md:w-fit fixed h-screen left-0 top-0 flex flex-col justify-between z-10 ${
-          showNavMenu ? 'w-64' : 'w-16'
+        className={`md:border lg:border text-lg h-screen font-bold lg:w-fit md:w-fit fixed left-0 top-0 flex flex-col justify-between z-10 ${
+          showNavMenu ? 'w-64 bg-white' : 'w-16 bg-transparent'
         }`}
       >
         {' '}
@@ -68,15 +78,6 @@ function NavigationPanel() {
             </button>
           )}
 
-          {/* Logo */}
-          {showNavMenu && (
-            <div className="mb-4 ml-2">
-              <Link to="/">
-                <img src={logo} alt="logo" className="w-40 h-35 mb-10 rounded-lg" />
-              </Link>
-            </div>
-          )}
-
           {/* Close icon */}
           {showNavMenu && (
             <button onClick={handleNavbar} className="bg-gray-200 md:hidden lg:hidden rounded-full p-2 ml-2">
@@ -86,9 +87,14 @@ function NavigationPanel() {
             </button>
           )}
         </div>
-        {(showNavMenu || window.innerWidth > 768) && (
+        {showNavMenu && (
           <>
             <ul className="flex flex-col pl-4">
+              <li className="mb-4 top-0 ml-2">
+                <Link to="/">
+                  <img src={logo} alt="logo" className="w-40 h-35 mb-10 rounded-lg" />
+                </Link>
+              </li>
               <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
                 <Link to="/addvespa" className="">
                   Add Vespa
@@ -116,8 +122,8 @@ function NavigationPanel() {
               </li>
             </ul>
             {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
-            <div className="pb-8">
-              <div className="flex items-center w-full justify-center align-middle mb-8 gap-x-2">
+            <div className="pb-8 ml-4">
+              <div className="flex items-center w-full align-middle mb-8 gap-x-2">
                 <a href="#">
                   <img src={icon1} alt="logo" className="w-7 h-7 rounded-full" />
                 </a>
@@ -134,7 +140,7 @@ function NavigationPanel() {
                   <img src={icon5} alt="logo" className="w-7 h-7 rounded-full" />
                 </a>
               </div>
-              <p className="text-center font-light text-gray-500">@2023</p>
+              <p className="font-light text-gray-500">@2023</p>
             </div>
           </>
         )}
