@@ -96,7 +96,7 @@ function AddReservations() {
   }
 
   return (
-    <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative">
+    <div className="h-screen w-full p-2 lg:w-screen md:w-screen flex flex-col justify-center gap-8 items-center text-white relative">
       {displayBool && <Toast message={message} type={type} />}
 
       <BackButton />
@@ -107,14 +107,14 @@ function AddReservations() {
       </div>
       <h1 className="font-bold tracking-widest text-3xl font-mono z-10">Book A Vespa</h1>
       <hr className="w-2/5 bg-gray-600 z-10" />
-      <p className="tracking-widest z-10">
+      <p className="tracking-widest z-10 text-center">
         There are {vespas.length} Vespas available for rent. Please select the Vespa you want to rent, and the start
         and end date of your reservation
       </p>
 
-      <form action=" " onSubmit={handleSubmit} className="z-10 flex flex-col">
-        <div className="flex space-y-4 flex-col items-center  z-10 ">
-          <div className="flex gap-4 z-10">
+      <form action=" " onSubmit={handleSubmit} className="z-10 w-full flex flex-col">
+        <div className="flex space-y-4 flex-col items-center z-10 ">
+          <div className="flex gap-4 flex-col md:flex-row lg:flex-row z-10">
             <div className="flex flex-col space-y-0 items-center mt-1.5">
               <small ref={vespaErrorRef} className="mb-1 invisible text-red-700">
                 {' '}
@@ -180,7 +180,7 @@ function AddReservations() {
             required
             value={reservationData.description}
             placeholder="Enter a description of the reservation "
-            className=" text-white-200 font-semibold py-2 placeholder-white w-full px-4 rounded-full bg-transparent border-2 border-white"
+            className=" text-white-200 font-semibold py-2 placeholder-white w-5/6 px-4 rounded-full bg-transparent border-2 border-white"
             onChange={handleOnChange}
           />
 
