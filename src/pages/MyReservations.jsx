@@ -19,9 +19,7 @@ function MyReservations() {
         <img src={backimg} alt="Background" className="h-full w-full object-fill " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
-      <h1 className="text-white z-10 font-serif  lg:ml-[350px]  md:ml-[350px] font-extrabold text-3xl">
-        MY RESERVATIONS
-      </h1>
+      <h1 className="text-white z-10 font-serif font-extrabold text-3xl">MY RESERVATIONS</h1>
       <hr className="w-2/5 bg-gray-600 z-10" />
       <div className="z-10 bg-white md:h-[250px] xl:h-[250px] h:full w-3/6 overflow-y-scroll flex flex-col opacity-70 justify-center items-center gap-4 text-center">
         {reservations.length === 0 ? (
