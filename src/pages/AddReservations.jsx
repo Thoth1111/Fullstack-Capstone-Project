@@ -126,7 +126,7 @@ function AddReservations() {
       </div>
       <h1 className="z-10 font-mono text-3xl font-bold tracking-widest">Book A Vespa</h1>
       <hr className="z-10 w-2/5 bg-gray-600" />
-      <p className="z-10 tracking-widest">
+      <p className="z-10 tracking-widest text-center">
         There are {vespas.length} Vespas available for rent. Please select the Vespa you want to rent, and the start
         and end date of your reservation
       </p>

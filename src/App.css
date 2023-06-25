@@ -7,19 +7,3 @@ body {
 .notification {
   color: yellowgreen;
 }
-
-@media (max-width: 640px) {
-  /* Styles for small screens go here */
-  .nav {
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    margin: 0;
-  }
-
-  .home {
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-}

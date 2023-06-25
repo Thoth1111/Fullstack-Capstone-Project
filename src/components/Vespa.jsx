@@ -39,7 +39,7 @@ function Vespa({ icon: url, name, description ,id }) {
         <p>{description}</p>
       </div>
 
-      <div className="flex">
+      <div className="md:flex lg:flex hidden">
         <svg
           className="w-6 h-6 text-slate-500"
           width="24"
