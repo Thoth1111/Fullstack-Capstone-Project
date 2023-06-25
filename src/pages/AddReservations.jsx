@@ -115,7 +115,7 @@ function AddReservations() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-screen h-screen gap-8 text-white">
+    <div className="relative flex flex-col items-center justify-center w-full h-screen gap-8 p-2 text-white lg:w-screen md:w-screen">
       {displayBool && <Toast message={message} type={type} />}
 
       <BackButton />
@@ -191,7 +191,7 @@ function AddReservations() {
             required
             value={reservationData.description}
             placeholder="Enter a description of the reservation "
-            className="w-full px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full  text-white-200"
+            className="w-full px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full text-white-200"
             onChange={handleOnChange}
           />
 

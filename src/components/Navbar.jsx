@@ -17,7 +17,7 @@ function NavigationPanel() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 736) {
+      if (window.innerWidth > 640) {
         setShowNavMenu(true);
       } else {
         setShowNavMenu(false);
@@ -26,12 +26,22 @@ function NavigationPanel() {
 
     // Add event listener to the window resize event
     window.addEventListener('resize', handleResize);
-
+    console.log('show ham');
+    console.log(showNavMenu);
     // Remove event listener when component is unmounted
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    // Set showNavMenu to false when the screen size changes
+    if (window.innerWidth <= 640) {
+      setShowNavMenu(false);
+    }
+    console.log(' Set showNavMenu to false when the screen size changes');
+    console.log(showNavMenu);
+  }, [window.innerWidth]);
 
   const handleDelete = () => {
     setdeleteModalVisible(true);
@@ -53,8 +63,8 @@ function NavigationPanel() {
     <>
       <div className={showNavMenu ? 'fixed left-0 top-0 w-full h-full z-1' : ''} onClick={handleNavbar} />
       <nav
-        className={`d:border lg:border text-lg font-bold fixed h-screen left-0 top-0 flex flex-col justify-between z-10 ${
-          showNavMenu ? 'w-64' : 'w-16'
+        className={`md:border lg:border text-lg h-screen font-bold lg:w-fit md:w-fit fixed left-0 top-0 flex flex-col justify-between z-10 ${
+          showNavMenu ? 'w-64 bg-white' : 'w-16 bg-transparent'
         }`}
       >
         {' '}
@@ -89,6 +99,11 @@ function NavigationPanel() {
         {showNavMenu && (
           <>
             <ul className="flex flex-col pl-4">
+              <li className="top-0 mb-4 ml-2">
+                <Link to="/">
+                  <img src={logo} alt="logo" className="w-40 mb-10 rounded-lg h-35" />
+                </Link>
+              </li>
               <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
                 <Link to="/addvespa" className="">
                   Add Vespa
