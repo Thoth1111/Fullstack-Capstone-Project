@@ -21,9 +21,9 @@ function Vespa({ icon: url, name, description ,id }) {
 
 
   return (
-    <div className="flex flex-col items-center justify-between px-10  h-96 w-80">
+    <div className="flex flex-col items-center justify-between  h-96 md:w-80 lg:w-80 w-fit md:px-10">
       <div
-        className="relative flex items-center p-2 mt-8 rounded-full w-60 h-60"
+        className="relative flex items-center p-2 mt-8 rounded-full  w-60 h-60"
         style={{ backgroundColor: myShade }}
       >
         <img
@@ -39,7 +39,7 @@ function Vespa({ icon: url, name, description ,id }) {
         <p>{description}</p>
       </div>
 
-      <div className="md:flex lg:flex hidden">
+      <div className="hidden md:flex lg:flex">
         <svg
           className="w-6 h-6 text-slate-500"
           width="24"
