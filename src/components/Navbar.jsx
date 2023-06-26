@@ -71,7 +71,7 @@ function NavigationPanel() {
         <div className="flex items-center justify-start">
           {/* Hamburger icon */}
           {!showNavMenu && (
-            <button onClick={handleNavbar} className="p-2 ml-2 bg-gray-200 rounded-full">
+            <button onClick={handleNavbar} className="p-2 ml-2 bg-gray-200 rounded-full md:hidden lg:hidden">
               <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -89,7 +89,7 @@ function NavigationPanel() {
 
           {/* Close icon */}
           {showNavMenu && (
-            <button onClick={handleNavbar} className="p-2 ml-2 bg-gray-200 rounded-full">
+            <button onClick={handleNavbar} className="p-2 ml-2 bg-gray-200 rounded-full md:hidden lg:hidden">
               <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -104,33 +104,33 @@ function NavigationPanel() {
                   <img src={logo} alt="logo" className="w-40 mb-10 rounded-lg h-35" />
                 </Link>
               </li>
-              <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-                <Link to="/addvespa" className="">
-                  Add Vespa
+              <li className="mb-1 pr-14 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                <Link to="/addvespa" className="text-lg">
+                  ADD VESPA
                 </Link>
               </li>
-              <li className="mb-4 pr-14 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-                <Link to="/myreservations" className="">
-                  My Reservation
+              <li className="mb-1 pr-14 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                <Link to="/myreservations" className="text-lg">
+                  MY RESERVATIONS
                 </Link>
               </li>
-              <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-                <button className="" onClick={handleDelete}>
-                  Delete Vespa
+              <li className="mb-1 pr-16 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                <button className="text-lg" onClick={handleDelete}>
+                  DELETE VESPA
                 </button>
               </li>
-              <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-                <Link to="/reserve" className="">
-                  Reserve
+              <li className="mb-1 pr-16 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                <Link to="/reserve" className="text-lg">
+                  RESERVE
                 </Link>
               </li>
-              <li className="mb-4 pr-16 py-2 pl-2 hover:bg-[#a3c837] hover:text-white">
-                <Link to="/" className="" onClick={handleSignOut}>
-                  Sign Out
+              <li className="mb-1 pr-16 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                <Link to="/" className="text-lg" onClick={handleSignOut}>
+                  SIGN OUT
                 </Link>
               </li>
             </ul>
-            {deleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
+            {deleteModalVisible && <DeleteModal className="w-full" onClose={handleCloseModal} />}
             <div className="pb-8 ml-4">
               <div className="flex items-center w-full mb-8 align-middle gap-x-2">
                 <a href="#">
@@ -140,7 +140,7 @@ function NavigationPanel() {
                   <img src={icon2} alt="logo" className="rounded-full w-7 h-7" />
                 </a>
                 <a href="#">
-                  <img src={icon3} alt="logo" className="w-7 h-7" />
+                  <img src={icon3} alt="logo" className="w-5 h-5" />
                 </a>
                 <a href="#">
                   <img src={icon4} alt="logo" className="rounded-full w-7 h-7" />
@@ -149,7 +149,7 @@ function NavigationPanel() {
                   <img src={icon5} alt="logo" className="rounded-full w-7 h-7" />
                 </a>
               </div>
-              <p className="font-light text-center text-gray-500">@2023</p>
+              <p className="font-light text-gray-500">@2023</p>
             </div>
           </>
         )}
