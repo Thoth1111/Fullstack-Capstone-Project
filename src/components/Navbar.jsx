@@ -61,9 +61,9 @@ function NavigationPanel() {
   };
   return (
     <>
-      <div className={showNavMenu ? 'fixed left-0 top-0 w-full w-full h-screen z-10' : ''} onClick={handleNavbar} />
+      <div className={showNavMenu ? 'fixed left-0  top-0 w-full w-full h-screen z-10' : ''} onClick={handleNavbar} />
       <nav
-        className={`md:border lg:border text-lg h-screen font-bold lg:w-fit md:w-fit fixed left-0 top-0 flex flex-col justify-between z-10 ${
+        className={`md:border lg:border text-lg md-red-100 h-screen font-bold lg:w-fit md:w-fit fixed left-0 top-0 flex flex-col justify-between z-10 ${
           showNavMenu ? 'w-64 bg-white' : 'w-16 bg-transparent'
         }`}
       >
@@ -104,31 +104,31 @@ function NavigationPanel() {
                   <img src={logo} alt="logo" className="w-40 mb-10 rounded-lg h-35" />
                 </Link>
               </li>
-              <li className="mb-1 pr-14 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
                 <Link to="/addvespa" className="text-lg">
-                  ADD VESPA
-                </Link>
-              </li>
               <li className="mb-1 pr-14 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                  ADD VESPA
+              </li>
+                </Link>
                 <Link to="/myreservations" className="text-lg">
+              <li className="mb-1 pr-14 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
                   MY RESERVATIONS
-                </Link>
               </li>
-              <li className="mb-1 pr-16 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                </Link>
                 <button className="text-lg" onClick={handleDelete}>
+              <li className="mb-1 pr-16 py-2 pl-2  text-left text-gray-700 hover:bg-[#a3c837] hover:text-white">
                   DELETE VESPA
+              </li>
                 </button>
-              </li>
-              <li className="mb-1 pr-16 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
                 <Link to="/reserve" className="text-lg">
-                  RESERVE
-                </Link>
-              </li>
               <li className="mb-1 pr-16 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
-                <Link to="/" className="text-lg" onClick={handleSignOut}>
-                  SIGN OUT
-                </Link>
+                  RESERVE
               </li>
+                </Link>
+                <Link to="/" className="text-lg" onClick={handleSignOut}>
+              <li className="mb-1 pr-16 py-2 pl-2 text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                  SIGN OUT
+              </li>
+                </Link>
             </ul>
             {deleteModalVisible && <DeleteModal className="w-full" onClose={handleCloseModal} />}
             <div className="pb-8 ml-4">

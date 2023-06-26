@@ -50,7 +50,7 @@ export default function Carousel() {
   const settings = {
     infinite: false,
     slidesToShow: slidesToShow,
-    slidesToScroll: 3,
+    slidesToScroll: 2,
     swipeToSlide: true,
     focusOnSelect: true,
     arrows: true,
@@ -59,10 +59,12 @@ export default function Carousel() {
         breakpoint: 825,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: false,
           rows: 2,
           slidesperRow: 2,
+          initialSlide: 0,
+
          
           arrows: false,
         }

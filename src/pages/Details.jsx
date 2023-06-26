@@ -39,7 +39,7 @@ function Details() {
 
       </div>
 
-      <div className="flex flex-col-reverse p-2 md:mx-0 md:col-span-3 lg:col-span-2 md:flex-col">
+      <div className="flex flex-col-reverse p-2 mt-2 md:mx-0 md:col-span-3 lg:col-span-2 md:flex-col">
 
         <div className="flex flex-col items-center w-full">
           <p className="text-2xl font-bold"> {name} </p>
