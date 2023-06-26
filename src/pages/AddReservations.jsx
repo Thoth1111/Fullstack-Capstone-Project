@@ -191,7 +191,7 @@ function AddReservations() {
             required
             value={reservationData.description}
             placeholder="Enter a description of the reservation "
-            className="w-5/6 px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full  text-white-200"
+            className="w-5/6 px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full text-white-200"
             onChange={handleOnChange}
           />
 
