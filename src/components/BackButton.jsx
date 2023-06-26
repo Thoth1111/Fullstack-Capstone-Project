@@ -10,13 +10,14 @@ function BackButton() {
   return (
     <button className="z-10 absolute left-0 top-0 m-4  " onClick={handleGoBack}>
       <svg
-        className="h-20 w-20 text-white"
+        className="h-20 w-20 text-white sm:h-10 sm:w-10"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        style={{ width: window.innerWidth <= 640 ? '30px' : '50px', height: window.innerWidth <= 640 ? '30px' : '50px' }}
       >
         {' '}
         <circle cx="12" cy="12" r="10" /> <polyline points="12 8 8 12 12 16" />{' '}
