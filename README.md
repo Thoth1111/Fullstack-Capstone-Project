@@ -122,7 +122,7 @@ $ npm run test
 - Twitter: [@JohnAdibe2](https://twitter.com/MosesWamae7)
 - LinkedIn: [@John Adibe](https://www.linkedin.com/in/moses-wamae-a13a67244)
 
-### 🔭Future Features
+## 🔭Future Features
 
 - [ ] Dark mode: This will allow users to switch to a dark theme for the app.
 - [ ] Ratings: This will allow users to rate cars and leave reviews.
