@@ -1,15 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Carousel from '../components/Carousel';
 
 function Home() {
-  const token = useSelector((state) => state.persistedReducer.token);
+
 
   return (
-    <div>
-      <div className="w-[1100px] ml-60 bg-slate-50 h-5/6 m-auto mt-24 text-center">
-        <p className="text-4xl mt-8 font-bold">Latest Models</p>
-        <p className="mt-4 text-lg">Please Select A Vespa Model</p>
+    <div className="flex flex-col w-full">
+      <div className="md:w-[1100px] lg:w-[1100px] lg:ml-60 md:ml-60 w-full h-5/6 m-auto md:mt-24 lg:mt-24 text-center">
+        <p className="text-4xl mt-8 font-bold">LATEST MODELS</p>
+        <p className="mt-4 text-lg text-gray-400 font-bold">Please select a Vespa Model</p>
 
         <Carousel />
       </div>
