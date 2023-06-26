@@ -11,7 +11,7 @@ export const CommentsList = ({vespaId}) => {
 	
 	if (!comments) return <p>Oops! Something went wrong...</p>;
 
-   let filteredComments = comments.filter(comment => comment.room_id === vespaId)
+   let filteredComments = comments.filter(comment => comment.vespa_id === vespaId)
 
 	return (	
 

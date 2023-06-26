@@ -36,7 +36,7 @@ export const vespaApi = createApi({
 
     deleteVespa: builder.mutation({
       query: (id) => ({
-        url: `/rooms/${id}`,
+        url: `/vespas/${id}`,
         method: 'DELETE',
       }),
 

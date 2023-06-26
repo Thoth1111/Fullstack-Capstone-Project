@@ -16,7 +16,8 @@
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "crypto-js": "^4.1.1",
-    "node-vibrant": "^3.1.6",
+    
+    
     "postcss-syntax": "^0.36.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
