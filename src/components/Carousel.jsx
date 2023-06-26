@@ -50,14 +50,43 @@ export default function Carousel() {
   const settings = {
     infinite: false,
     slidesToShow: slidesToShow,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
+    swipeToSlide: true,
+    focusOnSelect: true,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 825,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 3,
+          infinite: false,
+          rows: 2,
+          slidesperRow: 2,
+         
+          arrows: false,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: false,
+          vertical: true,
+          verticalSwiping: true,
+          arrows: false,
+        }
+      },
+    ]
+
+    
   };
 
 
   return (
-    <div className="flex h-5/6">
-    <Slider {...settings} className="flex items-center w-full my-auto h-5/6">
+    <div className="flex h-5/6 w-full">
+    <Slider {...settings} className="flex justify-center  items-center w-full my-auto h-5/6">
     {vespas?.map((vespa) => (
       // <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
         <Vespa {...vespa}  key={vespa.id} />

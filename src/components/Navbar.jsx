@@ -79,13 +79,13 @@ function NavigationPanel() {
           )}
 
           {/* Logo */}
-          {showNavMenu && (
+          {/* {showNavMenu && (
             <div className="mb-4 ml-2">
-              {/* <Link to="/">
+              <Link to="/">
                 <img src={logo} alt="logo" className="w-40 mb-10 rounded-lg h-35" />
-              </Link> */}
+              </Link>
             </div>
-          )}
+          )} */}
 
           {/* Close icon */}
           {showNavMenu && (
