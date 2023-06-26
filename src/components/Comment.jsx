@@ -10,6 +10,7 @@ const Comment = ({ content }) => {
 		<div className={
 			`flex flex-col items-center justify-center p-2 m-2 rounded-lg ${chosenColor}`
 		}>
+			
 			<p>{content}</p>
 		</div>
 	);

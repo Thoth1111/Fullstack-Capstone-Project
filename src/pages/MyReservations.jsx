@@ -35,7 +35,7 @@ function MyReservations() {
       </div>
       <h1 className={`text-white z-10 font-serif font-extrabold ${fontSize}`}>MY RESERVATIONS</h1>
       <hr className="z-10 w-2/5 bg-gray-600" />
-      <div className="z-10 bg-white md:h-[250px] xl:h-[250px] h:full w-3/6 overflow-y-scroll flex flex-col opacity-70 justify-center items-center gap-4 text-center">
+      <div className="z-10 md:h-4/6 scrollbar py-2  w-3/6 overflow-y-scroll  flex flex-col opacity-70 justify-center items-center gap-4 text-center">
         {reservations.length === 0 ? (
           <div className="z-10 bg-white h-[250px] w-3/6 flex justify-center items-center opacity-70 text-center">
             No reservations found.

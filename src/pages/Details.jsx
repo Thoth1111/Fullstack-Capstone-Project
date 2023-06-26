@@ -6,6 +6,8 @@ import NewCommentForm from '../components/NewCommentForm';
 
 function Details() {
 
+  const navigate = useNavigate();
+
   const handleGoBack = () => {
     navigate('/home');
   };
@@ -17,11 +19,11 @@ function Details() {
   const location = useLocation();
   const {url,name, id} = location.state;
   return (
-    <div className="relative flex flex-col h-screen md:grid md:grid-cols-8 ml-52">
+    <div className="relative flex flex-col h-screen md:grid md:grid-cols-8 md:ml-52">
 
       <div className="flex items-center justify-center md:col-span-5 lg:col-span-6">
 
-        <img src={url} alt="" />
+        <img src={url} alt="" className='w-full' />
 
           {/* Buon to navigate to previous page */}
         <button className="absolute left-0 flex items-center justify-end w-16 h-10 top-4 md:top-auto md:bottom-16 md:w-24 rounded-tr-3xl rounded-br-3xl md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
@@ -49,7 +51,7 @@ function Details() {
 
         </div>
 
-        <button className="flex items-center self-center justify-between w-40 h-12 py-4 mt-8 mb-4 text-lg text-center text-white border-none outline-none rounded-2xl bg-lime-500 hover:bg-green-500">
+        <button className="flex items-center self-center justify-between w-40 h-12 py-4 mt-8 mb-4 text-lg text-center text-white border-none outline-none rounded-2xl bg-lime-500 hover:bg-green-500" onClick={handleReserve}>
 
           <p className="ml-10 text-lg font-bold">Reserve</p>
 

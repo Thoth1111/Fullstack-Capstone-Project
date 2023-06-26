@@ -14,7 +14,7 @@ function Reservation({ reservation }) {
   }
 
   return (
-    <div className="z-10 text-black shadow-xl py-4 h-full font-sans font-bold overscroll-none p-4">
+    <div className="z-10 text-black bg-lime-100  rounded-lg shadow-xl py-4 h-full font-sans font-bold overscroll-none p-4">
       <div>
         <h2>
           name:&nbsp;

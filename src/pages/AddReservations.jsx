@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import BackButton from '../components/BackButton';
 import backimg from '../assets/background.jpg';
@@ -6,21 +6,8 @@ import backimg from '../assets/background.jpg';
 import { Toast, useToast } from '../components/Toast';
 
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
-import { useLocation } from 'react-router-dom';
 
 function AddReservations() {
-
-  const location = useLocation();
-  const navVespaId = location.state?.id;
-
-  useEffect(() => {
-    if (navVespaId) {
-      setReservationData({ ...reservationData, selectedVespa: navVespaId });
-    }
-  }, [navVespaId]);
-
-  
-
   const vespaRef = useRef(null);
   const vespaErrorRef = useRef(null);
 
@@ -45,12 +32,6 @@ function AddReservations() {
     const { name, value } = e.target;
     setReservationData({ ...reservationData, [name]: value });
   };
-
-  // if (navVespaId){
-
-  //   setReservationData({...reservationData, selectedVespa: navVespaId});
-
-  // }
 
   const [endDateMinDate, setEndDateMinDate] = useState(minDate);
   const [startDateMaxDate, setStartDateMaxDate] = useState('');
@@ -140,13 +121,21 @@ function AddReservations() {
                 Select a Vespa
               </small>
 
-              <small ref={vespaErrorRef} className="invisible mb-1 text-red-700"> Select a Vespa</small>
-
-              <select id="vespas" name="selectedVespa" ref={vespaRef} value={reservationData.selectedVespa} onChange={handleOnChange} onBlur={handleVespaOnBlur} className="h-12 px-4 font-semibold bg-transparent border-2 border-white rounded-full text-white-200 mt-7 required">
-                <option value="" disabled="" className="hidden">Choose a Vespa</option>
+              <select
+                id="vespas"
+                name="selectedVespa"
+                ref={vespaRef}
+                value={reservationData.selectedVespa}
+                onChange={handleOnChange}
+                onBlur={handleVespaOnBlur}
+                className="h-12 px-4 font-semibold bg-transparent border-2 border-white rounded-full text-white-200 mt-7 required"
+              >
+                <option value="" disabled="" className="hidden">
+                  Choose a Vespa
+                </option>
 
                 {vespas.map((vespa) => (
-                  <option value={vespa.id} key={vespa.id}  className="text-lg text-black">
+                  <option value={vespa.id} key={vespa.id} className="text-lg text-black">
                     {vespa.name}
                   </option>
                 ))}
@@ -191,7 +180,7 @@ function AddReservations() {
             required
             value={reservationData.description}
             placeholder="Enter a description of the reservation "
-            className="w-5/6 px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full text-white-200"
+            className="px-4 py-2 font-semibold placeholder-white bg-transparent border-2 border-white rounded-full w-5/6 md:w-3/6 text-white-200"
             onChange={handleOnChange}
           />
 

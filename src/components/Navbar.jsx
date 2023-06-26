@@ -18,7 +18,7 @@ function NavigationPanel() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 640) {
+      if (window.innerWidth >= 768) {
         setShowNavMenu(true);
         setdesktopMode(true);
       } else {
@@ -37,7 +37,7 @@ function NavigationPanel() {
 
   useEffect(() => {
     // Set showNavMenu to false when the screen size changes
-    if (window.innerWidth <= 640) {
+    if (window.innerWidth < 768) {
       setShowNavMenu(false);
       setdesktopMode(false);
     }
@@ -81,9 +81,9 @@ function NavigationPanel() {
           {/* Logo */}
           {showNavMenu && (
             <div className="mb-4 ml-2">
-              <Link to="/">
+              {/* <Link to="/">
                 <img src={logo} alt="logo" className="w-40 mb-10 rounded-lg h-35" />
-              </Link>
+              </Link> */}
             </div>
           )}
 

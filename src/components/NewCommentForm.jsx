@@ -35,8 +35,8 @@ const NewCommentForm = ({vespaId}) => {
 		<div className="w-5/6 py-2 ">
 			<form className="flex flex-col items-end" onSubmit={handleSubmit}>
 				
-				<textarea type="text-field" id="comment" name="comment" className="w-full h-16 px-2 my-2 rounded-lg outline"/>
-				<button type="submit" className="px-2 font-bold rounded-lg  bg-emerald-300 outline">Add Comment</button>
+				<textarea type="text-field" id="comment" value={comment} name="comment" className="w-full h-16 px-2 my-2 rounded-lg outline" onChange={handleCommentChange}/>
+				<button type="submit" className="px-2 font-bold rounded-lg bg-emerald-300 outline">Add Comment</button>
 			</form>
 		</div>
 	)

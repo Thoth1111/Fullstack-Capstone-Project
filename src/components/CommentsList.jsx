@@ -11,11 +11,11 @@ export const CommentsList = ({vespaId}) => {
 	
 	if (!comments) return <p>Oops! Something went wrong...</p>;
 
-   let filteredComments = comments.filter(comment => comment.room_id === vespaId)
+   let filteredComments = comments.filter(comment => comment.vespa_id === vespaId)
 
 	return (	
 
-		<div className='flex w-full flex-col  max-h-[600px] md:max-h-[400px] scrollbar  overflow-y-auto'>
+		<div className='flex w-full flex-col min-h-[350px] bg-red-100  max-h-[350px] scrollbar  overflow-y-auto'>
 		<p className="self-center text-2xl font-bold text-sky-600">Comments</p>
 		
 		{filteredComments?.map((comment) => (
