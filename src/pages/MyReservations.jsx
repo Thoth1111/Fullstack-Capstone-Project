@@ -1,26 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Reservation from '../components/Reservation';
 import { useGetAllReservationsQuery} from '../redux/vespaAPI';
 import backimg from '../assets/background.jpg';
 import BackButton from '../components/BackButton';
 
 function MyReservations() {
-  const { data: reservations, isLoading } = useGetAllReservationsQuery();
+  const { data: reservations = [], isLoading } = useGetAllReservationsQuery();
+  const [fontSize, setFontSize] = useState('text-3xl');
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 640) {
+        setFontSize('text-2xl');
+      } else {
+        setFontSize('text-3xl');
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (isLoading) {
     return <div>Loading API...</div>;
   }
 
   return (
-    <div className="h-screen w-screen flex flex-col pb-2 justify-center gap-8 items-center text-white relative">
+    <div className="relative flex flex-col items-center justify-center w-screen h-screen gap-8 pb-2 text-white">
       <BackButton />
 
       <div className="absolute inset-0 overflow-hidden">
-        <img src={backimg} alt="Background" className="h-full w-full object-fill " />
+        <img src={backimg} alt="Background" className="object-fill w-full h-full " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
-      <h1 className="text-white z-10 font-serif font-extrabold text-3xl">MY RESERVATIONS</h1>
-      <hr className="w-2/5 bg-gray-600 z-10" />
+      <h1 className="z-10 font-serif ${fontSize} font-extrabold text-white">MY RESERVATIONS</h1>
+      <hr className="z-10 w-2/5 bg-gray-600" />
       <div className="z-10 bg-white md:h-[250px] xl:h-[250px] h:full w-3/6 overflow-y-scroll flex flex-col opacity-70 justify-center items-center gap-4 text-center">
         {reservations.length === 0 ? (
           <div className="z-10 bg-white h-[250px] w-3/6 flex justify-center items-center opacity-70 text-center">
