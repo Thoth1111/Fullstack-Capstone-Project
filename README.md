@@ -15,9 +15,6 @@ The main features of this website are:
  - Users can reserve a Vespa for a special day.
  - Users can add their own Vespas and remove them if they want to.
 
-## Database Structure:
-<img src="" width="650">
-
 ## Project Documentation 📄
 
 - Back-end GitHub repository [link](https://github.com/djo1975/Program-Capstone)👈
