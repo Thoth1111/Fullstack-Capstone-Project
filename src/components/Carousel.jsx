@@ -14,17 +14,7 @@ export default function Carousel() {
   
   
   
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Oops! Something went wrong...</p>;
-  
-  let slidesToShow = vespas.length > 3 ? 3 : vespas.length;
 
-  const settings = {
-    infinite: false,
-    slidesToShow: slidesToShow,
-    slidesToScroll: 1,
-    arrows: true,
-  };
 
 
   useEffect(() => {
@@ -52,19 +42,26 @@ export default function Carousel() {
     }
   }, [mobileMode]);
 
-  const { data: vespas, error, isLoading } = useGetAllVespasQuery();
-
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Oops! Something went wrong...</p>;
+  
+  const slidesToShow = vespas.length > 3 ? 3 : vespas.length;
+
+  const settings = {
+    infinite: false,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    arrows: true,
+  };
 
 
   return (
     <div className="flex h-5/6">
     <Slider {...settings} className="flex items-center w-full my-auto h-5/6">
     {vespas?.map((vespa) => (
-      <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-        <Vespa {...vespa} />
-      </Link>
+      // <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
+        <Vespa {...vespa}  key={vespa.id} />
+      // </Link>
     ))}
   </Slider>
     </div>
