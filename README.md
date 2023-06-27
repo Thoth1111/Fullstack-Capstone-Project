@@ -5,7 +5,6 @@
   - [📄\[Project Documentation\] ](#-project-documentation-)
   - [Kanban Board](#-kanban-board-)
   - [🛠 Built With ](#-built-with-)
-    - [Key Features ](#key-features-)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -57,6 +56,9 @@ The main features of this website are:
 ![image](https://github.com/djo1975/Program-Capstone/assets/96848068/8a71fce0-f987-4c60-b529-6d692e4e2ab4)
 
 ### Team members: 4 (Mohi Sadeghi, Alwyn Androvelle, Moses Wamae, Mladan Ilic)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Built With 🛠️ <a name="built-with"></a>
 
@@ -128,8 +130,9 @@ To run tests, please run this command
 ```
 $ npm run test
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Authors
+## Authors <a name="authors"></a>
 
 👤 **Alwyn Androvelle**
 
