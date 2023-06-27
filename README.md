@@ -18,7 +18,7 @@
   - [🔭 Future Features ](#future-features)
   - [🤝 Contributing ](#contributing)
   - [⭐️ Show your support ](#️support)
-  - [🙏 Acknowledgments ](#acknowledgments)
+  - [🙏 Acknowledgments ](#acknowledgements)
   - [📝 License ](#license)
 
 <!-- PROJECT DESCRIPTION -->
@@ -178,7 +178,7 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Show your support  <a name="support"></a>
+## Show your support  <a name="️support"></a>
 
 Give a ⭐️ if you like this project!
 
@@ -187,7 +187,7 @@ Give a ⭐️ if you like this project!
 - [Microverse](https://www.microverse.org/)
 - Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/muratk).
 
-## 📝 License
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 
