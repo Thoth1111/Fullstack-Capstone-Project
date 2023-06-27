@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable */
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
     width: 20px;
@@ -23,7 +23,7 @@
     background: #c0a0b9;
   }
 }
-/* stylelint-enable at-rule-no-unknown */
+/* stylelint-enable */
 
 .slick-next {
   right: -30px;
