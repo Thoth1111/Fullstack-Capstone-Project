@@ -7,27 +7,10 @@ import { encryptToken } from '../helpers/encryption';
 
 function Login() {
   const location = useLocation();
-  const { state } = location;
-  const success = state?.success;
-  const [showNotification, setShowNotification] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (success === 'signedup') {
-      setShowNotification(true);
-
-      const timer = setTimeout(() => {
-        setShowNotification(false);
-      }, 5000);
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [success]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +22,7 @@ function Login() {
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      navigate('/home', { state: { success: 'loggedin' } });
+      navigate('/home');
     } catch (error) {
       console.error(error);
     }
@@ -47,13 +30,6 @@ function Login() {
 
   return (
     <>
-      <div>
-        {showNotification && (
-          <div className="notification" style="color:green;">
-            Signed up successfully
-          </div>
-        )}
-      </div>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div>
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Log In</h2>
