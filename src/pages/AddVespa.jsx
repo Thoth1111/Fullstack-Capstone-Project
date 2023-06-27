@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { useCreateNewVespaMutation } from '../redux/vespaAPI';
+import { useState } from "react";
+import { useCreateNewVespaMutation } from "../redux/vespaAPI";
 
-import { Toast, useToast } from '../components/Toast';
+import { Toast, useToast } from "../components/Toast";
 
-import backimg from '../assets/background.jpg';
-import BackButton from '../components/BackButton';
+import backimg from "../assets/background.jpg";
+import BackButton from "../components/BackButton";
 
 function AddVespa() {
   const [createVespa, { isLoading: isCreating }] = useCreateNewVespaMutation();
@@ -12,10 +12,10 @@ function AddVespa() {
   const [displayBool, message, type, showToast] = useToast();
 
   const initialVespaData = {
-    Name: '',
-    Description: '',
-    Url: '',
-    Price: '',
+    Name: "",
+    Description: "",
+    Url: "",
+    Price: "",
   };
 
   const [vespaData, setVespaData] = useState(initialVespaData);
@@ -40,7 +40,7 @@ function AddVespa() {
     };
 
     createVespa(newVespa);
-    showToast('Vespa added successfully', 'success');
+    showToast("Vespa added successfully", "success");
 
     setVespaData(initialVespaData);
   };
@@ -52,14 +52,22 @@ function AddVespa() {
       <BackButton />
 
       <div className="absolute inset-0 overflow-hidden">
-        <img src={backimg} alt="Background" className="h-full w-full object-fill " />
+        <img
+          src={backimg}
+          alt="Background"
+          className="h-full w-full object-fill "
+        />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
 
       {/* For a vespa image preview */}
       <div className="z-10 md:absolute lg:absolute hidden left-40 top-52 w-80 h-80 text-center md:flex lg:flex items-center justify-center outline-4 outline rounded-full">
         {vespaData.Url && (
-          <img src={vespaData.Url} alt="Background" className="w-80 h-80 rounded-full object-fill " />
+          <img
+            src={vespaData.Url}
+            alt="Background"
+            className="w-80 h-80 rounded-full object-fill "
+          />
         )}
 
         {!vespaData.Url && <p className="text-lg font-bold">Image Preview</p>}
@@ -148,7 +156,10 @@ function AddVespa() {
             Model image's url
           </label>
         </div>
-        <button type="submit" className="text-white self-center  w-3/6 font-semibold bg-[#96bf01] py-2 rounded-full">
+        <button
+          type="submit"
+          className="text-white self-center  w-3/6 font-semibold bg-[#96bf01] py-2 rounded-full"
+        >
           Add Vespa
         </button>
       </form>
