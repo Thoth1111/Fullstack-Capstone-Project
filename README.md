@@ -12,7 +12,6 @@
     - [Database creation](#database-creation)
     - [Usage](#usage)
     - [Run tests](#run-tests)
-    - [or :](#or-)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -158,24 +157,30 @@ $ npm run test
 - Twitter: [@JohnAdibe2](https://twitter.com/MosesWamae7)
 - LinkedIn: [@John Adibe](https://www.linkedin.com/in/moses-wamae-a13a67244)
 
-## 🔭Future Features
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭Future Features <a name="future-features"></a>
 
 - [ ] Dark mode: This will allow users to switch to a dark theme for the app.
 - [ ] Ratings: This will allow users to rate cars and leave reviews.
 - [ ] Search bar: This will allow users to search for specific topics or keywords within the app.
 - [ ] Sharing buttons: This will allow users to share the link on social media platforms or other websites.
 
-## 🤝 Contributing
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
-## Show your support
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Show your support  <a name="support"></a>
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
+## Acknowledgments <a name="acknowledgements"></a>
 
 - [Microverse](https://www.microverse.org/)
 - Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/muratk).
@@ -183,3 +188,5 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
