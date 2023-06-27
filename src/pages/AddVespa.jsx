@@ -6,7 +6,7 @@ import { Toast, useToast } from '../components/Toast';
 import backimg from '../assets/background.jpg';
 import BackButton from '../components/BackButton';
 
-function AddRoom() {
+function AddVespa() {
   const [createVespa, { isLoading: isCreating }] = useCreateNewVespaMutation();
 
   const [displayBool, message, type, showToast] = useToast();
@@ -156,4 +156,4 @@ function AddRoom() {
   );
 }
 
-export default AddRoom;
+export default AddVespa;
