@@ -11,7 +11,6 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
-    - [Database creation](#database-creation)
     - [Usage](#usage)
     - [Run tests](#run-tests)
   - [👥 Authors ](#authors)
