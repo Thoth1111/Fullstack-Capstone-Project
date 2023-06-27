@@ -40,7 +40,7 @@ function DeleteModal({ onClose }) {
       onClick={handleOutsideClick}
     >
       <div className="bg-white w-80 max-w-md p-6 rounded">
-        <div className="max-h-60 lg:overflow-y-auto md:overflow-y-auto z-100">
+        <div className="max-h-60 lg:overflow-y-auto scrollbar md:overflow-y-auto z-100">
           <h2 className="text-center">Vespas</h2>
           <ul>
             {vespasData?.map((vespa) => (
