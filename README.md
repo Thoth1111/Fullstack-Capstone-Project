@@ -1,10 +1,12 @@
+<a name="readme-top"></a>
+
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [🛵\[Booking Vespa\] ](#-booking-vespa-) 
-  - [📄\[Project Documentation\] ](#-project-documentation-)
-  - [Kanban Board](#-kanban-board-)
-  - [🛠 Built With ](#-built-with-)
+- [🛵\[Booking Vespa\] ](#about-project) 
+  - [📄\[Project Documentation\] ](#project-documentation)
+  - [Kanban Board](#kanban-board)
+  - [🛠 Built With ](#built-with)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -12,12 +14,12 @@
     - [Database creation](#database-creation)
     - [Usage](#usage)
     - [Run tests](#run-tests)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+  - [👥 Authors ](#authors)
+  - [🔭 Future Features ](#future-features)
+  - [🤝 Contributing ](#contributing)
+  - [⭐️ Show your support ](#️support)
+  - [🙏 Acknowledgments ](#acknowledgments)
+  - [📝 License ](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -65,7 +67,7 @@ The main features of this website are:
 - Frameworks: React, Redux, and Bootstrap.
 - Code Editor: VS Code, or Any.
 
-## Getting Started
+## Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running follow these simple steps.
 
