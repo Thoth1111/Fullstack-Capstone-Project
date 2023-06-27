@@ -1,9 +1,10 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Recipe App\] ](#-recipe-app-)
+- [🛵\[Booking Vespa\] ](#-booking-vespa-) 
+  - [📄\[Project Documentation\] ](#-project-documentation-)
+  - [Kanban Board](#-kanban-board-)
   - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
@@ -22,7 +23,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# Booking Vespa 🛵
+# Booking Vespa 🛵 <a name="about-project"></a>
 
 This project is designed for the reservation of fancy vespas. If you are preparing for a special day or event and you want a cool Vespa for it, this website is the best place for you. If you have a luxurious Vespa and want to make some extra money from it, you can add it to our website and others will be able to reserve it!
 
@@ -39,11 +40,11 @@ The main features of this website are:
 - Users can reserve a Vespa for a special day.
 - Users can add their own Vespas and remove them if they want to.
 
-## Project Documentation 📄
+## Project Documentation 📄 <a name="project-documentation"></a>
 
 - Back-end GitHub repository [link](https://github.com/djo1975/Program-Capstone)👈
 
-## Kanban Board
+## Kanban Board <a name="kanban-board"></a>
 
 ### Kanban Board [link](https://github.com/users/michaelamponsah/projects/4/views/1)
 
@@ -57,7 +58,7 @@ The main features of this website are:
 
 ### Team members: 4 (Mohi Sadeghi, Alwyn Androvelle, Moses Wamae, Mladan Ilic)
 
-## Built With 🛠️
+## Built With 🛠️ <a name="built-with"></a>
 
 - Programming Languages: HTML, CSS, JavaScript.
 - Frameworks: React, Redux, and Bootstrap.
