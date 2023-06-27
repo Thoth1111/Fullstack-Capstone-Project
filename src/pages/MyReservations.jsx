@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Reservation from '../components/Reservation';
-import { useGetAllReservationsQuery } from '../redux/reservationAPI';
+import { useGetAllReservationsQuery } from '../redux/vespaAPI';
 import backimg from '../assets/background.jpg';
 import BackButton from '../components/BackButton';
 
@@ -26,16 +26,16 @@ function MyReservations() {
   }
 
   return (
-    <div className="h-screen w-screen flex flex-col pb-2 justify-center gap-8 items-center text-white relative">
+    <div className="relative flex flex-col items-center justify-center w-screen h-screen gap-8 pb-2 text-white">
       <BackButton />
 
       <div className="absolute inset-0 overflow-hidden">
-        <img src={backimg} alt="Background" className="h-full w-full object-fill " />
+        <img src={backimg} alt="Background" className="object-fill w-full h-full " />
         <div className="absolute inset-0 z-0 opacity-90 bg-[#96bf01]" />
       </div>
       <h1 className={`text-white z-10 font-serif font-extrabold ${fontSize}`}>MY RESERVATIONS</h1>
-      <hr className="w-2/5 bg-gray-600 z-10" />
-      <div className="z-10 bg-white md:h-[250px] xl:h-[250px] h:full w-3/6 overflow-y-scroll flex flex-col opacity-70 justify-center items-center gap-4 text-center">
+      <hr className="z-10 w-2/5 bg-gray-600" />
+      <div className="z-10 flex w-3/6 space-y-2 text-center pt-2 items-center flex-col min-h-[350px]  max-h-[350px] scrollbar  overflow-y-auto">
         {reservations.length === 0 ? (
           <div className="z-10 bg-white h-[250px] w-3/6 flex justify-center items-center opacity-70 text-center">
             No reservations found.

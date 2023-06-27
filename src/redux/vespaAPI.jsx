@@ -14,14 +14,13 @@ export const vespaApi = createApi({
     },
   }),
   keepUnusedDataFor: 60 * 60 * 60,
-  tagTypes: ['Vespa'],
+  tagTypes: ['Vespa', 'Reservation', 'Comment'],
   endpoints: (builder) => ({
     getAllVespas: builder.query({
       query: () => '/vespas',
-      providesTags: (result)=>
-      result
-      ? [...result.map(({ id }) => ({ type: 'Vespa', id })), { type: 'Vespa', id: 'LIST' }]
-      : [{ type: 'Vespa', id: 'LIST' }],
+      providesTags: (result) => (result
+        ? [...result.map(({ id }) => ({ type: 'Vespa', id })), { type: 'Vespa', id: 'LIST' }]
+        : [{ type: 'Vespa', id: 'LIST' }]),
     }),
 
     createNewVespa: builder.mutation({
@@ -34,8 +33,21 @@ export const vespaApi = createApi({
       invalidatesTags: [{ type: 'Vespa', id: 'LIST' }],
     }),
 
+    deleteVespa: builder.mutation({
+      query: (id) => ({
+        url: `/vespas/${id}`,
+        method: 'DELETE',
+      }),
+
+      invalidatesTags: (result, error, id) => [{ type: 'Vespa', id }],
+    }),
+
     getAllReservations: builder.query({
       query: () => '/reservations',
+      providesTags: (result) => (result
+        ? [...result.map(({ id }) => ({ type: 'Reservation', id })), { type: 'Reservation', id: 'LIST' }]
+        : [{ type: 'Reservation', id: 'LIST' }]),
+
     }),
 
     createReservation: builder.mutation({
@@ -44,10 +56,39 @@ export const vespaApi = createApi({
         method: 'POST',
         body,
       }),
+
+      invalidatesTags: [{ type: 'Reservation', id: 'LIST' }],
+
     }),
+
+    getAllComments: builder.query({
+      query: () => '/comments',
+      providesTags: (result) => (result
+        ? [...result.map(({ id }) => ({ type: 'Comment', id })), { type: 'Comment', id: 'LIST' }]
+        : [{ type: 'Comment', id: 'LIST' }]),
+
+      transformResponse: (response) => {
+        // change order of comments
+        const comments = response.reverse();
+        return comments;
+      },
+
+    }),
+
+    createComment: builder.mutation({
+      query: (body) => ({
+        url: '/comments',
+        method: 'POST',
+        body,
+      }),
+
+      invalidatesTags: [{ type: 'Comment', id: 'LIST' }],
+    }),
+
   }),
+
 });
 
 export const {
-  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation,
+  useGetAllVespasQuery, useCreateReservationMutation, useGetAllReservationsQuery, useCreateNewVespaMutation, useDeleteVespaMutation, useGetAllCommentsQuery, useCreateCommentMutation,
 } = vespaApi;

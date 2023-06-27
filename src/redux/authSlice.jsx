@@ -6,6 +6,7 @@ const authSlice = createSlice({
     token: null,
     username: '',
     id: null,
+    hasInitialDataFetched: true,
   },
   reducers: {
     setAuthInfo: (state, action) => {
@@ -19,9 +20,14 @@ const authSlice = createSlice({
       state.username = '';
       state.id = null;
     },
+
+    setHasInitialDataFetched: (state) => {
+      state.hasInitialDataFetched = !state.hasInitialDataFetched;
+    },
+
   },
 });
 
-export const { setAuthInfo, clearAuthInfo } = authSlice.actions;
+export const { setAuthInfo, clearAuthInfo, setHasInitialDataFetched } = authSlice.actions;
 
 export default authSlice.reducer;
