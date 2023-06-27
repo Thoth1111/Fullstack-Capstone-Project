@@ -3,7 +3,7 @@ import authReducer, { setAuthInfo, clearAuthInfo } from '../redux/authSlice';
 describe('authSlice', () => {
   describe('reducer', () => {
     test('should handle initial state', () => {
-      const initialState = { token: null, username: '', id: null };
+      const initialState = { hasInitialDataFetched: true, token: null, username: '', id: null };
       expect(authReducer(undefined, {})).toEqual(initialState);
     });
 
