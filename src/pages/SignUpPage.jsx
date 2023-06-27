@@ -26,7 +26,7 @@ function SignUp() {
       const encryptedToken = encryptToken(token);
       sessionStorage.setItem('token', encryptedToken);
 
-      navigate('/login', { state: { success: 'signedup' } });
+      navigate('/login');
     } catch (error) {
       console.error(error);
     }
