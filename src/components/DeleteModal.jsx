@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
-import { useGetAllVespasQuery } from '../redux/vespaAPI';
-import apiRequests from '../services/ApiRequests';
+import { useGetAllVespasQuery, useDeleteVespaMutation } from '../redux/vespaAPI';
 
 function DeleteModal({ onClose }) {
-  const token = useSelector((state) => state.persistedReducer.token);
-  const { data, refetch } = useGetAllVespasQuery();
+  const { data: vespasData } = useGetAllVespasQuery();
+
+  const [deleteVespa, { isLoading: isDeleting }] = useDeleteVespaMutation();
 
   const [checked, setChecked] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [vespasData, setVespasData] = useState(data);
 
   const handleCheckbox = (id) => {
     if (checked.includes(id)) {
@@ -21,18 +19,13 @@ function DeleteModal({ onClose }) {
   };
 
   const handleDelete = async () => {
-    setIsLoading(true);
-
     for (const id of checked) {
       try {
-        await apiRequests.deleteVespa(id, token);
-        setVespasData((prevVespasData) => prevVespasData.filter((vespa) => vespa.id !== id));
+        deleteVespa(id);
       } catch (error) {
         console.log(error);
       }
     }
-    setIsLoading(false);
-    refetch();
   };
 
   const handleOutsideClick = (e) => {
@@ -65,9 +58,9 @@ function DeleteModal({ onClose }) {
           <button
             className="flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600"
             onClick={handleDelete}
-            disabled={isLoading}
+            disabled={isDeleting}
           >
-            {isLoading ? 'Deleting...' : 'Delete'}
+            {isDeleting ? 'Deleting...' : 'Delete'}
           </button>
         </div>
       </div>

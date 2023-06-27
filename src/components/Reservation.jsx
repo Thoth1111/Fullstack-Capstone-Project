@@ -14,14 +14,14 @@ function Reservation({ reservation }) {
   }
 
   return (
-    <div className="z-10 text-black shadow-xl py-4 h-full font-sans font-bold overscroll-none p-4">
+    <div className="z-10 text-black bg-lime-100  rounded-lg shadow-xl py-4 w-4/6 h-40 font-sans font-bold overscroll-none p-4">
       <div>
         <h2>
-          name:&nbsp;
+          Name:&nbsp;
           {vespa.name}
         </h2>
         <p>
-          description:&nbsp;
+          Description:&nbsp;
           {reservation.description}
         </p>
         <p>
