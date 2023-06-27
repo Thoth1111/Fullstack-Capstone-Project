@@ -1,5 +1,28 @@
-# Booking Vespa 🛵
+# 📗 Table of Contents
 
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 \[Recipe App\] ](#-recipe-app-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Database creation](#database-creation)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [or :](#or-)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
+
+<!-- PROJECT DESCRIPTION -->
+
+# Booking Vespa 🛵
 
 This project is designed for the reservation of fancy vespas. If you are preparing for a special day or event and you want a cool Vespa for it, this website is the best place for you. If you have a luxurious Vespa and want to make some extra money from it, you can add it to our website and others will be able to reserve it!
 
@@ -8,12 +31,13 @@ Here are some of the benefits of using our website:
 - Wide selection of Vespas to choose from
 - Competitive prices
 - Easy and convenient booking process
-- 24/7 customer support 
+- 24/7 customer support
 
 The main features of this website are:
- - Users can see details of all the Vespas.
- - Users can reserve a Vespa for a special day.
- - Users can add their own Vespas and remove them if they want to.
+
+- Users can see details of all the Vespas.
+- Users can reserve a Vespa for a special day.
+- Users can add their own Vespas and remove them if they want to.
 
 ## Project Documentation 📄
 
@@ -24,22 +48,23 @@ The main features of this website are:
 ### Kanban Board [link](https://github.com/users/michaelamponsah/projects/4/views/1)
 
 ### Initial state of the Kanban Board:
+
 ![image](https://github.com/djo1975/Program-Capstone/assets/96848068/69fdee52-3f5a-4279-8ad2-82f484e7005b)
 
 ### Final state of the Kanban Board:
+
 ![image](https://github.com/djo1975/Program-Capstone/assets/96848068/8a71fce0-f987-4c60-b529-6d692e4e2ab4)
 
-
 ### Team members: 4 (Mohi Sadeghi, Alwyn Androvelle, Moses Wamae, Mladan Ilic)
- 
+
 ## Built With 🛠️
 
- - Programming Languages: HTML, CSS, JavaScript.
- - Frameworks: React, Redux, and Bootstrap.
- - Code Editor: VS Code, or Any.
- 
+- Programming Languages: HTML, CSS, JavaScript.
+- Frameworks: React, Redux, and Bootstrap.
+- Code Editor: VS Code, or Any.
+
 ## Getting Started
- 
+
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
@@ -48,10 +73,13 @@ To get a local copy up and running follow these simple steps.
 - A code editor like Visual Studio Code with Git and Nodejs.
 
 > You can check if Git is installed by running the following command in the terminal.
+
 ```
 $ git --version
 ```
+
 > Likewise for Node installation.
+
 ```
 $ node --version
 ```
@@ -63,9 +91,11 @@ Clone the repository using the GitHub link provided below.
 ### Install
 
 In the terminal, go to your file directory and run this command.
+
 ```
 $ git clone https://Thoth1111/Fullstack-Capstone-Project.git
 ```
+
 ### Usage
 
 ### Run locally
@@ -77,6 +107,7 @@ $ cd Fullstack-Capstone-Project
 ```
 
 Install the required dependencies to run the project with this command:
+
 ```
 $ npm install
 ```
@@ -92,6 +123,7 @@ Kindly modify the files as needed.
 ### Run tests
 
 To run tests, please run this command
+
 ```
 $ npm run test
 ```
@@ -103,7 +135,7 @@ $ npm run test
 - Github: [@Thoth1111](https://github.com/Thoth1111)
 - Twitter: [@androvelle](https://twitter.com/androvelle)
 - LinkedIn: [@Alwyn](https://linkedin.com/in/alwyn-androvelle-simiyu)
-  
+
 👤 **Mladan Ilic**
 
 - GitHub: [@Ilic](https://github.com/djo1975)
@@ -140,8 +172,10 @@ Feel free to check the [issues page](../../issues/).
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
+
 - [Microverse](https://www.microverse.org/)
 - Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/muratk).
 
 ## 📝 License
+
 This project is [MIT](./LICENSE) licensed.
