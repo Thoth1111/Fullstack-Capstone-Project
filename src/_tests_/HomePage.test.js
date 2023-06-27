@@ -15,7 +15,7 @@ describe('HomePage', () => {
         <MemoryRouter>
           <Home />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
     try {
       await waitFor(() => !screen.getAllByText('Loading...'));
