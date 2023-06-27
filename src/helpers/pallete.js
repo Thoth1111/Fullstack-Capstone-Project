@@ -12,4 +12,3 @@ const getPallete = async (url) => {
 };
 
 export default getPallete;
-
