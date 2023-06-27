@@ -9,7 +9,7 @@ function VespaDetails() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Oops! Something went wrong...</p>;
 
-  const selectedVespa = vespas.find(vespa => vespa.id.toString() === id);
+  const selectedVespa = vespas.find((vespa) => vespa.id.toString() === id);
 
   if (!selectedVespa) return <p>Vespa not found.</p>;
 
