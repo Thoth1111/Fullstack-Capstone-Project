@@ -8,7 +8,7 @@ function BackButton() {
   };
 
   return (
-    <button className="z-10 absolute left-0 top-0 m-4  " onClick={handleGoBack}>
+    <button id="back-button" className="z-10 absolute left-0 top-0 m-4  " onClick={handleGoBack}>
       <svg
         className="h-20 w-20 text-white sm:h-10 sm:w-10"
         viewBox="0 0 24 24"
