@@ -78,16 +78,6 @@ function NavigationPanel() {
             </button>
           )}
 
-          {/* Logo */}
-          {/* {showNavMenu && (
-            <div className="mb-4 ml-2">
-              <Link to="/">
-                <img src={logo} alt="logo" className="w-40 mb-10 rounded-lg h-35" />
-              </Link>
-            </div>
-          )} */}
-
-          {/* Close icon */}
           {showNavMenu && (
             <button onClick={handleNavbar} className="p-2 ml-2 bg-gray-200 rounded-full md:hidden lg:hidden">
               <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
