@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetAllVespasQuery } from '../redux/vespaAPI';
 
-function VespaDetails() {
+const VespaDetails = () => {
   const { id } = useParams();
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
 
@@ -26,6 +26,6 @@ function VespaDetails() {
       </div>
     </div>
   );
-}
+};
 
 export default VespaDetails;

@@ -1,11 +1,10 @@
-import { data } from 'jquery';
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import { useGetAllVespasQuery } from '../redux/vespaAPI';
 import Vespa from './Vespa';
 
-export default function Carousel() {
+const Carousel = () => {
   const [mobileMode, setMobileMode] = useState(false);
 
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
@@ -18,16 +17,15 @@ export default function Carousel() {
         setMobileMode(true);
       }
     };
-    // Add event listener to the window resize event
+
     window.addEventListener('resize', handleResize);
-    // Remove event listener when component is unmounted
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
-    // Update mobile mode state when screen size changes
     if (window.innerWidth > 640 && mobileMode) {
       setMobileMode(false);
     } else if (window.innerWidth <= 640 && !mobileMode) {
@@ -57,7 +55,6 @@ export default function Carousel() {
           rows: 2,
           slidesperRow: 2,
           initialSlide: 0,
-
           arrows: false,
         },
       },
@@ -73,18 +70,19 @@ export default function Carousel() {
         },
       },
     ],
-
   };
 
   return (
     <div className="flex h-5/6 w-full">
-      <Slider {...settings} className="flex justify-center  items-center w-full my-auto h-5/6">
+      <Slider {...settings} className="flex justify-center items-center w-full my-auto h-5/6">
         {vespas?.map((vespa) => (
-          // <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-          <Vespa {...vespa} key={vespa.id} />
-          // </Link>
+          <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
+            <Vespa {...vespa} />
+          </Link>
         ))}
       </Slider>
     </div>
   );
-}
+};
+
+export default Carousel;

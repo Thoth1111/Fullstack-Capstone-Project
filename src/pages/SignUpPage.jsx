@@ -5,7 +5,7 @@ import apiRequests from '../services/ApiRequests';
 import { setAuthInfo } from '../redux/authSlice';
 import { encryptToken } from '../helpers/encryption';
 
-function SignUp() {
+const SignUp = () => {
   const [userName, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -98,6 +98,6 @@ function SignUp() {
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;

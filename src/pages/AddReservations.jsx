@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import BackButton from '../components/BackButton';
@@ -8,7 +8,7 @@ import { Toast, useToast } from '../components/Toast';
 
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
 
-function AddReservations() {
+const AddReservations = () => {
   const location = useLocation();
   const chosenID = location?.state?.id || 0;
 
@@ -85,8 +85,6 @@ function AddReservations() {
       e.preventDefault();
       setReservationData(initialFormData);
       createReservation(reservation);
-      console.log(mutationData);
-
       showToast('Reservation Made Successfully', 'success');
     }
   };
@@ -207,6 +205,6 @@ function AddReservations() {
       </form>
     </div>
   );
-}
+};
 
 export default AddReservations;

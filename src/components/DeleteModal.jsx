@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useQuery } from 'react-query';
 import { useGetAllVespasQuery, useDeleteVespaMutation } from '../redux/vespaAPI';
 
-function DeleteModal({ onClose }) {
+const DeleteModal = ({ onClose }) => {
   const { data: vespasData } = useGetAllVespasQuery();
 
   const [deleteVespa, { isLoading: isDeleting }] = useDeleteVespaMutation();
@@ -21,7 +19,7 @@ function DeleteModal({ onClose }) {
   const handleDelete = async () => {
     for (const id of checked) {
       try {
-        deleteVespa(id);
+        await deleteVespa(id);
       } catch (error) {
         console.log(error);
       }
@@ -29,7 +27,7 @@ function DeleteModal({ onClose }) {
   };
 
   const handleOutsideClick = (e) => {
-    if (e.target == e.currentTarget) {
+    if (e.target === e.currentTarget) {
       onClose();
     }
   };
@@ -66,6 +64,6 @@ function DeleteModal({ onClose }) {
       </div>
     </div>
   );
-}
+};
 
 export default DeleteModal;

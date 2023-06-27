@@ -16,26 +16,19 @@ import VespaDetails from './components/VespaDetails';
 import { vespaApi } from './redux/vespaAPI';
 import { setHasInitialDataFetched } from './redux/authSlice';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
 
   const hasInitialDataFetched = useSelector((state) => state.persistedReducer.hasInitialDataFetched);
 
-  // will only fire if it is the inital login
-  // fetches all the data from the api and stores it in the redux store
-
-  useEffect(
-    () => {
-      if (!hasInitialDataFetched) {
-        dispatch(vespaApi.endpoints.getAllVespas.initiate());
-        dispatch(vespaApi.endpoints.getAllReservations.initiate());
-        dispatch(vespaApi.endpoints.getAllComments.initiate());
-        dispatch(setHasInitialDataFetched());
-      }
-    },
-
-    [hasInitialDataFetched, dispatch],
-  );
+  useEffect(() => {
+    if (!hasInitialDataFetched) {
+      dispatch(vespaApi.endpoints.getAllVespas.initiate());
+      dispatch(vespaApi.endpoints.getAllReservations.initiate());
+      dispatch(vespaApi.endpoints.getAllComments.initiate());
+      dispatch(setHasInitialDataFetched());
+    }
+  }, [hasInitialDataFetched, dispatch]);
 
   const location = useLocation();
   const isHomeOrDetails = location.pathname === '/home' || location.pathname === '/details';

@@ -5,7 +5,7 @@ import { setAuthInfo, setHasInitialDataFetched } from '../redux/authSlice';
 import apiRequests from '../services/ApiRequests';
 import { encryptToken } from '../helpers/encryption';
 
-function Login() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import limeSplash from '../assets/limeSplash.png';
 import vespa from '../assets/vespa.png';
 
-function SplashPage() {
+const SplashPage = () => {
   return (
     <div className="h-screen w-screen flex flex-col justify-center gap-8 items-center text-white relative bg-[#FFB400]">
       <img src={vespa} alt="logo" className="absolute top-8 left-10 h-70 w-60" />
@@ -97,6 +97,6 @@ function SplashPage() {
       </ul>
     </div>
   );
-}
+};
 
 export default SplashPage;

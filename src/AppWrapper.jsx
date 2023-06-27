@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { clearAuthInfo } from './redux/authSlice';
 
-function AppWrapper({ children }) {
+const AppWrapper = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const [TokenExpired, setTokenExpired] = useState(false);
+  const [tokenExpired, setTokenExpired] = useState(false);
   const token = sessionStorage.getItem('token');
   const tokenLife = 6 * 60 * 60 * 1000;
 
@@ -16,7 +16,7 @@ function AppWrapper({ children }) {
       dispatch(clearAuthInfo());
       setTokenExpired(true);
     }
-  }, [location.pathname, token]);
+  }, [location.pathname, token, dispatch]);
 
   useEffect(() => {
     if (token && isLoginOrSignupPath(location.pathname)) {
@@ -33,18 +33,19 @@ function AppWrapper({ children }) {
 
       return () => clearTimeout(tokenTimeout);
     }
-  }, [dispatch, token]);
+  }, [dispatch, token, tokenLife]);
 
-  const isLoginOrSignupPath = (pathname) => pathname === '/login' || pathname === '/signup' || pathname === '/';
+  const isLoginOrSignupPath = (pathname) =>
+    pathname === '/login' || pathname === '/signup' || pathname === '/';
 
   useEffect(() => {
-    if (TokenExpired) {
+    if (tokenExpired) {
       navigate('./', { replace: true });
       window.location.reload();
     }
-  }, [TokenExpired, navigate]);
+  }, [tokenExpired, navigate]);
 
   return <>{children}</>;
-}
+};
 
 export default AppWrapper;

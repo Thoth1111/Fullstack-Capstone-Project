@@ -10,41 +10,38 @@ import icon3 from '../assets/icon3.png';
 import icon4 from '../assets/icon4.png';
 import icon5 from '../assets/icon5.png';
 
-function NavigationPanel() {
+const NavigationPanel = () => {
   const dispatch = useDispatch();
-  const [deleteModalVisible, setdeleteModalVisible] = useState(false);
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
-  const [desktopMode, setdesktopMode] = useState(true);
+  const [desktopMode, setDesktopMode] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setShowNavMenu(true);
-        setdesktopMode(true);
+        setDesktopMode(true);
       } else {
         setShowNavMenu(false);
-        setdesktopMode(false);
+        setDesktopMode(false);
       }
     };
 
-    // Add event listener to the window resize event
     window.addEventListener('resize', handleResize);
-    // Remove event listener when component is unmounted
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
-    // Set showNavMenu to false when the screen size changes
     if (window.innerWidth < 768) {
       setShowNavMenu(false);
-      setdesktopMode(false);
+      setDesktopMode(false);
     }
-  }, [window.innerWidth]);
+  }, []);
 
   const handleDelete = () => {
-    setdeleteModalVisible(true);
+    setDeleteModalVisible(true);
   };
 
   const handleNavbar = () => {
@@ -52,33 +49,30 @@ function NavigationPanel() {
   };
 
   const handleCloseModal = () => {
-    setdeleteModalVisible(false);
+    setDeleteModalVisible(false);
   };
 
   const handleSignOut = () => {
     sessionStorage.clear();
     dispatch(clearAuthInfo());
   };
+
   return (
     <>
-      <div className={showNavMenu ? 'fixed left-0  top-0 w-full w-full h-screen z-10' : ''} onClick={handleNavbar} />
+      <div className={showNavMenu ? 'fixed left-0 top-0 w-full h-screen z-10' : ''} onClick={handleNavbar} />
       <nav
         className={`md:border lg:border text-lg md-red-100 h-screen font-bold lg:w-fit md:w-fit fixed left-0 top-0 flex flex-col justify-between z-10 ${
           showNavMenu ? 'w-64 bg-white' : 'w-16 bg-transparent'
         }`}
       >
-        {' '}
         <div className="flex items-center justify-start">
-          {/* Hamburger icon */}
-          {!showNavMenu && (
+          {!showNavMenu ? (
             <button onClick={handleNavbar} className="p-2 ml-2 bg-gray-200 rounded-full md:hidden lg:hidden">
               <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-          )}
-
-          {showNavMenu && (
+          ) : (
             <button onClick={handleNavbar} className="p-2 ml-2 bg-gray-200 rounded-full md:hidden lg:hidden">
               <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -105,7 +99,7 @@ function NavigationPanel() {
                 </li>
               </Link>
               <button className="text-lg" onClick={handleDelete}>
-                <li className="mb-1 pr-16 py-2 pl-2  text-left text-gray-700 hover:bg-[#a3c837] hover:text-white">
+                <li className="mb-1 pr-16 py-2 pl-2 text-left text-gray-700 hover:bg-[#a3c837] hover:text-white">
                   DELETE VESPA
                 </li>
               </button>
@@ -146,6 +140,6 @@ function NavigationPanel() {
       </nav>
     </>
   );
-}
+};
 
 export default NavigationPanel;

@@ -1,14 +1,15 @@
 import * as VibrantAPI from 'node-vibrant';
 
-async function getPallete(url) {
+const getPallete = async (url) => {
   const img = new Image();
   img.crossOrigin = 'Anonymous';
   img.src = `${url}?not-from-cache-please`;
   const v = new VibrantAPI(img, {});
-  const pallette = v.getPalette();
+  const palette = await v.getPalette();
 
-  // let pallette = await VibrantAPI.from(url).getPalette()
-  return pallette;
-}
+  // let palette = await VibrantAPI.from(url).getPalette();
+  return palette;
+};
 
 export default getPallete;
+
