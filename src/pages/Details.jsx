@@ -23,7 +23,7 @@ function Details() {
         <img src={url} alt="" className="w-full" />
 
         {/* Buon to navigate to previous page */}
-        <button className="absolute left-0 flex items-center justify-end w-16 h-10 top-4 md:top-auto md:bottom-16 md:w-24 rounded-tr-3xl rounded-br-3xl md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
+        <button className="absolute left-0 flex items-center justify-end w-16 h-10 top-16 md:top-auto md:bottom-16 md:w-24 rounded-tr-3xl rounded-br-3xl md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
 
           <svg className="w-6 h-6 mr-2 text-white md:h-10 md:w-10 md:mr-4" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             {' '}

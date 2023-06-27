@@ -10,7 +10,7 @@ function BackButton() {
   return (
     <button className="absolute top-0 left-0 z-10 m-4 " onClick={handleGoBack}>
       <svg
-        className="w-20 h-20 text-white sm:h-10 sm:w-10"
+        className="w-12 h-12 md:w-20 md:h-20 text-white sm:h-10 sm:w-10"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
