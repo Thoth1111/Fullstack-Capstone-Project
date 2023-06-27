@@ -17,10 +17,10 @@ function SignUp() {
     e.preventDefault();
 
     try {
-     const res = await apiRequests.signUp(userName, email, password, passwordConfirmation);
-   
-     const { user} = res
-      const { username, id, jti:token } = user;
+      const res = await apiRequests.signUp(userName, email, password, passwordConfirmation);
+
+      const { user } = res;
+      const { username, id, jti: token } = user;
       dispatch(setAuthInfo({ username, id, token }));
 
       const encryptedToken = encryptToken(token);

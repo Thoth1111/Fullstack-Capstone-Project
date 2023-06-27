@@ -3,10 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import SplashPage from '../pages/SplashPage';
 
 test('renders the SplashPage component', () => {
-    render(
+  render(
     <Router>
-        <SplashPage />
-    </Router>
-    );
+      <SplashPage />
+    </Router>,
+  );
 });
-  
