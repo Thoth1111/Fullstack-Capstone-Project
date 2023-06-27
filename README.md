@@ -117,7 +117,7 @@ $ npm install
 Then run it in your browser with this command:
 
 ```
-$ npm start
+$ npm run dev
 ```
 
 Kindly modify the files as needed.
