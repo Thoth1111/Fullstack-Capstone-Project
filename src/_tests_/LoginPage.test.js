@@ -1,9 +1,8 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'; 
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
-import apiRequests from '../services/ApiRequests';
 
 jest.mock('react-redux', () => {
     const originalModule = jest.requireActual('react-redux');
