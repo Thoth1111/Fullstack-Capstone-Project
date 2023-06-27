@@ -14,14 +14,13 @@ export const vespaApi = createApi({
     },
   }),
   keepUnusedDataFor: 60 * 60 * 60,
-  tagTypes: ['Vespa', 'Reservation' , 'Comment'],
+  tagTypes: ['Vespa', 'Reservation', 'Comment'],
   endpoints: (builder) => ({
     getAllVespas: builder.query({
       query: () => '/vespas',
-      providesTags: (result)=>
-      result
-      ? [...result.map(({ id }) => ({ type: 'Vespa', id })), { type: 'Vespa', id: 'LIST' }]
-      : [{ type: 'Vespa', id: 'LIST' }],
+      providesTags: (result) => (result
+        ? [...result.map(({ id }) => ({ type: 'Vespa', id })), { type: 'Vespa', id: 'LIST' }]
+        : [{ type: 'Vespa', id: 'LIST' }]),
     }),
 
     createNewVespa: builder.mutation({
@@ -66,28 +65,28 @@ export const vespaApi = createApi({
       query: () => '/comments',
       providesTags: (result) => (result
         ? [...result.map(({ id }) => ({ type: 'Comment', id })), { type: 'Comment', id: 'LIST' }]
-        : [{ type: 'Comment', id: 'LIST' }]),  
-        
-        transformResponse: (response) => {
-          //change order of comments
-          const comments = response.reverse();
-          return comments;
-        },
+        : [{ type: 'Comment', id: 'LIST' }]),
 
-  }),
+      transformResponse: (response) => {
+        // change order of comments
+        const comments = response.reverse();
+        return comments;
+      },
 
-  createComment: builder.mutation({
-    query: (body) => ({
-      url: '/comments',
-      method: 'POST',
-      body,
     }),
 
-    invalidatesTags: [{ type: 'Comment', id: 'LIST' }],
+    createComment: builder.mutation({
+      query: (body) => ({
+        url: '/comments',
+        method: 'POST',
+        body,
+      }),
+
+      invalidatesTags: [{ type: 'Comment', id: 'LIST' }],
+    }),
+
   }),
 
-}),
-  
 });
 
 export const {

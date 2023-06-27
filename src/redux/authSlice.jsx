@@ -22,14 +22,12 @@ const authSlice = createSlice({
     },
 
     setHasInitialDataFetched: (state) => {
-
       state.hasInitialDataFetched = !state.hasInitialDataFetched;
-    }
-
+    },
 
   },
 });
 
-export const { setAuthInfo, clearAuthInfo , setHasInitialDataFetched } = authSlice.actions;
+export const { setAuthInfo, clearAuthInfo, setHasInitialDataFetched } = authSlice.actions;
 
 export default authSlice.reducer;

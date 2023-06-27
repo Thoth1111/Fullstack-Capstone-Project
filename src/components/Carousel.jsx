@@ -1,21 +1,14 @@
 import { data } from 'jquery';
-import React, { Component } from 'react';
-import { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { useGetAllVespasQuery } from '../redux/vespaAPI';
 import { Link } from 'react-router-dom';
+import { useGetAllVespasQuery } from '../redux/vespaAPI';
 import Vespa from './Vespa';
 
 export default function Carousel() {
   const [mobileMode, setMobileMode] = useState(false);
 
   const { data: vespas, error, isLoading } = useGetAllVespasQuery();
-  
-  
-  
-  
-
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,12 +37,12 @@ export default function Carousel() {
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Oops! Something went wrong...</p>;
-  
+
   const slidesToShow = vespas.length > 3 ? 3 : vespas.length;
 
   const settings = {
     infinite: false,
-    slidesToShow: slidesToShow,
+    slidesToShow,
     slidesToScroll: 2,
     swipeToSlide: true,
     focusOnSelect: true,
@@ -65,9 +58,8 @@ export default function Carousel() {
           slidesperRow: 2,
           initialSlide: 0,
 
-         
           arrows: false,
-        }
+        },
       },
       {
         breakpoint: 640,
@@ -78,23 +70,21 @@ export default function Carousel() {
           vertical: true,
           verticalSwiping: true,
           arrows: false,
-        }
+        },
       },
-    ]
+    ],
 
-    
   };
-
 
   return (
     <div className="flex h-5/6 w-full">
-    <Slider {...settings} className="flex justify-center  items-center w-full my-auto h-5/6">
-    {vespas?.map((vespa) => (
-      // <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-        <Vespa {...vespa}  key={vespa.id} />
-      // </Link>
-    ))}
-  </Slider>
+      <Slider {...settings} className="flex justify-center  items-center w-full my-auto h-5/6">
+        {vespas?.map((vespa) => (
+          // <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
+          <Vespa {...vespa} key={vespa.id} />
+          // </Link>
+        ))}
+      </Slider>
     </div>
   );
 }

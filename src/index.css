@@ -1,6 +1,4 @@
 @tailwind base;
-
-
 @tailwind components;
 @tailwind utilities;
 
@@ -25,8 +23,6 @@
     background: #c0a0b9;
   }
 }
-
-
 
 .slick-next {
   right: -30px;

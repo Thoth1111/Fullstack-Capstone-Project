@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Reservation from '../components/Reservation';
-import { useGetAllReservationsQuery} from '../redux/vespaAPI';
+import { useGetAllReservationsQuery } from '../redux/vespaAPI';
 import backimg from '../assets/background.jpg';
 import BackButton from '../components/BackButton';
 

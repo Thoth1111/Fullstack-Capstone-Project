@@ -1,17 +1,16 @@
 import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import BackButton from '../components/BackButton';
 import backimg from '../assets/background.jpg';
 
 import { Toast, useToast } from '../components/Toast';
 
 import { useGetAllVespasQuery, useCreateReservationMutation } from '../redux/vespaAPI';
-import { useLocation } from 'react-router';
 
 function AddReservations() {
   const location = useLocation();
-  const chosenID = location?.state?.id || 0
-
+  const chosenID = location?.state?.id || 0;
 
   const vespaRef = useRef(null);
   const vespaErrorRef = useRef(null);
@@ -97,7 +96,12 @@ function AddReservations() {
   }
 
   if (error) {
-    return <div>Something went wrong: {error}</div>;
+    return (
+      <div>
+        Something went wrong:
+        {error}
+      </div>
+    );
   }
 
   return (
@@ -113,7 +117,11 @@ function AddReservations() {
       <h1 className="z-10 mt-8 font-mono text-3xl font-bold tracking-widest">Book A Vespa</h1>
       <hr className="z-10 w-2/5 bg-gray-600" />
       <p className="z-10 tracking-widest text-center">
-        There are {vespas.length} Vespas available for rent. Please select the Vespa you want to rent, and the start
+        There are
+        {' '}
+        {vespas.length}
+        {' '}
+        Vespas available for rent. Please select the Vespa you want to rent, and the start
         and end date of your reservation
       </p>
 

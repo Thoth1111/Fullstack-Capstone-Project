@@ -20,8 +20,8 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
   })
-    .concat(vespaApi.middleware)
-    
+    .concat(vespaApi.middleware),
+
 });
 
 const persistor = persistStore(store);
