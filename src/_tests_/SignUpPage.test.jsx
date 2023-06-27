@@ -1,5 +1,7 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'; 
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import SignUpPage from '../pages/SignUpPage';
@@ -54,22 +56,22 @@ describe('SignUpPage', () => {
     const confirmPasswordInput = screen.getByPlaceholderText('Confirm Password');
     const submitButton = screen.getByRole('button', { name: 'Sign Up' });
 
-        fireEvent.change(usernameInput, { target: { value: 'user1' } });
-        fireEvent.change(emailInput, { target: { value: 'user1@test.com' } });
-        fireEvent.change(passwordInput, { target: { value: 'password' } });
-        fireEvent.change(confirmPasswordInput, { target: { value: 'password' } });
-        fireEvent.click(submitButton);
-        
-        await waitFor(() => {
-            expect(mockSignUp).toHaveBeenCalledTimes(1);
-            expect(mockSignUp).toHaveBeenCalledWith('user1', 'user1@test.com', 'password', 'password');
-            expect(mockDispatch).toHaveBeenCalledTimes(1);
-            expect(mockDispatch).toHaveBeenCalledWith({ 
-                type: 'auth/setAuthInfo',
-                payload: { username: 'user1', id: 1, token: 'uSeR-1-ToKeN' },
-            });
-            expect(mockNavigate).toHaveBeenCalledTimes(1);
-            expect(mockNavigate).toHaveBeenCalledWith('/login');
-        });
+    fireEvent.change(usernameInput, { target: { value: 'user1' } });
+    fireEvent.change(emailInput, { target: { value: 'user1@test.com' } });
+    fireEvent.change(passwordInput, { target: { value: 'password' } });
+    fireEvent.change(confirmPasswordInput, { target: { value: 'password' } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(mockSignUp).toHaveBeenCalledTimes(1);
+      expect(mockSignUp).toHaveBeenCalledWith('user1', 'user1@test.com', 'password', 'password');
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: 'auth/setAuthInfo',
+        payload: { username: 'user1', id: 1, token: 'uSeR-1-ToKeN' },
+      });
+      expect(mockNavigate).toHaveBeenCalledTimes(1);
+      expect(mockNavigate).toHaveBeenCalledWith('/login');
     });
+  });
 });
