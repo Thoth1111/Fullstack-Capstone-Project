@@ -42,7 +42,7 @@ The main features of this website are:
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Link to live demo](https://vespa-reservation.onrender.com/home)
+- [Link to live demo](https://vespa-reservation.onrender.com/)
 
 
 ## Project Documentation 📄 <a name="project-documentation"></a>
