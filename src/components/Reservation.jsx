@@ -14,8 +14,8 @@ const Reservation = ({ reservation }) => {
   }
 
   return (
-    <div className="z-10 text-black bg-lime-100 rounded-lg shadow-xl py-4 w-4/6 h-40 font-sans font-bold overscroll-none p-4">
-      <div>
+    <div className="z-10 text-black bg-lime-100 rounded-lg shadow-xl py-4 w-4/5 h-auto font-sans font-bold overscroll-none p-4">
+      <div className="overflow-hidden overflow-x-auto">
         <h2>
           Name:&nbsp;
           {vespa.name}
