@@ -11,7 +11,6 @@ import NavigationPanel from './components/Navbar';
 import AddVespa from './pages/AddVespa';
 import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
-import VespaDetails from './components/VespaDetails';
 
 import { vespaApi } from './redux/vespaAPI';
 import { setHasInitialDataFetched } from './redux/authSlice';

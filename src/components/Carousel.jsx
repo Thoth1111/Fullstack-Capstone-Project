@@ -76,9 +76,7 @@ const Carousel = () => {
     <div className="flex h-5/6 w-full">
       <Slider {...settings} className="flex justify-center items-center w-full my-auto h-5/6">
         {vespas?.map((vespa) => (
-          <Link to={`/vespa/${vespa.id}`} key={vespa.id}>
-            <Vespa {...vespa} />
-          </Link>
+            <Vespa key={vespa.id} {...vespa} />
         ))}
       </Slider>
     </div>
