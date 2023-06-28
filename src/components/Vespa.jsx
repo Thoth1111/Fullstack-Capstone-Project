@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import getPallete from '../helpers/pallete';
 
@@ -8,20 +7,11 @@ const Vespa = ({
 }) => {
   const navigate = useNavigate();
   const [pallete, setPallete] = useState();
-  const token = useSelector((state) => state.persistedReducer.token);
-
-  const [heartClicked, setHeartClicked] = useState(false)
 
   useEffect(() => {
     const vibrant = getPallete(url);
     vibrant.then((pallete) => setPallete(pallete));
   }, []);
-
-  const handleLikeClicked = (e)=>{
-    e.stopPropagation()
-
-      setHeartClicked(prevHeartClicked => !prevHeartClicked)
-  }
 
   const myShade = pallete?.LightVibrant.getHex();
 
@@ -31,12 +21,7 @@ const Vespa = ({
 
   return (
     <div className="flex flex-col bg-white  relative items-center justify-between px-10 h-96 w-full md:w-80 peer">
-      
-      <svg className="h-10 w-10 text-red-500 absolute z-10 right-0 hover:cursor-pointer " onClick={handleLikeClicked}  viewBox="0 0 24 24"  fill={heartClicked?"red":"none"}  stroke="currentColor"  strokeWidth="1.5"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
 
-  
-      
-      </svg>
       <div
         className="relative flex items-center p-2 mt-8 rounded-full w-60 h-60 hover:outline hover:outline-dotted hover:outline-sky-400 hover:outline-2xl hover:outline-offset-4 hover:cursor-pointer "
         style={{ backgroundColor: myShade }}

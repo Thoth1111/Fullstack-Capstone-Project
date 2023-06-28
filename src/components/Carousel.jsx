@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
 import { useGetAllVespasQuery } from '../redux/vespaAPI';
 import Vespa from './Vespa';
 
