@@ -1,9 +1,10 @@
-<a name="readme-top"></a>
+![image](https://github.com/Thoth1111/Fullstack-Capstone-Project/assets/96848068/9ac8ac5d-65ec-4f3d-9db7-2aaa295ed1f7)<a name="readme-top"></a>
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [🛵\[Booking Vespa\] ](#about-project) 
+- [🛵\[Booking Vespa\] ](#about-project)
+  - [🚀 Live Demo](#live-demo)
   - [📄\[Project Documentation\] ](#project-documentation)
   - [Kanban Board](#kanban-board)
   - [🛠 Built With ](#built-with)
@@ -38,6 +39,11 @@ The main features of this website are:
 - Users can see details of all the Vespas.
 - Users can reserve a Vespa for a special day.
 - Users can add their own Vespas and remove them if they want to.
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Link to live demo](https://vespa-reservation.onrender.com/home)
+
 
 ## Project Documentation 📄 <a name="project-documentation"></a>
 
