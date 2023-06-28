@@ -116,7 +116,7 @@ const NavigationPanel = () => {
             </ul>
             {deleteModalVisible && <DeleteModal className="w-full" onClose={handleCloseModal} />}
             <div className="pb-8 mx-auto">
-              <div className="flex items-center w-full mb-8 align-middle gap-x-2">
+              <div className="flex items-center w-full mb-3 align-middle gap-x-2">
                 <a href="#">
                   <img src={icon1} alt="logo" className="rounded-full w-5 h-5" />
                 </a>
