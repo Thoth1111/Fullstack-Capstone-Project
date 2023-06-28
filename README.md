@@ -1,4 +1,4 @@
-![image](https://github.com/Thoth1111/Fullstack-Capstone-Project/assets/96848068/9ac8ac5d-65ec-4f3d-9db7-2aaa295ed1f7)<a name="readme-top"></a>
+<a name="readme-top"></a>
 
 # 📗 Table of Contents
 
