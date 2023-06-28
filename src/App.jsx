@@ -41,7 +41,6 @@ const App = () => {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/vespa/:id" element={<VespaDetails />} />
         <Route path="/details" element={<Details />} />
         <Route path="/addvespa" element={<AddVespa />} />
         <Route path="/myreservations" element={<MyReservations />} />
