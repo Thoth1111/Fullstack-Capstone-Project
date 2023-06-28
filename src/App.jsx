@@ -11,7 +11,6 @@ import NavigationPanel from './components/Navbar';
 import AddVespa from './pages/AddVespa';
 import MyReservations from './pages/MyReservations';
 import AddReservations from './pages/AddReservations';
-import VespaDetails from './components/VespaDetails';
 
 import { vespaApi } from './redux/vespaAPI';
 import { setHasInitialDataFetched } from './redux/authSlice';
@@ -41,7 +40,6 @@ const App = () => {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/vespa/:id" element={<VespaDetails />} />
         <Route path="/details" element={<Details />} />
         <Route path="/addvespa" element={<AddVespa />} />
         <Route path="/myreservations" element={<MyReservations />} />

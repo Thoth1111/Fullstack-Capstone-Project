@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import getPallete from '../helpers/pallete';
 
@@ -8,7 +7,6 @@ const Vespa = ({
 }) => {
   const navigate = useNavigate();
   const [pallete, setPallete] = useState();
-  const token = useSelector((state) => state.persistedReducer.token);
 
   useEffect(() => {
     const vibrant = getPallete(url);
@@ -22,7 +20,8 @@ const Vespa = ({
   };
 
   return (
-    <div className="flex flex-col bg-white items-center justify-between px-10 h-96 w-full md:w-80 peer">
+    <div className="flex flex-col bg-white  relative items-center justify-between px-10 h-96 w-full md:w-80 peer">
+
       <div
         className="relative flex items-center p-2 mt-8 rounded-full w-60 h-60 hover:outline hover:outline-dotted hover:outline-sky-400 hover:outline-2xl hover:outline-offset-4 hover:cursor-pointer "
         style={{ backgroundColor: myShade }}

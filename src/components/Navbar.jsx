@@ -115,25 +115,25 @@ const NavigationPanel = () => {
               </Link>
             </ul>
             {deleteModalVisible && <DeleteModal className="w-full" onClose={handleCloseModal} />}
-            <div className="pb-8 ml-4">
-              <div className="flex items-center w-full mb-8 align-middle gap-x-2">
+            <div className="pb-8 mx-auto">
+              <div className="flex items-center w-full mb-3 align-middle gap-x-2">
                 <a href="#">
-                  <img src={icon1} alt="logo" className="rounded-full w-7 h-7" />
+                  <img src={icon1} alt="logo" className="rounded-full w-5 h-5" />
                 </a>
                 <a href="#">
-                  <img src={icon2} alt="logo" className="rounded-full w-7 h-7" />
+                  <img src={icon2} alt="logo" className="rounded-full w-5 h-5" />
                 </a>
                 <a href="#">
                   <img src={icon3} alt="logo" className="w-5 h-5" />
                 </a>
                 <a href="#">
-                  <img src={icon4} alt="logo" className="rounded-full w-7 h-7" />
+                  <img src={icon4} alt="logo" className="rounded-full w-5 h-5" />
                 </a>
                 <a href="#">
-                  <img src={icon5} alt="logo" className="rounded-full w-7 h-7" />
+                  <img src={icon5} alt="logo" className="rounded-full w-5 h-5" />
                 </a>
               </div>
-              <p className="font-light text-gray-500">@2023</p>
+              <p className="font-light text-gray-500 text-base mx-auto text-center">@2023</p>
             </div>
           </>
         )}

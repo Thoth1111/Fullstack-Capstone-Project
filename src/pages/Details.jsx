@@ -20,7 +20,7 @@ const Details = () => {
     <div className="relative flex flex-col h-screen md:grid md:grid-cols-8 md:ml-52">
       <div className="flex items-center justify-center md:col-span-5 lg:col-span-6">
         <img src={url} alt="" className="w-full" />
-        <button className="absolute left-0 flex items-center justify-end w-16 h-10 top-16 md:top-auto md:bottom-16 md:w-24 rounded-tr-3xl rounded-br-3xl md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
+        <button className="absolute left-0 flex items-center justify-end w-24 h-10 top-16 md:top-auto md:bottom-16 md:w-24 rounded-tr-3xl rounded-br-3xl md:h-16 bg-lime-500 hover:bg-green-500" onClick={handleGoBack}>
           <svg className="w-6 h-6 mr-2 text-white md:h-10 md:w-10 md:mr-4" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" />
             <path d="M18 15l-6-6l-6 6h12" transform="rotate(270 12 12)" />
