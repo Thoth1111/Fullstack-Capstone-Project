@@ -9,8 +9,11 @@ const Vespa = ({
   const [pallete, setPallete] = useState();
 
   useEffect(() => {
-    const vibrant = getPallete(url);
-    vibrant.then((pallete) => setPallete(pallete));
+    (async () => {
+      const vibrant = await getPallete(url);
+      const pallete = await vibrant
+      setPallete(pallete);
+    })();
   }, []);
 
   const myShade = pallete?.LightVibrant.getHex();
