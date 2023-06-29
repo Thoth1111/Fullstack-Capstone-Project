@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getPallete from '../helpers/pallete';
 
-const Vespa = ({
+function Vespa({
   icon: url, name, description, id,
-}) => {
+}) {
   const navigate = useNavigate();
   const [pallete, setPallete] = useState();
 
   useEffect(() => {
-    const vibrant = getPallete(url);
-    vibrant.then((pallete) => setPallete(pallete));
+    (async () => {
+      const vibrant = await getPallete(url);
+      const pallete = await vibrant
+      setPallete(pallete);
+    })();
   }, []);
 
   const myShade = pallete?.LightVibrant.getHex();
@@ -94,6 +97,6 @@ const Vespa = ({
       </div>
     </div>
   );
-};
+}
 
 export default Vespa;
