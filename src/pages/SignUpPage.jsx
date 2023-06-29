@@ -66,6 +66,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="Username"
+                  required
                   value={userName}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -76,7 +77,7 @@ const SignUp = () => {
                 Email
               </label>
               <div className="mt-2">
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
             </div>
             <div>
@@ -87,6 +88,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   placeholder="Password"
+                  required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -100,6 +102,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   placeholder="Confirm Password"
+                  required
                   value={passwordConfirmation}
                   onChange={(e) => setPasswordConfirmation(e.target.value)}
                 />

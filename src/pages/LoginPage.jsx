@@ -61,7 +61,7 @@ const Login = () => {
                 Email
               </label>
               <div className="mt-2">
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
             </div>
             <div>
@@ -72,6 +72,7 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="Password"
+                  required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
