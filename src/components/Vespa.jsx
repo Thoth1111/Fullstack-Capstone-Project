@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getPallete from '../helpers/pallete';
 
-function Vespa({
+const Vespa = ({
   icon: url, name, description, id,
-}) {
+}) => {
   const navigate = useNavigate();
   const [pallete, setPallete] = useState();
 
@@ -97,6 +97,6 @@ function Vespa({
       </div>
     </div>
   );
-}
+};
 
 export default Vespa;
